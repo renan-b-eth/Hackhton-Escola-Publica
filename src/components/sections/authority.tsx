@@ -7,6 +7,13 @@ import {
   Flag,
   GraduationCap,
   Brain,
+  Rocket,
+  Stethoscope,
+  Globe,
+  Building2,
+  Cpu,
+  Medal,
+  Lightbulb,
   ExternalLink,
   Quote,
 } from "lucide-react";
@@ -14,8 +21,8 @@ import {
 const badges = [
   {
     icon: Trophy,
-    label: "Vencedor Hackathon Microsoft",
-    detail: "Projeto de Tecnologia Assistiva",
+    label: "Hackathon Microsoft (2026)",
+    detail: "Solução assistiva com ESP32-CAM e IA para pessoas cegas",
     color: "from-yellow-400 to-amber-500",
   },
   {
@@ -32,9 +39,68 @@ const badges = [
   },
   {
     icon: Brain,
-    label: "Criador do NeuroVox e Rendey Class",
-    detail: "IA aplicada à Educação",
+    label: "Idealizador do Rendey Class",
+    detail: "IA aplicada à Educação — concebido durante pós na USP",
     color: "from-emerald-400 to-teal-500",
+  },
+];
+
+const hackathons = [
+  {
+    icon: Trophy,
+    name: "Hackathon Microsoft",
+    year: "2026",
+    result: "Solução assistiva com ESP32-CAM e IA",
+    highlight: true,
+  },
+  {
+    icon: Stethoscope,
+    name: "II Hackathon Saúde — HCFMUSP / InovaHC",
+    year: "2025",
+    result: "3º Lugar — EndoFlow (diagnóstico de endometriose)",
+    highlight: true,
+  },
+  {
+    icon: Rocket,
+    name: "MIT Hacking Medicine",
+    year: "2025",
+    result: "Inovação em saúde digital",
+    highlight: false,
+  },
+  {
+    icon: Globe,
+    name: "NASA Space Apps Challenge",
+    year: "2024/2025",
+    result: "Projeto colaborativo internacional",
+    highlight: false,
+  },
+  {
+    icon: Building2,
+    name: "Hackathon Itaú Unibanco (Cubo Itaú)",
+    year: "2024/2025",
+    result: "Multicloud & IA",
+    highlight: false,
+  },
+  {
+    icon: Cpu,
+    name: "ICTi — BOOM Break Our Model",
+    year: "2025",
+    result: "IA Responsável",
+    highlight: false,
+  },
+  {
+    icon: Medal,
+    name: "Maratona de Informática CPS",
+    year: "2017",
+    result: "2º Lugar",
+    highlight: true,
+  },
+  {
+    icon: Lightbulb,
+    name: "Startup in School — Google / Centro Paula Souza",
+    year: "2018",
+    result: "Empreendedorismo estudantil",
+    highlight: false,
   },
 ];
 
@@ -185,6 +251,62 @@ export function AuthoritySection() {
                 </div>
               </div>
             </div>
+          </div>
+        </motion.div>
+
+        {/* Hackathons Timeline */}
+        <motion.div
+          className="mt-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2, duration: 0.8 }}
+        >
+          <h3 className="text-xl sm:text-2xl font-bold text-white text-center mb-8">
+            Hackathons &{" "}
+            <span className="bg-gradient-to-r from-neon-blue to-neon-purple bg-clip-text text-transparent">
+              Competições
+            </span>
+          </h3>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {hackathons.map((hack, i) => (
+              <motion.div
+                key={i}
+                className={`group relative p-4 rounded-xl border transition-all duration-300 ${
+                  hack.highlight
+                    ? "bg-white/[0.04] border-neon-blue/20 hover:border-neon-blue/40"
+                    : "bg-white/[0.02] border-white/5 hover:border-white/15"
+                }`}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.05, duration: 0.4 }}
+                whileHover={{ y: -3 }}
+              >
+                {hack.highlight && (
+                  <div className="absolute -inset-px bg-gradient-to-r from-neon-blue/10 to-neon-purple/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                )}
+                <div className="relative z-10">
+                  <div className="flex items-center justify-between mb-3">
+                    <hack.icon
+                      className={`w-5 h-5 ${
+                        hack.highlight ? "text-neon-blue" : "text-gray-500"
+                      }`}
+                    />
+                    <span className="text-xs text-gray-600 font-mono">
+                      {hack.year}
+                    </span>
+                  </div>
+                  <h4 className="text-white text-sm font-semibold leading-tight mb-1.5">
+                    {hack.name}
+                  </h4>
+                  <p className="text-gray-500 text-xs leading-relaxed">
+                    {hack.result}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </motion.div>
       </div>

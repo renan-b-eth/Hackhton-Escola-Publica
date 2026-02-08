@@ -1,6 +1,7 @@
 import { Navbar } from "@/components/sections/navbar";
 import { HeroSection } from "@/components/sections/hero";
-import { OrganizerSection } from "@/components/sections/organizer";
+import { AuthoritySection } from "@/components/sections/authority";
+import { SquadSection } from "@/components/sections/squad";
 import { EcosystemSection } from "@/components/sections/ecosystem";
 import { SponsorsSection } from "@/components/sections/sponsors";
 import { FormsSection } from "@/components/sections/forms";
@@ -11,7 +12,8 @@ export default function Home() {
     <main className="relative">
       <Navbar />
       <HeroSection />
-      <OrganizerSection />
+      <AuthoritySection />
+      <SquadSection />
       <EcosystemSection />
       <SponsorsSection />
       <FormsSection />

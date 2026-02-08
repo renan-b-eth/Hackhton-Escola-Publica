@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { ClarityScript } from "@/components/clarity-script";
+import { ExitIntentModal } from "@/components/exit-intent-modal";
 import "./globals.css";
 
 const inter = Inter({
@@ -37,7 +39,9 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className="dark">
       <body className={`${inter.variable} font-sans antialiased`}>
+        <ClarityScript />
         {children}
+        <ExitIntentModal />
       </body>
     </html>
   );

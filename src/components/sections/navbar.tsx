@@ -7,7 +7,8 @@ import { Zap, Menu, X } from "lucide-react";
 
 const navLinks = [
   { label: "Início", href: "#" },
-  { label: "Organizador", href: "#organizador" },
+  { label: "Autoridade", href: "#autoridade" },
+  { label: "Squad", href: "#squad" },
   { label: "Ecossistema", href: "#ecossistema" },
   { label: "Apoiar", href: "#apoiar" },
   { label: "Inscrição", href: "#inscricao" },

@@ -46,6 +46,23 @@ export async function POST(req: Request) {
         // Save back to the file
         fs.writeFileSync(filePath, JSON.stringify(leads, null, 2));
 
+        // Send email via Resend if API key is present
+        if (process.env.RESEND_API_KEY) {
+            await fetch("https://api.resend.com/emails", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
+                },
+                body: JSON.stringify({
+                    from: "Hackathon Escolas <onboarding@resend.dev>",
+                    to: "lucas.for.study.42@gmail.com", // update if needed
+                    subject: `Novo Contato (${parsed.type}) - EstaHack`,
+                    html: `<p>Novo lead recebido pelo site:</p><pre>${JSON.stringify(parsed.data, null, 2)}</pre>`
+                }),
+            });
+        }
+
         return NextResponse.json({ success: true, leadId: lead.id }, { status: 200 });
     } catch (error) {
         console.error("Error saving lead:", error);

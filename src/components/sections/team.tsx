@@ -6,34 +6,34 @@ import Image from "next/image";
 
 const team = [
     {
-        name: "Renan Bezerra",
-        role: "Professor de IA & Empreendedor",
-        bio: "Professor da rede estadual paulista, desenvolvedor Full Stack e CEO da Rendey LLC (New Mexico, USA). Combina experiência pedagógica com expertise em IA, empreendedorismo e hackathons internacionais — incluindo o Hackathon Microsoft 2026.",
-        skills: ["Inteligência Artificial", "Full Stack Dev", "EdTech", "Empreendedorismo"],
-        photo: "/foto1.jpg",
-        gradient: "from-neon-blue to-neon-purple",
-        linkedin: "https://linkedin.com/in/renan-bezerra",
-        highlight: "🏆 Hackathon Microsoft 2026",
-    },
-    {
         name: "Lucas Feliciano",
-        role: "Dev Full Stack & Pesquisador em IA",
-        bio: "Estudante de Engenharia de Software na FIAP (2º ano), full stack developer e pesquisador em Visão Computacional no projeto Libras Flow — app de tradução de Libras em tempo real. Estagiou na plataforma de ativos verdes Bolsa Verde Maré.",
-        skills: ["Java", "TypeScript", "Python", "Visão Computacional"],
+        role: "O Idealizador",
+        bio: "Estudante de Engenharia de Software na FIAP, full stack developer e pesquisador em Visão Computacional. Responsável pela ideia visionária inicial de conectar o ensino médio público ao ecossistema global de inovação.",
+        skills: ["Java", "TypeScript", "Python", "Cloud Computing"],
         photo: "/foto2.png",
         gradient: "from-neon-purple to-pink-500",
         linkedin: "https://linkedin.com/in/lucas-feliciano-software",
-        highlight: "🥇 1º Lugar ElevenLabs Hackathon 2025",
+        highlight: "💡 Visionário do Projeto",
+    },
+    {
+        name: "Renan Bezerra",
+        role: "Execução & Estratégia",
+        bio: "Professor de IA & Empreendedor. Professor da rede pública com expertise pedagógica e tecnológica para viabilizar e escalar projetos de impacto no ensino técnico.",
+        skills: ["Inteligência Artificial", "Full Stack Dev", "EdTech", "Empreendedorismo"],
+        photo: "/foto1.jpg",
+        gradient: "from-neon-blue to-neon-purple",
+        linkedin: "https://www.linkedin.com/in/renan-b-eth/",
+        highlight: "⚙️ Estratégia e Tecnologia",
     },
     {
         name: "Yuki Tanaka",
-        role: "Product Manager & Hackathon Champion",
-        bio: "PM/PO certificada PSPO I pela Scrum.org, especializada em produtos digitais com IA, CRM e omnichannel. TOEFL & IELTS certificada. Participante ativa de 12+ hackathons nacionais e internacionais com soluções premiadas.",
+        role: "Execução & Produto",
+        bio: "Product Manager certificada PSPO I. Traz sua bagagem de gestão ágil e sucesso em múltiplos hackathons internacionais para garantir a entrega e o sucesso da experiência do usuário.",
         skills: ["Product Management", "Scrum PSPO I", "AI Products", "Inglês Fluente"],
         photo: "/foto3.png",
         gradient: "from-emerald-400 to-teal-500",
-        linkedin: "https://linkedin.com/",
-        highlight: "🥇 1º Lugar ElevenLabs Hackathon 2025",
+        linkedin: "https://www.linkedin.com/in/yt-yukitanaka/",
+        highlight: "🚀 Gestão de Produto",
     },
 ];
 
@@ -56,14 +56,13 @@ export function TeamSection() {
                         Quem Faz Acontecer
                     </span>
                     <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-3">
-                        Organizadores &{" "}
+                        Quem faz o EstaHack{" "}
                         <span className="bg-gradient-to-r from-neon-blue to-neon-purple bg-clip-text text-transparent">
-                            Idealizadores
+                            acontecer
                         </span>
                     </h2>
                     <p className="text-gray-400 mt-4 max-w-2xl mx-auto text-lg">
-                        Um time multidisciplinar de educadores, desenvolvedores e gestores de
-                        produto, unidos pelo propósito de democratizar a inovação na escola pública.
+                        Tudo começou com uma ideia visionária do Lucas Feliciano, que rapidamente ganhou vida através da execução prática e técnica de Renan Bezerra e Yuki Tanaka.
                     </p>
                 </motion.div>
 

@@ -110,62 +110,52 @@ function MentorForm() {
   );
 }
 
+const SPONSOR_GOOGLE_FORM = "https://forms.gle/d6qBswpQHPAw918n6";
+
 function SponsorForm() {
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-  } = useForm<SponsorFormData>({
-    resolver: zodResolver(sponsorSchema),
-  });
-
-  const onSubmit = async (data: SponsorFormData) => {
-    setStatus("loading");
-    try {
-      await submitForm("sponsor", data);
-      setStatus("success");
-      reset();
-      setTimeout(() => setStatus("idle"), 5000);
-    } catch {
-      setStatus("error");
-      setTimeout(() => setStatus("idle"), 5000);
-    }
-  };
-
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-      <div className="space-y-1.5">
-        <Label htmlFor="sponsor-empresa">Nome da Empresa</Label>
-        <Input id="sponsor-empresa" placeholder="Nome da sua empresa" {...register("empresa")} />
-        {errors.empresa && <p className="text-red-400 text-xs">{errors.empresa.message}</p>}
+    <div className="space-y-6 py-2">
+      <div className="text-center space-y-3">
+        <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-neon-blue/20 to-neon-purple/20 border border-neon-blue/30">
+          <Building className="w-7 h-7 text-neon-blue" />
+        </div>
+        <h3 className="text-white font-bold text-xl">Quero Patrocinar o EstaHack</h3>
+        <p className="text-gray-400 text-sm max-w-xs mx-auto leading-relaxed">
+          Preencha nosso formulário de patrocínio com informações sobre sua empresa e como deseja apoiar o evento.
+        </p>
       </div>
 
-      <div className="space-y-1.5">
-        <Label htmlFor="sponsor-apoio">Tipo de Apoio</Label>
-        <Select id="sponsor-apoio" defaultValue="" {...register("apoio")}>
-          <option value="" disabled>Selecione o tipo de apoio</option>
-          <option value="Financeiro">Financeiro (Cotas)</option>
-          <option value="Brindes / Kits">Brindes e Kits</option>
-          <option value="Lanches / Alimentação">Lanches e Alimentação</option>
-          <option value="Tecnologia / Software">Licenças de Software</option>
-          <option value="Outro">Outro formato</option>
-        </Select>
-        {errors.apoio && <p className="text-red-400 text-xs">{errors.apoio.message}</p>}
+      <div className="grid grid-cols-1 gap-3">
+        {[
+          "Patrocínio Financeiro (Cotas)",
+          "Brindes e Kits para os times",
+          "Alimentação durante o evento",
+          "Licenças de Software / Ferramentas",
+        ].map((item) => (
+          <div key={item} className="flex items-center gap-2 text-sm text-gray-300">
+            <CheckCircle2 className="w-4 h-4 text-neon-blue flex-shrink-0" />
+            {item}
+          </div>
+        ))}
       </div>
 
-      <div className="space-y-1.5">
-        <Label htmlFor="sponsor-email">E-mail Corporativo</Label>
-        <Input id="sponsor-email" type="email" placeholder="contato@empresa.com.br" {...register("email")} />
-        {errors.email && <p className="text-red-400 text-xs">{errors.email.message}</p>}
-      </div>
+      <a
+        href={SPONSOR_GOOGLE_FORM}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center justify-center gap-2 w-full py-3 px-6 rounded-xl bg-gradient-to-r from-neon-blue to-neon-purple text-white font-semibold text-sm hover:opacity-90 active:scale-95 transition-all"
+      >
+        <Send className="w-4 h-4" />
+        Abrir Formulário de Patrocínio
+      </a>
 
-      <SubmitButton status={status} label="Quero Patrocinar" />
-    </form>
+      <p className="text-center text-xs text-gray-500">
+        Abre o Google Forms — rápido e seguro
+      </p>
+    </div>
   );
 }
+
 
 function SchoolForm() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");

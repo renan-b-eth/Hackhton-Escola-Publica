@@ -2,7 +2,8 @@
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Rocket, Sparkles, ChevronDown } from "lucide-react";
+import { Rocket, Sparkles, ChevronDown, Award } from "lucide-react";
+import Image from "next/image";
 
 export function HeroSection() {
   const scrollToSection = (id: string) => {
@@ -25,6 +26,18 @@ export function HeroSection() {
         }}
       />
 
+      {/* Background event image */}
+      <div className="absolute inset-0 overflow-hidden">
+        <Image
+          src="/imagem1.png"
+          alt="Evento Hackathon"
+          fill
+          className="object-cover opacity-[0.06]"
+          sizes="100vw"
+          priority
+        />
+      </div>
+
       {/* Floating Orbs */}
       <motion.div
         className="absolute top-20 left-10 w-72 h-72 bg-neon-blue/20 rounded-full blur-[120px]"
@@ -38,20 +51,37 @@ export function HeroSection() {
       />
 
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center">
+        {/* Pioneer Badge */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
           <motion.div
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-neon-blue/30 bg-neon-blue/5 text-neon-blue text-sm mb-8"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-neon-blue/30 bg-neon-blue/5 text-neon-blue text-sm mb-6"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2, duration: 0.5 }}
           >
-            <Sparkles className="w-4 h-4" />
+            <Sparkles className="w-4 h-4 flex-shrink-0" />
             <span>Iniciativa Pioneira na Educação Pública</span>
           </motion.div>
+        </motion.div>
+
+        {/* Pioneer Statement — destaque principal */}
+        <motion.div
+          className="mb-6"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.25, duration: 0.8 }}
+        >
+          <div className="inline-flex items-start gap-3 px-5 py-3 rounded-2xl border border-yellow-400/30 bg-yellow-400/5 max-w-3xl mx-auto">
+            <Award className="w-5 h-5 text-yellow-400 flex-shrink-0 mt-0.5" />
+            <p className="text-sm sm:text-base text-yellow-200 font-medium text-left leading-snug">
+              <span className="text-yellow-400 font-bold">A Primeira Escola Estadual</span> a realizar um Hackathon no
+              Ensino Técnico em Desenvolvimento de Sistemas
+            </p>
+          </div>
         </motion.div>
 
         <motion.h1
@@ -60,23 +90,27 @@ export function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.8 }}
         >
-          <span className="text-white">Desbloqueando o Futuro:</span>
+          <span className="text-white">EstaHack:</span>
           <br />
           <span className="bg-gradient-to-r from-neon-blue via-neon-purple to-neon-pink bg-clip-text text-transparent">
-            O Primeiro Circuito de Hackathons
+            Hackathon das Escolas
           </span>
           <br />
-          <span className="text-white">das Escolas Estaduais</span>
+          <span className="text-white">Estaduais</span>
         </motion.h1>
 
         <motion.p
-          className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto mb-10 leading-relaxed"
+          className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto mb-4 leading-relaxed"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.8 }}
         >
           Conectando alunos da rede pública à tecnologia, inovação e ao mercado
-          de trabalho global.
+          de trabalho global. Uma iniciativa da{" "}
+          <span className="text-white font-semibold">
+            E.E. Nancy de Oliveira Fidalgo
+          </span>
+          .
         </motion.p>
 
         <motion.div
@@ -111,9 +145,9 @@ export function HeroSection() {
           transition={{ delay: 1, duration: 0.8 }}
         >
           {[
-            { value: "27", label: "Estados" },
-            { value: "1000+", label: "Alunos Impactados" },
-            { value: "100+", label: "Mentores" },
+            { value: "36h", label: "Maratona" },
+            { value: "100+", label: "Alunos Impactados" },
+            { value: "3", label: "Organizadores" },
             { value: "∞", label: "Possibilidades" },
           ].map((stat, i) => (
             <div key={i} className="text-center">

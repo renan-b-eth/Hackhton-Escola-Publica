@@ -1,12 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import {
   Instagram,
   Linkedin,
   ExternalLink,
   Heart,
-  Zap,
 } from "lucide-react";
 
 const links = {
@@ -20,7 +20,7 @@ const links = {
       href: "https://rendey.store",
     },
     {
-      label: "Site Pessoal",
+      label: "Site Pessoal (Renan Santos)",
       href: "https://site-renanbezerra.vercel.app/",
     },
   ],
@@ -47,23 +47,34 @@ export function FooterSection() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-12">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-r from-neon-blue to-neon-purple flex items-center justify-center">
-                <Zap className="w-4 h-4 text-white" />
+            <div className="flex items-center gap-3 mb-6">
+              <div className="relative w-10 h-10 flex-shrink-0">
+                <Image
+                  src="/logo-nancy.png"
+                  alt="Logo E.E. Nancy"
+                  fill
+                  className="object-contain"
+                  sizes="40px"
+                />
               </div>
-              <span className="font-bold text-white text-lg">
-                Hackathon Escolas
-              </span>
+              <div className="text-left">
+                <span className="font-bold text-white text-base leading-tight block">
+                  EstaHack
+                </span>
+                <span className="text-xs text-gray-500 leading-tight block">
+                  E.E. Nancy de Oliveira Fidalgo
+                </span>
+              </div>
             </div>
             <p className="text-gray-500 text-sm leading-relaxed">
               Transformando a educação pública brasileira através da tecnologia,
-              inovação e colaboração.
+              inovação e colaboração direta com a comunidade escolar.
             </p>
           </div>
 
           {/* Projects */}
           <div>
-            <h4 className="text-white font-semibold mb-4">Projetos</h4>
+            <h4 className="text-white font-semibold mb-4">Iniciativas Integradas</h4>
             <ul className="space-y-3">
               {links.projects.map((link, i) => (
                 <li key={i}>
@@ -110,7 +121,7 @@ export function FooterSection() {
           transition={{ duration: 0.6 }}
         >
           <p className="text-gray-600 text-sm text-center sm:text-left">
-            &copy; {new Date().getFullYear()} Rendey LLC — Todos os direitos
+            &copy; {new Date().getFullYear()} EstaHack / E.E. Nancy de Oliveira Fidalgo — Todos os direitos
             reservados.
           </p>
           <p className="text-gray-600 text-sm flex items-center gap-1">

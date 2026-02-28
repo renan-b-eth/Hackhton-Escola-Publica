@@ -1,7 +1,9 @@
 import { Navbar } from "@/components/sections/navbar";
 import { HeroSection } from "@/components/sections/hero";
+import { HowItWorksSection } from "@/components/sections/how-it-works";
+import { ChallengeSection } from "@/components/sections/challenge";
+import { TeamSection } from "@/components/sections/team";
 import { AuthoritySection } from "@/components/sections/authority";
-import { SquadSection } from "@/components/sections/squad";
 import { EcosystemSection } from "@/components/sections/ecosystem";
 import { SponsorsSection } from "@/components/sections/sponsors";
 import { FormsSection } from "@/components/sections/forms";
@@ -12,8 +14,10 @@ export default function Home() {
     <main className="relative">
       <Navbar />
       <HeroSection />
+      <HowItWorksSection />
+      <ChallengeSection />
+      <TeamSection />
       <AuthoritySection />
-      <SquadSection />
       <EcosystemSection />
       <SponsorsSection />
       <FormsSection />

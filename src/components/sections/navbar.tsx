@@ -3,15 +3,15 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Zap, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import Image from "next/image";
 
 const navLinks = [
   { label: "Início", href: "#" },
-  { label: "Autoridade", href: "#autoridade" },
-  { label: "Squad", href: "#squad" },
-  { label: "Ecossistema", href: "#ecossistema" },
-  { label: "Apoiar", href: "#apoiar" },
-  { label: "Inscrição", href: "#inscricao" },
+  { label: "Sobre", href: "#autoridade" },
+  { label: "Como Funciona", href: "#como-funciona" },
+  { label: "Organizadores", href: "#organizadores" },
+  { label: "Patrocínio", href: "#inscricao" },
 ];
 
 export function Navbar() {
@@ -24,45 +24,66 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const handleNavClick = (href: string) => {
+    setMobileOpen(false);
+    if (href === "#") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+    const el = document.querySelector(href);
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <>
       <motion.nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
             ? "bg-black/80 backdrop-blur-xl border-b border-white/5"
             : "bg-transparent"
-        }`}
+          }`}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
       >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
-          <a href="#" className="flex items-center gap-2 group">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-r from-neon-blue to-neon-purple flex items-center justify-center group-hover:shadow-lg group-hover:shadow-neon-blue/30 transition-shadow">
-              <Zap className="w-4 h-4 text-white" />
+          {/* Logo */}
+          <button onClick={() => handleNavClick("#")} className="flex items-center gap-3 group">
+            <div className="relative w-8 h-8 flex-shrink-0">
+              <Image
+                src="/logo-nancy.png"
+                alt="E.E. Nancy de Oliveira Fidalgo"
+                fill
+                className="object-contain rounded"
+                sizes="32px"
+              />
             </div>
-            <span className="font-bold text-white text-sm sm:text-base">
-              Hackathon Escolas
-            </span>
-          </a>
+            <div className="hidden sm:block text-left">
+              <span className="font-bold text-white text-sm leading-tight block">
+                EstaHack
+              </span>
+              <span className="text-[10px] text-gray-500 leading-tight block">
+                E.E. Nancy de Oliveira Fidalgo
+              </span>
+            </div>
+          </button>
 
           {/* Desktop links */}
           <div className="hidden md:flex items-center gap-1">
             {navLinks.map((link) => (
-              <a
+              <button
                 key={link.label}
-                href={link.href}
+                onClick={() => handleNavClick(link.href)}
                 className="px-3 py-2 text-sm text-gray-400 hover:text-white transition-colors rounded-md hover:bg-white/5"
               >
                 {link.label}
-              </a>
+              </button>
             ))}
           </div>
 
           <div className="hidden md:block">
-            <a href="#inscricao">
-              <Button size="sm">Inscreva-se</Button>
-            </a>
+            <Button size="sm" onClick={() => handleNavClick("#inscricao")}>
+              Inscreva-se
+            </Button>
           </div>
 
           {/* Mobile toggle */}
@@ -88,17 +109,16 @@ export function Navbar() {
           >
             <div className="flex flex-col gap-2">
               {navLinks.map((link, i) => (
-                <motion.a
+                <motion.button
                   key={link.label}
-                  href={link.href}
-                  className="text-xl text-gray-300 hover:text-white py-3 border-b border-white/5 transition-colors"
-                  onClick={() => setMobileOpen(false)}
+                  onClick={() => handleNavClick(link.href)}
+                  className="text-xl text-gray-300 hover:text-white py-3 border-b border-white/5 transition-colors text-left"
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.05 }}
                 >
                   {link.label}
-                </motion.a>
+                </motion.button>
               ))}
               <motion.div
                 className="mt-4"
@@ -106,11 +126,13 @@ export function Navbar() {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.3 }}
               >
-                <a href="#inscricao" onClick={() => setMobileOpen(false)}>
-                  <Button size="lg" className="w-full">
-                    Inscreva-se
-                  </Button>
-                </a>
+                <Button
+                  size="lg"
+                  className="w-full"
+                  onClick={() => handleNavClick("#inscricao")}
+                >
+                  Inscreva-se
+                </Button>
               </motion.div>
             </div>
           </motion.div>

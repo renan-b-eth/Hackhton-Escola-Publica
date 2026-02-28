@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 import {
   Trophy,
   Flag,
@@ -16,6 +17,8 @@ import {
   Lightbulb,
   ExternalLink,
   Quote,
+  Users,
+  Star,
 } from "lucide-react";
 
 const badges = [
@@ -52,6 +55,12 @@ const hackathons = [
     year: "2026",
     result: "Solução assistiva com ESP32-CAM e IA",
     highlight: true,
+    badge: "🏆 Destaque",
+    members: [
+      { photo: "/foto1.jpg", name: "Renan" },
+      { photo: "/foto2.png", name: "Lucas" },
+      { photo: "/foto3.png", name: "Yuki" },
+    ],
   },
   {
     icon: Stethoscope,
@@ -59,6 +68,12 @@ const hackathons = [
     year: "2025",
     result: "3º Lugar — EndoFlow (diagnóstico de endometriose)",
     highlight: true,
+    badge: "🥉 3º Lugar",
+    members: [
+      { photo: "/foto1.jpg", name: "Renan" },
+      { photo: "/foto2.png", name: "Lucas" },
+      { photo: "/foto3.png", name: "Yuki" },
+    ],
   },
   {
     icon: Rocket,
@@ -66,6 +81,11 @@ const hackathons = [
     year: "2025",
     result: "Inovação em saúde digital",
     highlight: false,
+    badge: null,
+    members: [
+      { photo: "/foto1.jpg", name: "Renan" },
+      { photo: "/foto3.png", name: "Yuki" },
+    ],
   },
   {
     icon: Globe,
@@ -73,6 +93,12 @@ const hackathons = [
     year: "2024/2025",
     result: "Projeto colaborativo internacional",
     highlight: false,
+    badge: null,
+    members: [
+      { photo: "/foto1.jpg", name: "Renan" },
+      { photo: "/foto2.png", name: "Lucas" },
+      { photo: "/foto3.png", name: "Yuki" },
+    ],
   },
   {
     icon: Building2,
@@ -80,6 +106,11 @@ const hackathons = [
     year: "2024/2025",
     result: "Multicloud & IA",
     highlight: false,
+    badge: null,
+    members: [
+      { photo: "/foto1.jpg", name: "Renan" },
+      { photo: "/foto2.png", name: "Lucas" },
+    ],
   },
   {
     icon: Cpu,
@@ -87,6 +118,12 @@ const hackathons = [
     year: "2025",
     result: "IA Responsável",
     highlight: false,
+    badge: null,
+    members: [
+      { photo: "/foto1.jpg", name: "Renan" },
+      { photo: "/foto2.png", name: "Lucas" },
+      { photo: "/foto3.png", name: "Yuki" },
+    ],
   },
   {
     icon: Medal,
@@ -94,6 +131,8 @@ const hackathons = [
     year: "2017",
     result: "2º Lugar",
     highlight: true,
+    badge: "🥈 2º Lugar",
+    members: [{ photo: "/foto1.jpg", name: "Renan" }],
   },
   {
     icon: Lightbulb,
@@ -101,6 +140,8 @@ const hackathons = [
     year: "2018",
     result: "Empreendedorismo estudantil",
     highlight: false,
+    badge: null,
+    members: [{ photo: "/foto1.jpg", name: "Renan" }],
   },
 ];
 
@@ -121,6 +162,37 @@ const projects = [
     desc: "Portfólio",
   },
 ];
+
+// Avatar component with real photo
+function MemberAvatar({
+  photo,
+  name,
+  size = "sm",
+}: {
+  photo: string;
+  name: string;
+  size?: "sm" | "md";
+}) {
+  const dim = size === "md" ? "w-10 h-10" : "w-8 h-8";
+  return (
+    <div className="flex flex-col items-center gap-1">
+      <div
+        className={`${dim} rounded-full overflow-hidden border-2 border-white/20 bg-gray-800 flex-shrink-0 relative ring-1 ring-white/5`}
+      >
+        <Image
+          src={photo}
+          alt={name}
+          fill
+          className="object-cover object-top"
+          sizes="40px"
+        />
+      </div>
+      <span className="text-gray-500 text-[9px] font-medium leading-none">
+        {name}
+      </span>
+    </div>
+  );
+}
 
 export function AuthoritySection() {
   return (
@@ -147,6 +219,10 @@ export function AuthoritySection() {
               Legado
             </span>
           </h2>
+          <p className="text-gray-500 mt-3 max-w-xl mx-auto text-sm">
+            Quem organiza o EstaHack não apenas ensina — compete, ganha e
+            transforma.
+          </p>
         </motion.div>
 
         {/* Main Card */}
@@ -164,17 +240,31 @@ export function AuthoritySection() {
 
             <div className="p-8 sm:p-12">
               <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-14">
-                {/* Photo */}
+                {/* Photo — REAL */}
                 <div className="flex-shrink-0">
                   <div className="relative">
-                    <div className="absolute -inset-1.5 bg-gradient-to-r from-neon-blue to-neon-purple rounded-full blur-md opacity-60" />
-                    <div className="relative w-40 h-40 sm:w-48 sm:h-48 rounded-full bg-gradient-to-br from-gray-800 to-gray-900 border-2 border-white/10 overflow-hidden flex items-center justify-center">
-                      <div className="text-center">
-                        <div className="w-20 h-20 mx-auto mb-2 rounded-full bg-gradient-to-r from-neon-blue/20 to-neon-purple/20 flex items-center justify-center">
-                          <GraduationCap className="w-10 h-10 text-neon-blue" />
-                        </div>
-                        <p className="text-white font-bold text-sm">Prof. Renan</p>
-                      </div>
+                    <motion.div
+                      className="absolute -inset-2 bg-gradient-to-r from-neon-blue to-neon-purple rounded-full blur-xl opacity-50"
+                      animate={{ opacity: [0.4, 0.7, 0.4] }}
+                      transition={{
+                        duration: 3,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                      }}
+                    />
+                    <div className="relative w-44 h-44 sm:w-52 sm:h-52 rounded-full border-2 border-white/20 overflow-hidden bg-gray-800 ring-4 ring-neon-blue/20">
+                      <Image
+                        src="/foto1.jpg"
+                        alt="Prof. Renan Bezerra Santos"
+                        fill
+                        className="object-cover object-top"
+                        sizes="208px"
+                        priority
+                      />
+                    </div>
+                    {/* Role badge */}
+                    <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-neon-blue to-neon-purple text-white text-xs font-bold px-4 py-1.5 rounded-full whitespace-nowrap shadow-lg">
+                      Organizador Principal
                     </div>
                   </div>
                 </div>
@@ -256,54 +346,105 @@ export function AuthoritySection() {
 
         {/* Hackathons Timeline */}
         <motion.div
-          className="mt-16"
+          className="mt-20"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2, duration: 0.8 }}
         >
-          <h3 className="text-xl sm:text-2xl font-bold text-white text-center mb-8">
-            Hackathons &{" "}
-            <span className="bg-gradient-to-r from-neon-blue to-neon-purple bg-clip-text text-transparent">
-              Competições
-            </span>
-          </h3>
+          {/* Section header */}
+          <div className="text-center mb-10">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-sm text-gray-400 mb-4">
+              <Star className="w-3.5 h-3.5 text-yellow-400" />
+              <span>Histórico de Competições</span>
+            </div>
+            <h3 className="text-xl sm:text-2xl font-bold text-white">
+              Hackathons &{" "}
+              <span className="bg-gradient-to-r from-neon-blue to-neon-purple bg-clip-text text-transparent">
+                Competições
+              </span>
+            </h3>
+            <p className="text-gray-500 text-sm mt-2">
+              Os organizadores competem no mais alto nível — e agora trazem esse
+              conhecimento para você.
+            </p>
+          </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {hackathons.map((hack, i) => (
               <motion.div
                 key={i}
-                className={`group relative p-4 rounded-xl border transition-all duration-300 ${
-                  hack.highlight
-                    ? "bg-white/[0.04] border-neon-blue/20 hover:border-neon-blue/40"
+                className={`group relative p-5 rounded-2xl border transition-all duration-300 ${hack.highlight
+                    ? "bg-gradient-to-b from-white/[0.05] to-white/[0.02] border-neon-blue/20 hover:border-neon-blue/50"
                     : "bg-white/[0.02] border-white/5 hover:border-white/15"
-                }`}
+                  }`}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.05, duration: 0.4 }}
-                whileHover={{ y: -3 }}
+                transition={{ delay: i * 0.06, duration: 0.4 }}
+                whileHover={{ y: -4 }}
               >
                 {hack.highlight && (
-                  <div className="absolute -inset-px bg-gradient-to-r from-neon-blue/10 to-neon-purple/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="absolute -inset-px bg-gradient-to-b from-neon-blue/10 to-neon-purple/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
                 )}
-                <div className="relative z-10">
+
+                <div className="relative z-10 flex flex-col h-full">
+                  {/* Top row: icon + year */}
                   <div className="flex items-center justify-between mb-3">
-                    <hack.icon
-                      className={`w-5 h-5 ${
-                        hack.highlight ? "text-neon-blue" : "text-gray-500"
-                      }`}
-                    />
-                    <span className="text-xs text-gray-600 font-mono">
+                    <div
+                      className={`w-9 h-9 rounded-xl flex items-center justify-center ${hack.highlight
+                          ? "bg-neon-blue/10 border border-neon-blue/20"
+                          : "bg-white/5 border border-white/5"
+                        }`}
+                    >
+                      <hack.icon
+                        className={`w-4 h-4 ${hack.highlight ? "text-neon-blue" : "text-gray-500"
+                          }`}
+                      />
+                    </div>
+                    <span className="text-xs text-gray-600 font-mono bg-white/5 px-2 py-0.5 rounded-md border border-white/5">
                       {hack.year}
                     </span>
                   </div>
-                  <h4 className="text-white text-sm font-semibold leading-tight mb-1.5">
+
+                  {/* Badge */}
+                  {hack.badge && (
+                    <span className="inline-flex self-start mb-2 text-[10px] font-bold px-2 py-0.5 rounded-full bg-yellow-400/10 border border-yellow-400/20 text-yellow-400">
+                      {hack.badge}
+                    </span>
+                  )}
+
+                  {/* Name */}
+                  <h4 className="text-white text-sm font-semibold leading-snug mb-1.5 flex-1">
                     {hack.name}
                   </h4>
-                  <p className="text-gray-500 text-xs leading-relaxed">
+
+                  {/* Result */}
+                  <p className="text-gray-500 text-xs leading-relaxed mb-4">
                     {hack.result}
                   </p>
+
+                  {/* Members */}
+                  {hack.members && hack.members.length > 0 && (
+                    <div className="pt-3 border-t border-white/5">
+                      <div className="flex items-center gap-1 mb-2">
+                        <Users className="w-3 h-3 text-gray-600" />
+                        <span className="text-[10px] text-gray-600 font-medium uppercase tracking-wide">
+                          Equipe
+                        </span>
+                      </div>
+                      <div className="flex flex-row items-end gap-2.5 flex-wrap">
+                        {hack.members.map((member, j) => (
+                          <MemberAvatar
+                            key={j}
+                            photo={member.photo}
+                            name={member.name}
+                            size="sm"
+                          />
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </div>
               </motion.div>
             ))}

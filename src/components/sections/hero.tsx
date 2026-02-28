@@ -50,116 +50,181 @@ export function HeroSection() {
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
       />
 
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center">
-        {/* Pioneer Badge */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <motion.div
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-neon-blue/30 bg-neon-blue/5 text-neon-blue text-sm mb-6"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.2, duration: 0.5 }}
-          >
-            <Sparkles className="w-4 h-4 flex-shrink-0" />
-            <span>Iniciativa Pioneira na Educação Pública</span>
-          </motion.div>
-        </motion.div>
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 py-20 w-full">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
 
-        {/* Pioneer Statement — destaque principal */}
-        <motion.div
-          className="mb-6"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.25, duration: 0.8 }}
-        >
-          <div className="inline-flex items-start gap-3 px-5 py-3 rounded-2xl border border-yellow-400/30 bg-yellow-400/5 max-w-3xl mx-auto">
-            <Award className="w-5 h-5 text-yellow-400 flex-shrink-0 mt-0.5" />
-            <p className="text-sm sm:text-base text-yellow-200 font-medium text-left leading-snug">
-              <span className="text-yellow-400 font-bold">A Primeira Escola Estadual</span> a realizar um Hackathon no
-              Ensino Técnico em Desenvolvimento de Sistemas
-            </p>
-          </div>
-        </motion.div>
+          {/* ───── COLUNA ESQUERDA — Texto ───── */}
+          <div className="text-center lg:text-left">
 
-        <motion.h1
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.8 }}
-        >
-          <span className="text-white">EstaHack:</span>
-          <br />
-          <span className="bg-gradient-to-r from-neon-blue via-neon-purple to-neon-pink bg-clip-text text-transparent">
-            Hackathon das Escolas
-          </span>
-          <br />
-          <span className="text-white">Estaduais</span>
-        </motion.h1>
+            {/* Badge "Pioneira" */}
+            <motion.div
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-neon-blue/30 bg-neon-blue/5 text-neon-blue text-sm mb-6"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.2, duration: 0.5 }}
+            >
+              <Sparkles className="w-4 h-4 flex-shrink-0" />
+              <span>Iniciativa Pioneira na Educação Pública</span>
+            </motion.div>
 
-        <motion.p
-          className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto mb-4 leading-relaxed"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 0.8 }}
-        >
-          Conectando alunos da rede pública à tecnologia, inovação e ao mercado
-          de trabalho global. Uma iniciativa da{" "}
-          <span className="text-white font-semibold">
-            E.E. Nancy de Oliveira Fidalgo
-          </span>
-          .
-        </motion.p>
-
-        <motion.div
-          className="flex flex-col sm:flex-row items-center justify-center gap-4"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.7, duration: 0.8 }}
-        >
-          <Button
-            size="lg"
-            variant="outline"
-            className="w-full sm:w-auto group"
-            onClick={() => scrollToSection("inscricao")}
-          >
-            <Rocket className="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform" />
-            Quero ser Mentor
-          </Button>
-          <Button
-            size="lg"
-            className="w-full sm:w-auto"
-            onClick={() => scrollToSection("inscricao")}
-          >
-            Quero Patrocinar
-          </Button>
-        </motion.div>
-
-        {/* Stats */}
-        <motion.div
-          className="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-3xl mx-auto"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1, duration: 0.8 }}
-        >
-          {[
-            { value: "36h", label: "Maratona" },
-            { value: "100+", label: "Alunos Impactados" },
-            { value: "3", label: "Organizadores" },
-            { value: "∞", label: "Possibilidades" },
-          ].map((stat, i) => (
-            <div key={i} className="text-center">
-              <div className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-neon-blue to-neon-purple bg-clip-text text-transparent">
-                {stat.value}
+            {/* Alerta destaque */}
+            <motion.div
+              className="mb-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.25, duration: 0.8 }}
+            >
+              <div className="inline-flex items-start gap-3 px-5 py-3 rounded-2xl border border-yellow-400/30 bg-yellow-400/5 max-w-xl">
+                <Award className="w-5 h-5 text-yellow-400 flex-shrink-0 mt-0.5" />
+                <p className="text-sm sm:text-base text-yellow-200 font-medium text-left leading-snug">
+                  <span className="text-yellow-400 font-bold">A Primeira Escola Estadual</span> a realizar
+                  um Hackathon no Ensino Técnico em Desenvolvimento de Sistemas
+                </p>
               </div>
-              <div className="text-xs sm:text-sm text-gray-500 mt-1">
-                {stat.label}
+            </motion.div>
+
+            {/* Título */}
+            <motion.h1
+              className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.8 }}
+            >
+              <span className="text-white">EstaHack:</span>
+              <br />
+              <span className="bg-gradient-to-r from-neon-blue via-neon-purple to-neon-pink bg-clip-text text-transparent">
+                Hackathon das Escolas
+              </span>
+              <br />
+              <span className="text-white">Estaduais</span>
+            </motion.h1>
+
+            {/* Descrição */}
+            <motion.p
+              className="text-lg sm:text-xl text-gray-400 max-w-xl mb-4 leading-relaxed"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.8 }}
+            >
+              Conectando alunos da rede pública à tecnologia, inovação e ao mercado
+              de trabalho global. Uma iniciativa da{" "}
+              <span className="text-white font-semibold">
+                E.E. Nancy de Oliveira Fidalgo
+              </span>
+              .
+            </motion.p>
+
+            {/* Badge Pré-TCC */}
+            <motion.div
+              className="mb-8"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6, duration: 0.8 }}
+            >
+              <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold">
+                🎓 Projeto desenvolvido dentro da escola como Pré-TCC
+              </span>
+            </motion.div>
+
+            {/* Botões */}
+            <motion.div
+              className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.7, duration: 0.8 }}
+            >
+              <Button
+                size="lg"
+                variant="outline"
+                className="w-full sm:w-auto group"
+                onClick={() => scrollToSection("inscricao")}
+              >
+                <Rocket className="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform" />
+                Quero ser Mentor
+              </Button>
+              <Button
+                size="lg"
+                className="w-full sm:w-auto"
+                onClick={() => scrollToSection("inscricao")}
+              >
+                Quero Patrocinar
+              </Button>
+            </motion.div>
+
+            {/* Stats */}
+            <motion.div
+              className="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-xl"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1, duration: 0.8 }}
+            >
+              {[
+                { value: "36h", label: "Maratona" },
+                { value: "100+", label: "Alunos Impactados" },
+                { value: "3", label: "Organizadores" },
+                { value: "∞", label: "Possibilidades" },
+              ].map((stat, i) => (
+                <div key={i} className="text-center lg:text-left">
+                  <div className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-neon-blue to-neon-purple bg-clip-text text-transparent">
+                    {stat.value}
+                  </div>
+                  <div className="text-xs sm:text-sm text-gray-500 mt-1">
+                    {stat.label}
+                  </div>
+                </div>
+              ))}
+            </motion.div>
+          </div>
+
+          {/* ───── COLUNA DIREITA — Imagem dos Alunos ───── */}
+          <motion.div
+            className="relative hidden lg:block"
+            initial={{ opacity: 0, x: 40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.4, duration: 1 }}
+          >
+            {/* Glow */}
+            <div className="absolute -inset-4 bg-gradient-to-r from-neon-blue/20 via-neon-purple/20 to-neon-pink/20 rounded-3xl blur-2xl" />
+
+            <div className="relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
+              <Image
+                src="/imagem-alunos.jpg"
+                alt="Alunos da E.E. Nancy de Oliveira Fidalgo apresentando seus projetos no EstaHack"
+                width={640}
+                height={480}
+                className="w-full h-[480px] object-cover object-center"
+                priority
+              />
+              {/* Overlay gradiente */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+
+              {/* Legenda */}
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                  <span className="text-emerald-400 text-xs font-semibold uppercase tracking-widest">Nossos Alunos</span>
+                </div>
+                <p className="text-white font-bold text-lg leading-tight">
+                  Soluções reais criadas dentro da escola
+                </p>
+                <p className="text-gray-300 text-sm mt-1">
+                  Projeto Pré-TCC · E.E. Nancy de Oliveira Fidalgo · EstaHack 2025
+                </p>
               </div>
             </div>
-          ))}
-        </motion.div>
+
+            {/* Floating badge */}
+            <motion.div
+              className="absolute -top-4 -right-4 bg-gray-900 border border-neon-blue/30 rounded-2xl px-4 py-3 shadow-xl"
+              animate={{ y: [0, -6, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <p className="text-neon-blue text-xs font-semibold">🏆 1º Hackathon</p>
+              <p className="text-white text-sm font-bold">Escola Estadual</p>
+            </motion.div>
+          </motion.div>
+
+        </div>
       </div>
 
       {/* Scroll indicator */}

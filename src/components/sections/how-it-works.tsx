@@ -51,8 +51,8 @@ export function HowItWorksSection() {
                         </span>
                     </h2>
                     <p className="text-gray-400 mt-4 max-w-2xl mx-auto text-lg">
-                        Um formato comprovado, adaptado para a realidade e potencial dos
-                        alunos da rede estadual paulista.
+                        Um formato comprovado inspirado nos maiores hackathons do mundo,
+                        adaptado para a realidade e executado <span className="text-white font-semibold">dentro da escola</span> como projeto Pré-TCC.
                     </p>
                 </motion.div>
 
@@ -108,11 +108,11 @@ export function HowItWorksSection() {
                         <div className="absolute -inset-1 bg-gradient-to-r from-neon-blue/30 to-neon-purple/30 rounded-3xl blur-xl" />
                         <div className="relative rounded-3xl overflow-hidden border border-white/10">
                             <Image
-                                src="/imagem2.png"
-                                alt="Hackathon em ação"
+                                src="/imagem-alunos.jpg"
+                                alt="Alunos construindo soluções reais"
                                 width={600}
                                 height={400}
-                                className="w-full h-64 sm:h-80 object-cover"
+                                className="w-full h-64 sm:h-80 object-cover object-center"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                             <div className="absolute bottom-4 left-4 right-4">
@@ -120,7 +120,7 @@ export function HowItWorksSection() {
                                     Alunos construindo soluções reais
                                 </p>
                                 <p className="text-gray-300 text-xs mt-1">
-                                    E.E. Nancy de Oliveira Fidalgo — EstaHack 2025
+                                    Projeto Pré-TCC · E.E. Nancy de Oliveira Fidalgo · EstaHack 2025
                                 </p>
                             </div>
                         </div>

@@ -10,9 +10,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "1º EstaHack - E.E. Nancy de Oliveira Fidalgo",
+  title: "Esta Hack — O 1º Hackathon das Escolas Estaduais!",
   description:
-    "A Primeira Escola Estadual a realizar um Hackathon no Ensino Técnico em Desenvolvimento de Sistemas. Conectando alunos da rede pública à tecnologia, inovação e ao mercado de trabalho global.",
+    "Uma iniciativa inédita que reúne alunos das escolas estaduais para criar soluções reais com tecnologia. Venha conhecer os projetos!",
   keywords: [
     "hackathon",
     "escola pública",
@@ -20,21 +20,23 @@ export const metadata: Metadata = {
     "tecnologia",
     "inovação",
     "desenvolvimento de sistemas",
+    "pré-TCC",
     "Renan Santos",
     "EstaHack",
+    "escola estadual",
   ],
   openGraph: {
-    title: "1º EstaHack - E.E. Nancy de Oliveira Fidalgo",
+    title: "Esta Hack — O 1º Hackathon das Escolas Estaduais!",
     description:
-      "A Primeira Escola Estadual a realizar um Hackathon no Ensino Técnico em Desenvolvimento de Sistemas.",
-    url: "https://hackhton-escola-publica.vercel.app",
+      "Uma iniciativa inédita que reúne alunos das escolas estaduais para criar soluções reais com tecnologia. Venha conhecer os projetos!",
+    url: "https://www.estahack.com",
     siteName: "EstaHack",
     images: [
       {
-        url: "https://hackhton-escola-publica.vercel.app/imagem1.png", // Usando a foto do evento como destacada
+        url: "https://www.estahack.com/imagem-alunos.jpg",
         width: 1200,
         height: 630,
-        alt: "EstaHack - Hackathon Escola Pública",
+        alt: "Alunos da E.E. Nancy de Oliveira Fidalgo apresentando seus projetos no EstaHack",
       },
     ],
     locale: "pt_BR",
@@ -42,9 +44,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "1º EstaHack - E.E. Nancy de Oliveira Fidalgo",
-    description: "A Primeira Escola Estadual a realizar um Hackathon no Ensino Técnico.",
-    images: ["https://hackhton-escola-publica.vercel.app/imagem1.png"],
+    title: "Esta Hack — O 1º Hackathon das Escolas Estaduais!",
+    description:
+      "Uma iniciativa inédita que reúne alunos das escolas estaduais para criar soluções reais com tecnologia.",
+    images: ["https://www.estahack.com/imagem-alunos.jpg"],
   },
   icons: {
     icon: "/icon.png",

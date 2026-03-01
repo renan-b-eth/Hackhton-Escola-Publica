@@ -21,12 +21,6 @@ const mentorSchema = z.object({
 });
 type MentorFormData = z.infer<typeof mentorSchema>;
 
-const sponsorSchema = z.object({
-  empresa: z.string().min(2, "Nome da empresa muito curto"),
-  apoio: z.string().min(1, "Selecione o tipo de apoio"),
-  email: z.string().email("E-mail corporativo inválido"),
-});
-type SponsorFormData = z.infer<typeof sponsorSchema>;
 
 const schoolSchema = z.object({
   escola: z.string().min(5, "Nome da escola muito curto"),

@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/sections/navbar";
 import { HeroSection } from "@/components/sections/hero";
+import { VideoBannerSection } from "@/components/sections/video-banner";
 import { HowItWorksSection } from "@/components/sections/how-it-works";
 import { ChallengeSection } from "@/components/sections/challenge";
 import { TeamSection } from "@/components/sections/team";
@@ -14,6 +15,7 @@ export default function Home() {
     <main className="relative">
       <Navbar />
       <HeroSection />
+      <VideoBannerSection />
       <HowItWorksSection />
       <ChallengeSection />
       <TeamSection />

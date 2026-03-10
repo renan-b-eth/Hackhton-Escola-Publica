@@ -54,46 +54,29 @@ export function ChallengeSection() {
                     </p>
                 </motion.div>
 
-                {/* Split layout */}
-                <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
-                    {/* Images collage */}
-                    <motion.div
-                        className="relative"
-                        initial={{ opacity: 0, x: -30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8 }}
-                    >
-                        <div className="grid grid-cols-2 gap-3">
-                            
-                            
-                        </div>
-                    </motion.div>
-
-                    {/* Impact cards */}
-                    <div className="space-y-5">
-                        {impacts.map((item, i) => (
-                            <motion.div
-                                key={i}
-                                className="flex gap-4 p-5 rounded-2xl bg-white/[0.03] border border-white/5 hover:border-white/10 transition-all"
-                                initial={{ opacity: 0, x: 30 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: i * 0.15, duration: 0.6 }}
-                                whileHover={{ x: 4 }}
-                            >
-                                <div className="flex-shrink-0">
-                                    <item.icon className={`w-7 h-7 ${item.color}`} />
-                                </div>
-                                <div>
-                                    <h3 className="text-white font-bold mb-1">{item.title}</h3>
-                                    <p className="text-gray-400 text-sm leading-relaxed">
-                                        {item.desc}
-                                    </p>
-                                </div>
-                            </motion.div>
-                        ))}
-                    </div>
+                {/* Impact cards - centered */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-auto mb-16">
+                    {impacts.map((item, i) => (
+                        <motion.div
+                            key={i}
+                            className="flex flex-col gap-4 p-5 rounded-2xl bg-white/[0.03] border border-white/5 hover:border-white/10 transition-all"
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: i * 0.15, duration: 0.6 }}
+                            whileHover={{ y: -4 }}
+                        >
+                            <div className="flex justify-center">
+                                <item.icon className={`w-8 h-8 ${item.color}`} />
+                            </div>
+                            <div className="text-center">
+                                <h3 className="text-white font-bold mb-2">{item.title}</h3>
+                                <p className="text-gray-400 text-sm leading-relaxed">
+                                    {item.desc}
+                                </p>
+                            </div>
+                        </motion.div>
+                    ))}
                 </div>
 
                 {/* Bottom highlight */}

@@ -58,7 +58,32 @@ export function ChallengeSection() {
                 {/* Split layout */}
                 <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
                     {/* Images collage */}
-                    
+                    <motion.div
+                        className="relative"
+                        initial={{ opacity: 0, x: -30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8 }}
+                    >
+                        <div className="grid grid-cols-2 gap-3">
+                            <div className="relative">
+                                <div className="absolute -inset-0.5 bg-gradient-to-r from-neon-purple/40 to-neon-pink/40 rounded-2xl blur" />
+                                <div className="relative rounded-2xl overflow-hidden border border-white/10">
+                                    <Image
+                                        src="/imagem3.png"
+                                        alt="Alunos desenvolvendo"
+                                        width={300}
+                                        height={300}
+                                        className="w-full h-40 sm:h-52 object-cover"
+                                    />
+                                </div>
+                            </div>
+                            <div className="relative mt-6">
+                                <div className="absolute -inset-0.5 bg-gradient-to-r from-neon-blue/40 to-neon-purple/40 rounded-2xl blur" />
+                                
+                            </div>
+                        </div>
+                    </motion.div>
 
                     {/* Impact cards */}
                     <div className="space-y-5">

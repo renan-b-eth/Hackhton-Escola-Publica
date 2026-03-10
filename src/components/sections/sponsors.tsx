@@ -48,23 +48,6 @@ export function SponsorsSection() {
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-neon-purple/5 to-transparent" />
 
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6">
-        {/* Patrocinadores Master */}
-        <motion.div
-          className="text-center mb-20"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <span className="text-neon-pink text-sm font-semibold tracking-widest uppercase">
-            Apoiadores Estratégicos
-          </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-3">
-            Patrocinadores
-            <span className="bg-gradient-to-r from-neon-blue to-neon-purple bg-clip-text text-transparent"> Master</span>
-          </h2>
-        </motion.div>
-
         {/* Master Sponsor Card */}
         <div className="mb-20">
           <motion.div
@@ -81,8 +64,12 @@ export function SponsorsSection() {
                 <img
                   src="/fiap.png"
                   alt="FIAP Logo"
-                  className="w-48 sm:w-72 md:w-96 h-auto object-contain drop-shadow-2xl bg-white/5 p-4 sm:p-8 rounded-3xl"
+                  className="w-48 sm:w-72 md:w-96 h-auto object-contain drop-shadow-2xl bg-white/5 p-4 sm:p-8 rounded-3xl mb-8"
                 />
+                <p className="text-gray-300 text-lg sm:text-xl text-center max-w-4xl leading-relaxed">
+                  A <span className="text-white font-bold">FIAP</span> é o centro de excelência em tecnologia mais respeitado do país.
+                  Referência no ensino superior focada em inovação e negócios, forma profissionais altamente capacitados que lideram a transformação digital e tecnológica em grandes empresas globais.
+                </p>
               </div>
             </div>
           </motion.div>

@@ -38,8 +38,8 @@ export function Navbar() {
     <>
       <motion.nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
-            ? "bg-black/80 backdrop-blur-xl border-b border-white/5"
-            : "bg-transparent"
+          ? "bg-black/80 backdrop-blur-xl border-b border-white/5"
+          : "bg-transparent"
           }`}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
@@ -80,11 +80,6 @@ export function Navbar() {
             ))}
           </div>
 
-          <div className="hidden md:block">
-            <Button size="sm" onClick={() => handleNavClick("#inscricao")}>
-              Inscreva-se
-            </Button>
-          </div>
 
           {/* Mobile toggle */}
           <button
@@ -120,20 +115,6 @@ export function Navbar() {
                   {link.label}
                 </motion.button>
               ))}
-              <motion.div
-                className="mt-4"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.3 }}
-              >
-                <Button
-                  size="lg"
-                  className="w-full"
-                  onClick={() => handleNavClick("#inscricao")}
-                >
-                  Inscreva-se
-                </Button>
-              </motion.div>
             </div>
           </motion.div>
         )}

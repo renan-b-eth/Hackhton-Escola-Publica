@@ -1,8 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import { Rocket, ChevronDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import Image from "next/image";
 
 export function HeroSection() {
@@ -110,30 +109,6 @@ export function HeroSection() {
               </span>
             </motion.div>
 
-            {/* Botões */}
-            <motion.div
-              className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-4"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.7, duration: 0.8 }}
-            >
-              <Button
-                size="lg"
-                variant="outline"
-                className="w-full sm:w-auto group"
-                onClick={() => scrollToSection("inscricao")}
-              >
-                <Rocket className="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform" />
-                Quero ser Mentor
-              </Button>
-              <Button
-                size="lg"
-                className="w-full sm:w-auto"
-                onClick={() => scrollToSection("inscricao")}
-              >
-                Quero Patrocinar
-              </Button>
-            </motion.div>
 
             {/* Stats */}
             <motion.div

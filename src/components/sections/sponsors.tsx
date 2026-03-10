@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Heart, Eye, Code2, Award, TrendingUp, Users } from "lucide-react";
+import Image from "next/image";
 
 const benefits = [
   {
@@ -61,9 +62,11 @@ export function SponsorsSection() {
 
             <div className="relative p-8 rounded-3xl bg-gradient-to-br from-gray-900/80 to-gray-900/40 border border-white/10 hover:border-white/20 transition-all">
               <div className="flex flex-col items-center justify-center py-6 sm:py-10">
-                <img
+                <Image
                   src="/fiap.png"
                   alt="FIAP Logo"
+                  width={384}
+                  height={150}
                   className="w-48 sm:w-72 md:w-96 h-auto object-contain drop-shadow-2xl bg-white/5 p-4 sm:p-8 rounded-3xl mb-8"
                 />
                 <p className="text-gray-300 text-lg sm:text-xl text-center max-w-4xl leading-relaxed">

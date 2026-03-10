@@ -5,10 +5,6 @@ import { ChevronDown } from "lucide-react";
 import Image from "next/image";
 
 export function HeroSection() {
-  const scrollToSection = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Effects */}

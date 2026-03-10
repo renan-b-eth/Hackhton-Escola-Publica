@@ -79,19 +79,29 @@ export function HeroSection() {
             </motion.h1>
 
             {/* Descrição */}
-            <motion.p
-              className="text-lg sm:text-xl text-gray-400 max-w-xl mb-4 leading-relaxed"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.8 }}
-            >
-              Conectando alunos da rede pública à tecnologia, inovação e ao mercado
-              de trabalho global. Uma iniciativa da{" "}
-              <span className="text-white font-semibold">
-                E.E. Nancy de Oliveira Fidalgo
-              </span>
-              .
-            </motion.p>
+            <div className="flex flex-col gap-4 mb-4">
+              <motion.p
+                className="text-lg sm:text-xl text-gray-400 max-w-xl leading-relaxed"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5, duration: 0.8 }}
+              >
+                Conectando alunos da rede pública à tecnologia, inovação e ao mercado de trabalho global.
+              </motion.p>
+
+              <motion.p
+                className="text-lg sm:text-xl text-gray-400 max-w-xl leading-relaxed"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.55, duration: 0.8 }}
+              >
+                Uma iniciativa da{" "}
+                <span className="text-white font-semibold">
+                  E.E. Nancy de Oliveira Fidalgo
+                </span>
+                .
+              </motion.p>
+            </div>
 
             {/* Badge Pré-TCC */}
             <motion.div

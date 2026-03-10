@@ -66,16 +66,15 @@ export function HeroSection() {
               <span className="text-white">EstaHack:</span>
               <br />
               <motion.span
-                className="block bg-gradient-to-r from-neon-blue via-neon-purple to-neon-pink bg-clip-text text-transparent"
+                className="block bg-gradient-to-r from-neon-blue via-neon-purple to-neon-pink bg-clip-text text-transparent leading-tight"
                 initial={{ opacity: 0, scale: 0.8, rotateX: -10 }}
                 animate={{ opacity: 1, scale: 1, rotateX: 0 }}
                 transition={{ delay: 0.4, duration: 0.8, type: "spring", stiffness: 60 }}
               >
                 A Primeira Hackathon
               </motion.span>
-              <br />
               <motion.span
-                className="block bg-gradient-to-r from-neon-purple via-neon-pink to-neon-blue bg-clip-text text-transparent"
+                className="block bg-gradient-to-r from-neon-purple via-neon-pink to-neon-blue bg-clip-text text-transparent leading-tight"
                 initial={{ opacity: 0, scale: 0.8, rotateX: -10 }}
                 animate={{ opacity: 1, scale: 1, rotateX: 0 }}
                 transition={{ delay: 0.6, duration: 0.8, type: "spring", stiffness: 60 }}

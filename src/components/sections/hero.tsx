@@ -56,47 +56,32 @@ export function HeroSection() {
           {/* ───── COLUNA ESQUERDA — Texto ───── */}
           <div className="text-center lg:text-left">
 
-            {/* Badge "Pioneira" */}
-            <motion.div
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-neon-blue/30 bg-neon-blue/5 text-neon-blue text-sm mb-6"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2, duration: 0.5 }}
-            >
-              <Sparkles className="w-4 h-4 flex-shrink-0" />
-              <span>Iniciativa Pioneira na Educação Pública</span>
-            </motion.div>
-
-            {/* Alerta destaque */}
-            <motion.div
-              className="mb-6"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.25, duration: 0.8 }}
-            >
-              <div className="inline-flex items-start gap-3 px-5 py-3 rounded-2xl border border-yellow-400/30 bg-yellow-400/5 max-w-xl">
-                <Award className="w-5 h-5 text-yellow-400 flex-shrink-0 mt-0.5" />
-                <p className="text-sm sm:text-base text-yellow-200 font-medium text-left leading-snug">
-                  <span className="text-yellow-400 font-bold">A Primeira Escola Estadual</span> a realizar
-                  um Hackathon no Ensino Técnico em Desenvolvimento de Sistemas
-                </p>
-              </div>
-            </motion.div>
-
             {/* Título */}
             <motion.h1
               className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.8 }}
+              transition={{ delay: 0.2, duration: 0.8 }}
             >
               <span className="text-white">EstaHack:</span>
               <br />
-              <span className="bg-gradient-to-r from-neon-blue via-neon-purple to-neon-pink bg-clip-text text-transparent">
-                Hackathon das Escolas
-              </span>
+              <motion.span
+                className="block bg-gradient-to-r from-neon-blue via-neon-purple to-neon-pink bg-clip-text text-transparent"
+                initial={{ opacity: 0, scale: 0.8, rotateX: -10 }}
+                animate={{ opacity: 1, scale: 1, rotateX: 0 }}
+                transition={{ delay: 0.4, duration: 0.8, type: "spring", stiffness: 60 }}
+              >
+                A Primeira Hackathon
+              </motion.span>
               <br />
-              <span className="text-white">Estaduais</span>
+              <motion.span
+                className="block bg-gradient-to-r from-neon-purple via-neon-pink to-neon-blue bg-clip-text text-transparent"
+                initial={{ opacity: 0, scale: 0.8, rotateX: -10 }}
+                animate={{ opacity: 1, scale: 1, rotateX: 0 }}
+                transition={{ delay: 0.6, duration: 0.8, type: "spring", stiffness: 60 }}
+              >
+                das Escolas Estaduais
+              </motion.span>
             </motion.h1>
 
             {/* Descrição */}

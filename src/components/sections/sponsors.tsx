@@ -1,16 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  Heart,
-  Eye,
-  Code2,
-  Award,
-  TrendingUp,
-  Users,
-  Star,
-} from "lucide-react";
-import Image from "next/image";
+import { Heart, Eye, Code2, Award, TrendingUp, Users, Star } from "lucide-react";
 import Link from "next/link";
 
 const benefits = [
@@ -89,14 +80,11 @@ export function SponsorsSection() {
             <div className="relative p-8 rounded-3xl bg-gradient-to-br from-gray-900/80 to-gray-900/40 border border-white/10 hover:border-white/20 transition-all">
               <div className="flex flex-col lg:flex-row items-center gap-8">
                 {/* Logo */}
-                <div className="flex-shrink-0 w-32 h-32 sm:w-40 sm:h-40 lg:w-48 lg:h-48 rounded-2xl bg-white p-4 flex items-center justify-center">
-                  <Image
-                    src="https://www.fiap.com.br/favicon.ico"
-                    alt="FIAP Logo"
-                    width={200}
-                    height={200}
-                    className="w-full h-full object-contain"
-                  />
+                <div className="flex-shrink-0 w-32 h-32 sm:w-40 sm:h-40 lg:w-48 lg:h-48 rounded-2xl bg-white p-6 flex items-center justify-center">
+                  <div className="text-center">
+                    <div className="text-4xl sm:text-5xl font-bold text-blue-600 mb-2">F</div>
+                    <p className="text-xs font-bold text-gray-700">FIAP</p>
+                  </div>
                 </div>
 
                 {/* Info */}

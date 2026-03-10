@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Rocket, Sparkles, ChevronDown, Award } from "lucide-react";
+import { Rocket, ChevronDown } from "lucide-react";
 import Image from "next/image";
 
 export function HeroSection() {

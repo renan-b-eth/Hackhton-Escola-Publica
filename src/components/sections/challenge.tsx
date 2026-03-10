@@ -65,14 +65,8 @@ export function ChallengeSection() {
                         transition={{ duration: 0.8 }}
                     >
                         <div className="grid grid-cols-2 gap-3">
-                            <div className="relative">
-                                <div className="absolute -inset-0.5 bg-gradient-to-r from-neon-purple/40 to-neon-pink/40 rounded-2xl blur" />
-                                
-                            </div>
-                            <div className="relative mt-6">
-                                <div className="absolute -inset-0.5 bg-gradient-to-r from-neon-blue/40 to-neon-purple/40 rounded-2xl blur" />
-                                
-                            </div>
+                            
+                            
                         </div>
                     </motion.div>
 

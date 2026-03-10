@@ -1,8 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Heart, Eye, Code2, Award, TrendingUp, Users, Star } from "lucide-react";
-import Link from "next/link";
+import { Heart, Eye, Code2, Award, TrendingUp, Users } from "lucide-react";
 
 const benefits = [
   {
@@ -76,47 +75,14 @@ export function SponsorsSection() {
             transition={{ duration: 0.6 }}
           >
             <div className="absolute inset-0 bg-gradient-to-r from-neon-blue/20 via-neon-purple/20 to-neon-pink/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            
+
             <div className="relative p-8 rounded-3xl bg-gradient-to-br from-gray-900/80 to-gray-900/40 border border-white/10 hover:border-white/20 transition-all">
-              <div className="flex flex-col lg:flex-row items-center gap-8">
-                {/* Logo */}
-                <div className="flex-shrink-0 w-32 h-32 sm:w-40 sm:h-40 lg:w-48 lg:h-48 rounded-2xl bg-white p-6 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="text-4xl sm:text-5xl font-bold text-blue-600 mb-2">F</div>
-                    <p className="text-xs font-bold text-gray-700">FIAP</p>
-                  </div>
-                </div>
-
-                {/* Info */}
-                <div className="flex-1 text-center lg:text-left">
-                  <div className="flex items-center gap-2 justify-center lg:justify-start mb-3">
-                    <Star className="w-6 h-6 text-neon-pink fill-neon-pink" />
-                    <span className="text-sm font-bold text-neon-pink uppercase tracking-widest">
-                      Patrocinador Master
-                    </span>
-                  </div>
-                  
-                  <h3 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-                    FIAP
-                  </h3>
-                  
-                  <p className="text-gray-300 text-lg mb-6 leading-relaxed max-w-2xl">
-                    A FIAP é uma instituição de ensino superior focada em {" "}
-                    <span className="text-white font-semibold">Tecnologia, Inovação e Negócios</span>. 
-                    Oferecendo programas de graduação, pós-graduação e cursos especializados para 
-                    preparar profissionais prontos para o mercado global.
-                  </p>
-
-                  <Link
-                    href="https://www.fiap.com.br/graduacao/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-neon-blue to-neon-purple text-white font-semibold hover:shadow-lg hover:shadow-neon-blue/50 transition-all"
-                  >
-                    Conheça os Cursos de Graduação
-                    <span>→</span>
-                  </Link>
-                </div>
+              <div className="flex flex-col items-center justify-center py-6 sm:py-10">
+                <img
+                  src="/fiap.png"
+                  alt="FIAP Logo"
+                  className="w-48 sm:w-72 md:w-96 h-auto object-contain drop-shadow-2xl bg-white/5 p-4 sm:p-8 rounded-3xl"
+                />
               </div>
             </div>
           </motion.div>

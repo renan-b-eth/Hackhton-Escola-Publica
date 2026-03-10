@@ -66,7 +66,7 @@ export function HeroSection() {
                 animate={{ opacity: 1, scale: 1, rotateX: 0 }}
                 transition={{ delay: 0.4, duration: 0.8, type: "spring", stiffness: 60 }}
               >
-                A Primeira Hackathon
+                O Primeiro Hackathon
               </motion.span>
               <motion.span
                 className="block bg-gradient-to-r from-neon-purple via-neon-pink to-neon-blue bg-clip-text text-transparent leading-tight"
@@ -115,9 +115,9 @@ export function HeroSection() {
             >
               {[
                 { value: "36h", label: "Maratona" },
-                { value: "100+", label: "Alunos Impactados" },
+                { value: "30+", label: "Alunos Impactados" },
                 { value: "3", label: "Organizadores" },
-                { value: "∞", label: "Possibilidades" },
+                { value: "∞", label: "Possibilidades infinitas" },
               ].map((stat, i) => (
                 <div key={i} className="text-center lg:text-left">
                   <div className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-neon-blue to-neon-purple bg-clip-text text-transparent">

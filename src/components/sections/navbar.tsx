@@ -9,8 +9,10 @@ const navLinks = [
   { label: "Início", href: "#" },
   { label: "Sobre", href: "#autoridade" },
   { label: "Como Funciona", href: "#como-funciona" },
+  { label: "Desafio", href: "#desafio" },
+  { label: "Ecossistema", href: "#ecossistema" },
   { label: "Organizadores", href: "#organizadores" },
-  { label: "Patrocínio", href: "#inscricao" },
+  { label: "Patrocínio", href: "#patrocinadores" },
 ];
 
 export function Navbar() {
@@ -47,14 +49,31 @@ export function Navbar() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
           {/* Logo */}
           <button onClick={() => handleNavClick("#")} className="flex items-center gap-3 group">
-            <div className="relative w-8 h-8 flex-shrink-0">
-              <Image
-                src="/logo-nancy.png"
-                alt="E.E. Nancy de Oliveira Fidalgo"
-                fill
-                className="object-contain rounded"
-                sizes="32px"
-              />
+            <div className="relative flex items-center gap-2">
+              {/* Logo EstaHack */}
+              <div className="relative w-8 h-8 flex-shrink-0">
+                <Image
+                  src="/logoestahack.png"
+                  alt="Logo EstaHack"
+                  fill
+                  className="object-contain"
+                  sizes="32px"
+                />
+              </div>
+              
+              {/* Divider */}
+              <div className="w-px h-6 bg-white/10"></div>
+
+              {/* Logo Nancy */}
+              <div className="relative w-8 h-8 flex-shrink-0">
+                <Image
+                  src="/logo-nancy.png"
+                  alt="E.E. Nancy de Oliveira Fidalgo"
+                  fill
+                  className="object-contain rounded"
+                  sizes="32px"
+                />
+              </div>
             </div>
             <div className="hidden sm:block text-left">
               <span className="font-bold text-white text-sm leading-tight block">

@@ -1,10 +1,15 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ChevronDown } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Rocket, ChevronDown } from "lucide-react";
 import Image from "next/image";
 
 export function HeroSection() {
+  const scrollToSection = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Effects */}
@@ -66,7 +71,7 @@ export function HeroSection() {
                 animate={{ opacity: 1, scale: 1, rotateX: 0 }}
                 transition={{ delay: 0.4, duration: 0.8, type: "spring", stiffness: 60 }}
               >
-                O Primeiro Hackathon
+                A Primeira Hackathon
               </motion.span>
               <motion.span
                 className="block bg-gradient-to-r from-neon-purple via-neon-pink to-neon-blue bg-clip-text text-transparent leading-tight"
@@ -79,29 +84,19 @@ export function HeroSection() {
             </motion.h1>
 
             {/* Descrição */}
-            <div className="flex flex-col gap-4 mb-4">
-              <motion.p
-                className="text-lg sm:text-xl text-gray-400 max-w-xl leading-relaxed"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5, duration: 0.8 }}
-              >
-                Conectando alunos da rede pública à tecnologia, inovação e ao mercado de trabalho global.
-              </motion.p>
-
-              <motion.p
-                className="text-lg sm:text-xl text-gray-400 max-w-xl leading-relaxed"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.55, duration: 0.8 }}
-              >
-                Uma iniciativa da{" "}
-                <span className="text-white font-semibold">
-                  E.E. Nancy de Oliveira Fidalgo
-                </span>
-                .
-              </motion.p>
-            </div>
+            <motion.p
+              className="text-lg sm:text-xl text-gray-400 max-w-xl mb-4 leading-relaxed"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.8 }}
+            >
+              Conectando alunos da rede pública à tecnologia, inovação e ao mercado
+              de trabalho global. Uma iniciativa da{" "}
+              <span className="text-white font-semibold">
+                E.E. Nancy de Oliveira Fidalgo
+              </span>
+              .
+            </motion.p>
 
             {/* Badge Pré-TCC */}
             <motion.div
@@ -115,6 +110,30 @@ export function HeroSection() {
               </span>
             </motion.div>
 
+            {/* Botões */}
+            <motion.div
+              className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.7, duration: 0.8 }}
+            >
+              <Button
+                size="lg"
+                variant="outline"
+                className="w-full sm:w-auto group"
+                onClick={() => scrollToSection("inscricao")}
+              >
+                <Rocket className="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform" />
+                Quero ser Mentor
+              </Button>
+              <Button
+                size="lg"
+                className="w-full sm:w-auto"
+                onClick={() => scrollToSection("inscricao")}
+              >
+                Quero Patrocinar
+              </Button>
+            </motion.div>
 
             {/* Stats */}
             <motion.div
@@ -125,9 +144,9 @@ export function HeroSection() {
             >
               {[
                 { value: "36h", label: "Maratona" },
-                { value: "30+", label: "Alunos Impactados" },
+                { value: "100+", label: "Alunos Impactados" },
                 { value: "3", label: "Organizadores" },
-                { value: "∞", label: "Possibilidades infinitas" },
+                { value: "∞", label: "Possibilidades" },
               ].map((stat, i) => (
                 <div key={i} className="text-center lg:text-left">
                   <div className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-neon-blue to-neon-purple bg-clip-text text-transparent">

@@ -1,8 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Heart, Eye, Code2, Award, TrendingUp, Users } from "lucide-react";
-import Image from "next/image";
+import { Heart, Eye, Code2, Award, TrendingUp, Users, Star } from "lucide-react";
+import Link from "next/link";
 
 const benefits = [
   {
@@ -49,15 +49,20 @@ export function SponsorsSection() {
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-neon-purple/5 to-transparent" />
 
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6">
+        {/* Patrocinadores Master */}
         <motion.div
-          className="text-center mb-12"
+          className="text-center mb-20"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white">
-            Apoiadores
+          <span className="text-neon-pink text-sm font-semibold tracking-widest uppercase">
+            Apoiadores Estratégicos
+          </span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-3">
+            Patrocinadores
+            <span className="bg-gradient-to-r from-neon-blue to-neon-purple bg-clip-text text-transparent"> Master</span>
           </h2>
         </motion.div>
 
@@ -71,20 +76,101 @@ export function SponsorsSection() {
             transition={{ duration: 0.6 }}
           >
             <div className="absolute inset-0 bg-gradient-to-r from-neon-blue/20 via-neon-purple/20 to-neon-pink/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
+            
             <div className="relative p-8 rounded-3xl bg-gradient-to-br from-gray-900/80 to-gray-900/40 border border-white/10 hover:border-white/20 transition-all">
-              <div className="flex flex-col items-center justify-center py-6 sm:py-10">
-                <Image
-                  src="/fiap.png"
-                  alt="FIAP Logo"
-                  width={384}
-                  height={150}
-                  className="w-48 sm:w-72 md:w-96 h-auto object-contain drop-shadow-2xl bg-white/5 p-4 sm:p-8 rounded-3xl mb-8"
-                />
-                <p className="text-gray-300 text-lg sm:text-xl text-center max-w-4xl leading-relaxed">
-                  A <span className="text-white font-bold">FIAP</span> é o centro de excelência em tecnologia mais respeitado do país.
-                  Referência no ensino superior focada em inovação e negócios, forma profissionais altamente capacitados que lideram a transformação digital e tecnológica em grandes empresas globais.
-                </p>
+              <div className="flex flex-col lg:flex-row items-center gap-8">
+                {/* Logo */}
+                <div className="flex-shrink-0 w-32 h-32 sm:w-40 sm:h-40 lg:w-48 lg:h-48 rounded-2xl bg-white p-6 flex items-center justify-center">
+                  <div className="text-center">
+                    <div className="text-4xl sm:text-5xl font-bold text-blue-600 mb-2">F</div>
+                    <p className="text-xs font-bold text-gray-700">FIAP</p>
+                  </div>
+                </div>
+
+                {/* Info */}
+                <div className="flex-1 text-center lg:text-left">
+                  <div className="flex items-center gap-2 justify-center lg:justify-start mb-3">
+                    <Star className="w-6 h-6 text-neon-pink fill-neon-pink" />
+                    <span className="text-sm font-bold text-neon-pink uppercase tracking-widest">
+                      Patrocinador Master
+                    </span>
+                  </div>
+                  
+                  <h3 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+                    FIAP
+                  </h3>
+                  
+                  <p className="text-gray-300 text-lg mb-6 leading-relaxed max-w-2xl">
+                    A FIAP é uma instituição de ensino superior focada em {" "}
+                    <span className="text-white font-semibold">Tecnologia, Inovação e Negócios</span>. 
+                    Oferecendo programas de graduação, pós-graduação e cursos especializados para 
+                    preparar profissionais prontos para o mercado global.
+                  </p>
+
+                  <Link
+                    href="https://www.fiap.com.br/graduacao/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-neon-blue to-neon-purple text-white font-semibold hover:shadow-lg hover:shadow-neon-blue/50 transition-all"
+                  >
+                    Conheça os Cursos de Graduação
+                    <span>→</span>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Patrocinador Estant3D */}
+        <div className="mb-20">
+          <motion.div
+            className="relative group"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="absolute inset-0 bg-gradient-to-r from-neon-blue/20 via-neon-purple/20 to-neon-pink/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            
+            <div className="relative p-8 rounded-3xl bg-gradient-to-br from-gray-900/80 to-gray-900/40 border border-white/10 hover:border-white/20 transition-all">
+              <div className="flex flex-col lg:flex-row items-center gap-8">
+                {/* Logo */}
+                <div className="flex-shrink-0 w-32 h-32 sm:w-40 sm:h-40 lg:w-48 lg:h-48 rounded-2xl bg-white p-6 flex items-center justify-center">
+                  <img 
+                    src="/estant3d.png" 
+                    alt="Estant3D Logo" 
+                    className="max-w-full max-h-full object-contain"
+                  />
+                </div>
+
+                {/* Info */}
+                <div className="flex-1 text-center lg:text-left">
+                  <span className="text-sm font-bold text-neon-blue uppercase tracking-widest">
+                    Parceiro Estratégico
+                  </span>
+                  
+                  <h3 className="text-3xl sm:text-4xl font-bold text-white mb-4 mt-2">
+                    Estant3D
+                  </h3>
+                  
+                  <p className="text-gray-300 text-lg mb-6 leading-relaxed max-w-2xl">
+                    Fundada a mais de 1 ano, a <span className="text-white font-semibold">Estant3D</span> foca em 
+                    <span className="text-white font-semibold"> prototipagem rápida, brindes corporativos, chaveiros tecnológicos 
+                    e reposição de peças de maquinários para PMEs</span>. Especializada em inovação e soluções tecnológicas 
+                    personalizadas para empresas.
+                  </p>
+
+                  <a
+                    href="https://estant3d.com.br"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-blue-500 via-purple-500 to-red-500 text-white font-semibold hover:shadow-lg hover:shadow-blue-500/50 transition-all"
+                  >
+                    Conheça a Estant3D
+                    <span>→</span>
+                  </a>
+                </div>
               </div>
             </div>
           </motion.div>

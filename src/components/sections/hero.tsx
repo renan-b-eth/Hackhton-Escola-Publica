@@ -56,14 +56,25 @@ export function HeroSection() {
           {/* ───── COLUNA ESQUERDA — Texto ───── */}
           <div className="text-center lg:text-left">
 
-            {/* Título */}
+            {/* Título com Logo */}
             <motion.h1
               className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.8 }}
             >
-              <span className="text-white">EstaHack:</span>
+              <div className="flex items-center gap-4 mb-4">
+                <span className="text-white">EstaHack</span>
+                <div className="relative w-24 h-24 sm:w-28 sm:h-28 flex-shrink-0">
+                  <Image
+                    src="/logoestahack.jpeg"
+                    alt="Logo EstaHack"
+                    fill
+                    className="object-contain"
+                    priority
+                  />
+                </div>
+              </div>
               <br />
               <motion.span
                 className="block bg-gradient-to-r from-neon-blue via-neon-purple to-neon-pink bg-clip-text text-transparent leading-tight"
@@ -174,9 +185,9 @@ export function HeroSection() {
               <Image
                 src="/imagem-alunos.jpg"
                 alt="Alunos da E.E. Nancy de Oliveira Fidalgo apresentando seus projetos no EstaHack"
-                width={640}
-                height={480}
-                className="w-full h-[480px] object-cover object-center"
+                width={800}
+                height={600}
+                className="w-full h-auto object-cover object-center"
                 priority
               />
               {/* Overlay gradiente */}

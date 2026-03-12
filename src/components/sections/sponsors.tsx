@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Heart, Eye, Code2, Award, TrendingUp, Users, Star } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 const benefits = [
   {
@@ -81,10 +82,13 @@ export function SponsorsSection() {
               <div className="flex flex-col lg:flex-row items-center gap-8">
                 {/* Logo */}
                 <div className="flex-shrink-0 w-32 h-32 sm:w-40 sm:h-40 lg:w-48 lg:h-48 rounded-2xl bg-white p-6 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="text-4xl sm:text-5xl font-bold text-blue-600 mb-2">F</div>
-                    <p className="text-xs font-bold text-gray-700">FIAP</p>
-                  </div>
+                  <Image
+                    src="/fiap.png"
+                    alt="FIAP Logo"
+                    width={200}
+                    height={200}
+                    className="object-contain max-w-full max-h-full"
+                  />
                 </div>
 
                 {/* Info */}
@@ -92,7 +96,7 @@ export function SponsorsSection() {
                   <div className="flex items-center gap-2 justify-center lg:justify-start mb-3">
                     <Star className="w-6 h-6 text-neon-pink fill-neon-pink" />
                     <span className="text-sm font-bold text-neon-pink uppercase tracking-widest">
-                      Patrocinador Master
+                      Patrocinador Principal
                     </span>
                   </div>
                   

@@ -45,10 +45,10 @@ export function EscolaPionheiraSection() {
               {/* Logo */}
               <div className="flex-shrink-0 w-32 h-32 sm:w-40 sm:h-40 lg:w-48 lg:h-48 rounded-2xl bg-white p-6 flex items-center justify-center">
                 <Image
-                  src="/logo-nancy.png"
+                  src="/logonancy.jpeg"
                   alt="E.E. Nancy de Oliveira Fidalgo"
-                  width={180}
-                  height={180}
+                  width={200}
+                  height={200}
                   className="object-contain max-w-full max-h-full"
                 />
               </div>

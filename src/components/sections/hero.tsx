@@ -64,15 +64,16 @@ export function HeroSection() {
               transition={{ delay: 0.2, duration: 0.8 }}
             >
               <div className="flex items-center gap-4 mb-4">
-                <span className="text-white">EstaHack</span>
-                <div className="relative w-24 h-24 sm:w-28 sm:h-28 flex-shrink-0">
-                  <Image
-                    src="/logoestahack.png"
-                    alt="Logo EstaHack"
-                    fill
-                    className="object-contain"
-                    priority
-                  />
+                <div className="flex justify-center items-center w-full mb-4">
+                  <div className="relative w-40 h-40 sm:w-56 sm:h-56 flex-shrink-0 mx-auto">
+                    <Image
+                      src="/logoestahack.png"
+                      alt="Logo EstaHack"
+                      fill
+                      className="object-contain"
+                      priority
+                    />
+                  </div>
                 </div>
               </div>
               <br />

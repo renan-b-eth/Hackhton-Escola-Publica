@@ -21,15 +21,15 @@ export function BannerEventoSection() {
             Logo Oficial
           </span>
           <h3 className="text-2xl font-bold text-white mt-3 mb-6">
-            EstaHack 2025
+            EstaHack 2026
           </h3>
           <div className="inline-flex p-4 rounded-2xl bg-white/5 border border-white/10">
             <Image
               src="/logoestahack.png"
               alt="Logo Oficial EstaHack"
-              width={120}
-              height={120}
-              className="h-20 w-auto object-contain"
+              width={220}
+              height={220}
+              className="h-44 w-auto object-contain"
             />
           </div>
         </motion.div>

@@ -7,7 +7,6 @@ import {
   Award,
   MapPin,
   Clock,
-  Users,
   CheckCircle2,
   BookOpen,
 } from "lucide-react";

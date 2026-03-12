@@ -141,9 +141,11 @@ export function SponsorsSection() {
               <div className="flex flex-col lg:flex-row items-center gap-8">
                 {/* Logo */}
                 <div className="flex-shrink-0 w-32 h-32 sm:w-40 sm:h-40 lg:w-48 lg:h-48 rounded-2xl bg-white p-6 flex items-center justify-center">
-                  <img 
-                    src="/estant3d.png" 
-                    alt="Estant3D Logo" 
+                  <Image
+                    src="/estant3d.png"
+                    alt="Estant3D Logo"
+                    width={200}
+                    height={200}
                     className="max-w-full max-h-full object-contain"
                   />
                 </div>

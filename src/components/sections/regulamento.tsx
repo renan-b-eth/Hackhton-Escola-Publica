@@ -228,7 +228,7 @@ export function RegulamentoSection() {
             <div className="flex items-center gap-3 mb-8">
               <Clock className="w-6 h-6 text-neon-pink" />
               <h3 className="text-2xl font-bold text-white">
-                Cronograma 2025
+                Cronograma 2026
               </h3>
             </div>
 
@@ -278,7 +278,7 @@ export function RegulamentoSection() {
                 Proteção de Propriedade Intelectual
               </h4>
               <p className="text-gray-300 mb-3">
-                Todos os projetos desenvolvidos no EstaHack 2025 serão
+                Todos os projetos desenvolvidos no EstaHack 2026 serão
                 registrados na{" "}
                 <span className="text-white font-semibold">
                   Biblioteca Nacional de Propriedade Intelectual

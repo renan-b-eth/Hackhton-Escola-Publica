@@ -34,7 +34,7 @@ export function VideoBannerSection() {
                     <h2 className="text-3xl sm:text-4xl font-bold text-white mt-3">
                         Veja como foi o{" "}
                         <span className="bg-gradient-to-r from-neon-blue to-neon-purple bg-clip-text text-transparent">
-                            EstaHack 2025
+                            EstaHack 2026
                         </span>
                     </h2>
                     <p className="text-gray-400 mt-3 max-w-xl mx-auto">
@@ -84,7 +84,7 @@ export function VideoBannerSection() {
                     <div className="flex items-center justify-center gap-2 mt-4">
                         <span className="w-2 h-2 rounded-full bg-neon-blue animate-pulse" />
                         <p className="text-sm text-gray-400">
-                            EstaHack 2025 · E.E. Nancy de Oliveira Fidalgo · Projeto Pré-TCC
+                            EstaHack 2026 · E.E. Nancy de Oliveira Fidalgo · Projeto Pré-TCC
                         </p>
                     </div>
                 </motion.div>

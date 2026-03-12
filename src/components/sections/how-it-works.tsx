@@ -120,7 +120,7 @@ export function HowItWorksSection() {
                                     Alunos construindo soluções reais
                                 </p>
                                 <p className="text-gray-300 text-xs mt-1">
-                                    Projeto Pré-TCC · E.E. Nancy de Oliveira Fidalgo · EstaHack 2025
+                                    Projeto Pré-TCC · E.E. Nancy de Oliveira Fidalgo · EstaHack 2026
                                 </p>
                             </div>
                         </div>

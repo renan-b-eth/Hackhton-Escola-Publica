@@ -204,7 +204,7 @@ export function HeroSection() {
                   Soluções reais criadas dentro da escola
                 </p>
                 <p className="text-gray-300 text-sm mt-1">
-                  Projeto Pré-TCC · E.E. Nancy de Oliveira Fidalgo · EstaHack 2025
+                  Projeto Pré-TCC · E.E. Nancy de Oliveira Fidalgo · EstaHack 2026
                 </p>
               </div>
             </div>

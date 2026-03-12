@@ -68,7 +68,7 @@ export function EscolaPionheiraSection() {
 
                 <p className="text-gray-300 text-lg mb-6 leading-relaxed max-w-2xl">
                   Uma escola estadual comprometida com a excelência educacional e inovação.
-                  E.E. Nancy de Oliveira Fidalgo abre suas portas para o EstaHack 2025,
+                  E.E. Nancy de Oliveira Fidalgo abre suas portas para o EstaHack 2026,
                   trazendo oportunidades de aprendizado prático e desenvolvimento de competências
                   tecnológicas para seus alunos.
                 </p>

@@ -67,7 +67,7 @@ export function HeroSection() {
                 <span className="text-white">EstaHack</span>
                 <div className="relative w-24 h-24 sm:w-28 sm:h-28 flex-shrink-0">
                   <Image
-                    src="/logoestahack.jpeg"
+                    src="/logoestahack.png"
                     alt="Logo EstaHack"
                     fill
                     className="object-contain"

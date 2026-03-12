@@ -10,7 +10,8 @@ const navLinks = [
   { label: "Sobre", href: "#autoridade" },
   { label: "Como Funciona", href: "#como-funciona" },
   { label: "Desafio", href: "#desafio" },
-  { label: "Ecossistema", href: "#ecossistema" },
+  { label: "Metodologia", href: "#metodologia" },
+  { label: "Regulamento", href: "#regulamento" },
   { label: "Organizadores", href: "#organizadores" },
   { label: "Patrocínio", href: "#patrocinadores" },
 ];

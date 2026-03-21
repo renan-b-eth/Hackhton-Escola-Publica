@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/sections/navbar";
 import { HeroSection } from "@/components/sections/hero";
+import { BannerEventoSection } from "@/components/sections/banner-evento";
 import { TrilhasSection } from "@/components/sections/trilhas";
 import { CronogramaSection } from "@/components/sections/cronograma";
 import { HowItWorksSection } from "@/components/sections/how-it-works";
@@ -9,11 +10,13 @@ import { MentoresSection } from "@/components/sections/mentores";
 import { PremiacaoSection } from "@/components/sections/premiacao";
 import { TeamSection } from "@/components/sections/team";
 import { ProjectsResultsSection } from "@/components/sections/projects-results";
+import { VideoBannerSection } from "@/components/sections/video-banner";
 import { AuthoritySection } from "@/components/sections/authority";
 import { EcosystemSection } from "@/components/sections/ecosystem";
 import { EscolaPionheiraSection } from "@/components/sections/escola-pioneira";
 import { SponsorsSection } from "@/components/sections/sponsors";
 import { RegulamentoSection } from "@/components/sections/regulamento";
+import { FormsSection } from "@/components/sections/forms";
 import { FooterSection } from "@/components/sections/footer";
 
 export default function Home() {
@@ -21,6 +24,7 @@ export default function Home() {
     <main className="relative">
       <Navbar />
       <HeroSection />
+      <BannerEventoSection />
       <TrilhasSection />
       <CronogramaSection />
       <HowItWorksSection />
@@ -30,11 +34,13 @@ export default function Home() {
       <PremiacaoSection />
       <TeamSection />
       <ProjectsResultsSection />
+      <VideoBannerSection />
       <AuthoritySection />
       <EcosystemSection />
       <EscolaPionheiraSection />
       <SponsorsSection />
       <RegulamentoSection />
+      <FormsSection />
       <FooterSection />
     </main>
   );

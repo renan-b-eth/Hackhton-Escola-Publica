@@ -179,7 +179,7 @@ const dias = [
       {
         horario: "14:00 – 15:30",
         titulo: "Cerimônia de Premiação & Encerramento",
-        descricao: "Anúncio dos vencedores, entrega de prêmios e certificados. Encerramento oficial do EstaHack 2027.",
+        descricao: "Anúncio dos vencedores, entrega de prêmios e certificados. Encerramento oficial do EstaHack 2026.",
         icone: Trophy,
         destaque: true,
       },

@@ -37,31 +37,31 @@ const regras = [
 const cronograma = [
   {
     fase: "Lançamento do Edital",
-    periodo: "15 de Janeiro, 2027",
+    periodo: "15 de Janeiro, 2026",
     descricao: "Publicação das regras oficiais e abertura para novas escolas",
     status: "Concluído",
   },
   {
     fase: "Inscrição de Equipes",
-    periodo: "Fevereiro, 2027",
+    periodo: "Fevereiro, 2026",
     descricao: "Escolas e equipes fazem inscrição no portal oficial",
     status: "Em andamento",
   },
   {
     fase: "Capacitação & Workshops",
-    periodo: "Março - Abril, 2027",
+    periodo: "Março - Abril, 2026",
     descricao: "Mentoria técnica e treinamentos de pitch",
     status: "Em breve",
   },
   {
     fase: "Hackathon Presencial",
-    periodo: "15-16 de Maio, 2027",
+    periodo: "15-16 de Maio, 2026",
     descricao: "36 horas de maratona intensiva na E.E. Nancy",
     status: "Em breve",
   },
   {
     fase: "Demo Day & Premiação",
-    periodo: "22 de Maio, 2027",
+    periodo: "22 de Maio, 2026",
     descricao: "Grande final com banca de especialistas",
     status: "Em breve",
   },
@@ -233,7 +233,7 @@ export function RegulamentoSection() {
             <div className="flex items-center gap-3 mb-8">
               <Clock className="w-6 h-6 text-neon-pink" />
               <h3 className="text-2xl font-bold text-white">
-                Ciclo EstaHack 2027
+                Ciclo EstaHack 2026
               </h3>
             </div>
 

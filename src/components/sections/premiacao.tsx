@@ -9,16 +9,14 @@ const premios = [
     titulo: "Grand Champion",
     icone: Trophy,
     cor: "from-yellow-400 to-amber-500",
-    glow: "yellow-400",
     premiosAlunos: [
-      "Bolsa de estudos de 50% na FIAP (graduação ou pós)",
-      "Notebook Dell Inspiron 15 para cada membro do time",
-      "Certificado internacional Rendey LLC (USA)",
-      "Mentoria exclusiva de 3 meses com profissionais do mercado",
+      "Premiação em breve",
+      "Certificado de Excelência Técnica",
+      "Mentoria exclusiva com os organizadores",
     ],
     premiosEscola: [
-      "Laboratório de tecnologia equipado (10 estações)",
-      "Licença anual da plataforma Rendey Class para a escola",
+      "Reconhecimento Institucional",
+      "Destaque em Inovação Tecnológica",
     ],
     badge: "🏆 Grand Champion",
   },
@@ -27,16 +25,13 @@ const premios = [
     titulo: "Vice-Campeão",
     icone: Medal,
     cor: "from-gray-300 to-gray-400",
-    glow: "gray-300",
     premiosAlunos: [
-      "Bolsa de estudos de 30% na FIAP (graduação ou pós)",
-      "Kit maker (Arduino + sensores) para cada membro",
-      "Certificado internacional Rendey LLC (USA)",
-      "Mentoria de 1 mês com profissionais do mercado",
+      "Premiação em breve",
+      "Certificado de Participação Destaque",
+      "Mentoria com os organizadores",
     ],
     premiosEscola: [
-      "Kit de robótica educacional completo",
-      "Licença semestral da plataforma Rendey Class",
+      "Certificação de Escola Inovadora",
     ],
     badge: "🥈 Vice-Campeão",
   },
@@ -45,15 +40,12 @@ const premios = [
     titulo: "Terceiro Lugar",
     icone: Award,
     cor: "from-amber-600 to-amber-700",
-    glow: "amber-600",
     premiosAlunos: [
-      "Bolsa de estudos de 20% na FIAP (graduação ou pós)",
-      "Vale-compras de R$500 em cursos online para cada membro",
-      "Certificado internacional Rendey LLC (USA)",
+      "Premiação em breve",
+      "Certificado de Participação",
     ],
     premiosEscola: [
-      "Kit de eletrônica básica",
-      "Licença trimestral da plataforma Rendey Class",
+      "Menção Honrosa",
     ],
     badge: "🥉 Terceiro Lugar",
   },
@@ -64,28 +56,28 @@ const premiosEspeciais = [
     titulo: "Melhor Pitch",
     descricao: "Para a equipe com a apresentação mais clara, envolvente e persuasiva.",
     icone: Star,
-    premio: "Vale-compras R$300 + Mentoria de Pitch",
+    premio: "Em breve",
     cor: "from-neon-blue to-cyan-400",
   },
   {
     titulo: "Inovação Social",
     descricao: "Para o projeto com maior potencial de impacto positivo na comunidade escolar.",
     icone: Sparkles,
-    premio: "Vale-compras R$300 + Incubação",
+    premio: "Em breve",
     cor: "from-neon-purple to-pink-400",
   },
   {
     titulo: "Melhor Uso de IA",
     descricao: "Para a solução que utiliza inteligência artificial de forma mais criativa e eficaz.",
     icone: Laptop,
-    premio: "Vale-compras R$300 + API Credits",
+    premio: "Em breve",
     cor: "from-emerald-400 to-teal-400",
   },
   {
     titulo: "Escola Destaque",
     descricao: "Para a instituição com maior engajamento e participação de alunos no evento.",
     icone: GraduationCap,
-    premio: "Kit Robótica + Certificação",
+    premio: "Em breve",
     cor: "from-amber-400 to-orange-400",
   },
 ];
@@ -111,12 +103,11 @@ export function PremiacaoSection() {
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-3">
             Premiação{" "}
             <span className="bg-gradient-to-r from-yellow-400 to-amber-500 bg-clip-text text-transparent">
-              EstaHack 2027
+              EstaHack 2026
             </span>
           </h2>
           <p className="text-gray-400 mt-4 max-w-2xl mx-auto text-lg">
-            Mais de R$15.000 em prêmios para estudantes e escolas.
-            Bolsas de estudo, equipamentos e oportunidades reais no mercado.
+            Reconhecimento para estudantes e escolas que se destacarem na maratona de inovação.
           </p>
         </motion.div>
 
@@ -254,7 +245,7 @@ export function PremiacaoSection() {
               Todos os Participantes Recebem
             </h3>
             <p className="text-gray-400 max-w-xl mx-auto mb-6">
-              Além dos prêmios principais, todos os participantes do EstaHack 2027 recebem:
+              Além dos prêmios principais, todos os participantes do EstaHack 2026 recebem:
             </p>
             <div className="flex flex-wrap gap-3 justify-center">
               {[

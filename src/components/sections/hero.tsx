@@ -15,8 +15,8 @@ function CountdownTimer() {
   });
 
   useEffect(() => {
-    // Event date: May 15, 2027
-    const eventDate = new Date("2027-05-15T08:00:00-03:00");
+    // Event date: May 15, 2026
+    const eventDate = new Date("2026-05-15T08:00:00-03:00");
 
     const calculateTimeLeft = () => {
       const now = new Date();
@@ -207,7 +207,7 @@ export function HeroSection() {
             >
               <div className="flex items-center gap-2 text-gray-400 text-sm">
                 <Calendar className="w-4 h-4 text-neon-blue" />
-                <span>15–17 de Maio, 2027</span>
+                <span>15–17 de Maio, 2026</span>
               </div>
               <div className="flex items-center gap-2 text-gray-400 text-sm">
                 <MapPin className="w-4 h-4 text-neon-purple" />

@@ -8,7 +8,7 @@ const pastProjects = [
     name: "EndoFlow",
     area: "Saúde / IA",
     desc: "Diagnóstico precoce de endometriose usando IA e processamento de linguagem natural.",
-    students: ["Ana Silva", "Bia Santos", "Carla Oliveira"],
+    students: ["Renan Santos", "Lucas Feliciano", "Yuki Tanaka"],
     impact: "3º Lugar no InovaHC 2025",
     icon: Stethoscope,
     color: "from-rose-500 to-pink-600",
@@ -17,7 +17,7 @@ const pastProjects = [
     name: "Libras Flow",
     area: "Educação / Acessibilidade",
     desc: "Plataforma de tradução em tempo real de Português para Libras usando Visão Computacional.",
-    students: ["Lucas Feliciano", "Gabriel Souza", "Matheus Lima"],
+    students: ["Lucas Feliciano", "Renan Santos", "Yuki Tanaka"],
     impact: "Top 10 Global Microsoft Imagine Cup",
     icon: GraduationCap,
     color: "from-neon-blue to-cyan-500",
@@ -26,16 +26,16 @@ const pastProjects = [
     name: "EcoMonitor",
     area: "Meio Ambiente / IoT",
     desc: "Monitoramento de qualidade do ar em escolas usando sensores de baixo custo e dashboards reais.",
-    students: ["Julia Costa", "Felipe Rocha", "Pedro Alves"],
-    impact: "Projeto Implementado na Escola",
+    students: ["Renan Santos", "Lucas Feliciano"],
+    impact: "Projeto de Referência Rendey",
     icon: Leaf,
     color: "from-emerald-500 to-teal-600",
   },
   {
     name: "AssistVision",
-    area: "Acessibilidade",
+    area: "Acessibilidade / IA",
     desc: "IA assistiva rodando em microcontroladores para auxílio de pessoas cegas.",
-    students: ["Ricardo M.", "Tiago J.", "Sérgio P."],
+    students: ["Renan Santos", "Lucas Feliciano", "Yuki Tanaka"],
     impact: "Destaque Hackathon Microsoft 2026",
     icon: Code2,
     color: "from-amber-500 to-orange-600",
@@ -48,7 +48,7 @@ export function ProjectsResultsSection() {
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-neon-blue/[0.02] to-transparent" />
 
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6">
-        {/* Header 2026 Results */}
+        {/* Header - Reference Projects */}
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
@@ -58,27 +58,27 @@ export function ProjectsResultsSection() {
         >
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neon-blue/10 border border-neon-blue/20 text-neon-blue text-xs font-bold uppercase tracking-wider mb-4">
             <Award className="w-3.5 h-3.5" />
-            Legado EstaHack 2026
+            Inspiração & Referência
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-3">
-            Resultados &{" "}
+            Projetos dos{" "}
             <span className="bg-gradient-to-r from-neon-blue to-neon-purple bg-clip-text text-transparent">
-              Projetos de Impacto
+              Mentores & Organizadores
             </span>
           </h2>
           <p className="text-gray-400 mt-4 max-w-2xl mx-auto text-lg">
-            No último ciclo, transformamos ideias em soluções reais que ganharam o mundo. 
-            Conheça alguns dos projetos desenvolvidos pelos nossos alunos.
+            Conheça algumas das soluções desenvolvidas pelos nossos organizadores em maratonas globais. 
+            Elas servem como base e inspiração para o que você pode criar no EstaHack.
           </p>
         </motion.div>
 
-        {/* Stats 2026 */}
+        {/* Stats - Impact of Mentors */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-20">
             {[
-                { label: "Projetos Criados", value: "12" },
-                { label: "Alunos Participantes", value: "48" },
-                { label: "Prêmios Externos", value: "4" },
-                { label: "IPs Registradas", value: "12" },
+                { label: "Hackathons Vencidos", value: "15+" },
+                { label: "Projetos de Referência", value: "20+" },
+                { label: "Anos de Experiência", value: "8+" },
+                { label: "IPs Registradas", value: "10+" },
             ].map((stat, i) => (
                 <motion.div
                     key={i}
@@ -129,7 +129,7 @@ export function ProjectsResultsSection() {
                   <div className="pt-4 border-t border-white/5">
                     <div className="flex items-center gap-2 mb-2">
                       <Users className="w-3.5 h-3.5 text-gray-500" />
-                      <span className="text-[10px] text-gray-500 font-bold uppercase tracking-wider">Time</span>
+                      <span className="text-[10px] text-gray-500 font-bold uppercase tracking-wider">Líderes do Projeto</span>
                     </div>
                     <p className="text-gray-300 text-xs font-medium">
                       {project.students.join(", ")}

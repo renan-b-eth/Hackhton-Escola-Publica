@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Linkedin, Award, Briefcase, GraduationCap, Brain, Database, Shield, Code2, Rocket, Globe, Building2, Cpu, Stethoscope, Mic2, Medal, Lightbulb, Zap, BarChart3, Coins, HeartPulse, Leaf, ShieldCheck } from "lucide-react";
+import { Linkedin, Award, Briefcase, Rocket, Globe, Building2, Cpu, Stethoscope, Mic2, Medal, Zap, BarChart3, Coins, HeartPulse, Leaf, ShieldCheck, Trophy } from "lucide-react";
 import Image from "next/image";
 
 type HackItem = {

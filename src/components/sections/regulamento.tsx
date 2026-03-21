@@ -36,29 +36,34 @@ const regras = [
 
 const cronograma = [
   {
+    fase: "Lançamento do Edital",
+    periodo: "15 de Janeiro, 2027",
+    descricao: "Publicação das regras oficiais e abertura para novas escolas",
+    status: "Concluído",
+  },
+  {
     fase: "Inscrição de Equipes",
-    periodo: "Janeiro - Fevereiro",
-    descricao: "Escolas e equipes fazem inscrição",
+    periodo: "Fevereiro, 2027",
+    descricao: "Escolas e equipes fazem inscrição no portal oficial",
+    status: "Em andamento",
   },
   {
-    fase: "Capacitação",
-    periodo: "Fevereiro",
-    descricao: "Workshops com mentores sobre desenvolvimento e pitch",
+    fase: "Capacitação & Workshops",
+    periodo: "Março - Abril, 2027",
+    descricao: "Mentoria técnica e treinamentos de pitch",
+    status: "Em breve",
   },
   {
-    fase: "Hackathon",
-    periodo: "Março (36 horas)",
-    descricao: "Maratona de desenvolvimento na Nancy de Oliveira Fidalgo",
+    fase: "Hackathon Presencial",
+    periodo: "15-16 de Maio, 2027",
+    descricao: "36 horas de maratona intensiva na E.E. Nancy",
+    status: "Em breve",
   },
   {
-    fase: "Demo Day",
-    periodo: "Março",
-    descricao: "Apresentação de projetos e premiação",
-  },
-  {
-    fase: "Registro de IP",
-    periodo: "Pós-evento",
-    descricao: "Registro dos projetos na Biblioteca Nacional",
+    fase: "Demo Day & Premiação",
+    periodo: "22 de Maio, 2027",
+    descricao: "Grande final com banca de especialistas",
+    status: "Em breve",
   },
 ];
 
@@ -228,7 +233,7 @@ export function RegulamentoSection() {
             <div className="flex items-center gap-3 mb-8">
               <Clock className="w-6 h-6 text-neon-pink" />
               <h3 className="text-2xl font-bold text-white">
-                Cronograma 2026
+                Ciclo EstaHack 2027
               </h3>
             </div>
 
@@ -236,26 +241,33 @@ export function RegulamentoSection() {
               {cronograma.map((item, i) => (
                 <motion.div
                   key={i}
-                  className="flex items-start gap-4 p-4 rounded-xl bg-white/[0.03] border border-white/5 hover:border-white/10 transition-colors"
+                  className="flex flex-col sm:flex-row sm:items-center gap-4 p-5 rounded-xl bg-white/[0.03] border border-white/5 hover:border-white/10 transition-colors"
                   initial={{ opacity: 0, x: -10 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.5 + i * 0.08, duration: 0.4 }}
                 >
-                  <div className="flex-shrink-0">
-                    <div className="flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-r from-neon-pink to-neon-purple">
-                      <span className="text-white font-bold text-sm">
-                        {i + 1}
-                      </span>
+                  <div className="flex-shrink-0 flex items-center gap-4">
+                    <div className="flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-r from-neon-pink to-neon-purple text-white font-bold text-xs">
+                      {i + 1}
                     </div>
                   </div>
 
                   <div className="flex-1 min-w-0">
-                    <h4 className="text-white font-bold mb-1">{item.fase}</h4>
-                    <p className="text-neon-pink text-sm font-semibold mb-1">
+                    <div className="flex flex-wrap items-center gap-2 mb-1">
+                      <h4 className="text-white font-bold">{item.fase}</h4>
+                      <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-widest ${
+                        item.status === "Concluído" ? "bg-emerald-500/10 text-emerald-400 border border-emerald-500/20" :
+                        item.status === "Em andamento" ? "bg-amber-500/10 text-amber-400 border border-amber-500/20" :
+                        "bg-white/5 text-gray-500 border border-white/10"
+                      }`}>
+                        {item.status}
+                      </span>
+                    </div>
+                    <p className="text-neon-pink text-xs font-semibold mb-1">
                       {item.periodo}
                     </p>
-                    <p className="text-gray-400 text-sm">{item.descricao}</p>
+                    <p className="text-gray-400 text-sm leading-relaxed">{item.descricao}</p>
                   </div>
                 </motion.div>
               ))}

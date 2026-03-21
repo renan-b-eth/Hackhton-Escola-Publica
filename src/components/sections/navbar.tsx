@@ -7,11 +7,11 @@ import Image from "next/image";
 
 const navLinks = [
   { label: "Início", href: "#" },
-  { label: "Sobre", href: "#autoridade" },
+  { label: "Trilhas", href: "#trilhas" },
+  { label: "Cronograma", href: "#cronograma" },
   { label: "Como Funciona", href: "#como-funciona" },
-  { label: "Desafio", href: "#desafio" },
-  { label: "Metodologia", href: "#metodologia" },
-  { label: "Regulamento", href: "#regulamento" },
+  { label: "Mentores", href: "#mentores" },
+  { label: "Premiação", href: "#premiacao" },
   { label: "Organizadores", href: "#organizadores" },
   { label: "Patrocínio", href: "#patrocinadores" },
 ];
@@ -39,31 +39,35 @@ export function Navbar() {
   return (
     <>
       <motion.nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
-          ? "bg-black/80 backdrop-blur-xl border-b border-white/5"
-          : "bg-transparent"
-          }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          scrolled
+            ? "bg-black/80 backdrop-blur-xl border-b border-white/5"
+            : "bg-transparent"
+        }`}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
       >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
           {/* Logo */}
-          <button onClick={() => handleNavClick("#")} className="flex items-center gap-3 group">
+          <button
+            onClick={() => handleNavClick("#")}
+            className="flex items-center gap-3 group"
+          >
             <div className="relative flex items-center gap-2">
               {/* Logo EstaHack */}
               <div className="relative w-8 h-8 flex-shrink-0">
                 <Image
                   src="/logoestahack.png"
-                  alt="Logo EstaHack"
+                  alt="EstaHack"
                   fill
                   className="object-contain"
                   sizes="32px"
                 />
               </div>
-              
+
               {/* Divider */}
-              <div className="w-px h-6 bg-white/10"></div>
+              <div className="w-px h-6 bg-white/10" />
 
               {/* Logo Nancy */}
               <div className="relative w-8 h-8 flex-shrink-0">
@@ -87,7 +91,7 @@ export function Navbar() {
           </button>
 
           {/* Desktop links */}
-          <div className="hidden md:flex items-center gap-1">
+          <div className="hidden lg:flex items-center gap-1">
             {navLinks.map((link) => (
               <button
                 key={link.label}
@@ -99,14 +103,23 @@ export function Navbar() {
             ))}
           </div>
 
+          {/* CTA Button (Desktop) */}
+          <div className="hidden lg:block">
+            <button
+              onClick={() => handleNavClick("#inscricao")}
+              className="px-4 py-2 text-sm font-semibold rounded-lg bg-gradient-to-r from-neon-blue to-neon-purple text-white hover:shadow-lg hover:shadow-neon-blue/25 transition-all"
+            >
+              Inscreva-se
+            </button>
+          </div>
 
-          {/* Mobile toggle */}
+          {/* Mobile menu button */}
           <button
-            className="md:hidden p-2 text-gray-400 hover:text-white"
             onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label="Toggle menu"
+            className="lg:hidden p-2 text-gray-400 hover:text-white transition-colors"
+            aria-label="Menu"
           >
-            {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
       </motion.nav>
@@ -115,26 +128,50 @@ export function Navbar() {
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            className="fixed inset-0 z-40 bg-black/95 backdrop-blur-xl pt-20 px-6"
+            className="fixed inset-0 z-40 lg:hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
           >
-            <div className="flex flex-col gap-2">
-              {navLinks.map((link, i) => (
+            {/* Backdrop */}
+            <div
+              className="absolute inset-0 bg-black/80 backdrop-blur-sm"
+              onClick={() => setMobileOpen(false)}
+            />
+
+            {/* Menu panel */}
+            <motion.div
+              className="absolute top-16 left-0 right-0 bg-gray-900/95 backdrop-blur-xl border-b border-white/5"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.2 }}
+            >
+              <div className="max-w-6xl mx-auto px-4 py-6 space-y-1">
+                {navLinks.map((link, i) => (
+                  <motion.button
+                    key={link.label}
+                    onClick={() => handleNavClick(link.href)}
+                    className="w-full text-left px-4 py-3 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors"
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.05, duration: 0.2 }}
+                  >
+                    {link.label}
+                  </motion.button>
+                ))}
                 <motion.button
-                  key={link.label}
-                  onClick={() => handleNavClick(link.href)}
-                  className="text-xl text-gray-300 hover:text-white py-3 border-b border-white/5 transition-colors text-left"
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.05 }}
+                  onClick={() => handleNavClick("#inscricao")}
+                  className="w-full mt-4 px-4 py-3 text-center font-semibold rounded-lg bg-gradient-to-r from-neon-blue to-neon-purple text-white"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3, duration: 0.2 }}
                 >
-                  {link.label}
+                  Inscreva-se Agora
                 </motion.button>
-              ))}
-            </div>
+              </div>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

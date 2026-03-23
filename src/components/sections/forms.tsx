@@ -2,9 +2,6 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Select } from "@/components/ui/select";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -93,7 +90,7 @@ function inputClass() {
 }
 
 function MentorForm() {
-  const [status, setStatus] = useState<"idle"|"loading"|"success"|"error">("idle");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const { register, handleSubmit, formState: { errors }, reset } = useForm<MentorData>({
     resolver: zodResolver(mentorSchema),
   });
@@ -162,7 +159,7 @@ function SponsorForm() {
 }
 
 function SchoolForm() {
-  const [status, setStatus] = useState<"idle"|"loading"|"success"|"error">("idle");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const { register, handleSubmit, formState: { errors }, reset } = useForm<SchoolData>({
     resolver: zodResolver(schoolSchema),
   });
@@ -261,11 +258,10 @@ export function FormsSection() {
                 <button
                   key={t.id}
                   onClick={() => setTab(t.id)}
-                  className={`flex-1 py-4 font-sans text-[10px] uppercase tracking-[0.18em] font-semibold transition-colors ${
-                    tab === t.id
+                  className={`flex-1 py-4 font-sans text-[10px] uppercase tracking-[0.18em] font-semibold transition-colors ${tab === t.id
                       ? "text-editorial border-b-2 border-rouge -mb-px"
                       : "text-stone hover:text-editorial"
-                  }`}
+                    }`}
                 >
                   {t.label}
                 </button>

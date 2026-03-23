@@ -1,18 +1,14 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
 import Image from "next/image";
 
 const navLinks = [
-  { label: "Início", href: "#" },
-  { label: "Trilhas", href: "#trilhas" },
+  { label: "Desafios", href: "#trilhas" },
   { label: "Cronograma", href: "#cronograma" },
   { label: "Como Funciona", href: "#como-funciona" },
   { label: "Mentores", href: "#mentores" },
   { label: "Premiação", href: "#premiacao" },
-  { label: "Organizadores", href: "#organizadores" },
   { label: "Patrocínio", href: "#patrocinadores" },
 ];
 
@@ -21,7 +17,7 @@ export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
+    const handleScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -38,143 +34,128 @@ export function Navbar() {
 
   return (
     <>
-      <motion.nav
+      <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
-            ? "bg-black/80 backdrop-blur-xl border-b border-white/5"
+            ? "bg-editorial border-b border-hairline"
             : "bg-transparent"
         }`}
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.5 }}
       >
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
+        <div className="max-w-6xl mx-auto px-5 sm:px-6 flex items-center justify-between h-14">
           {/* Logo */}
           <button
             onClick={() => handleNavClick("#")}
-            className="flex items-center gap-3 group"
+            className="flex items-center gap-2.5 group"
           >
-            <div className="relative flex items-center gap-2">
-              {/* Logo EstaHack */}
-              <div className="relative w-8 h-8 flex-shrink-0">
-                <Image
-                  src="/logoestahack.png"
-                  alt="EstaHack"
-                  fill
-                  className="object-contain"
-                  sizes="32px"
-                />
-              </div>
-
-              {/* Divider */}
-              <div className="w-px h-6 bg-white/10" />
-
-              {/* Logo Nancy */}
-              <div className="relative w-8 h-8 flex-shrink-0">
-                <Image
-                  src="/logo-nancy.png"
-                  alt="E.E. Nancy de Oliveira Fidalgo"
-                  fill
-                  className="object-contain rounded"
-                  sizes="32px"
-                />
-              </div>
+            <div className="relative w-7 h-7 flex-shrink-0">
+              <Image
+                src="/logoestahack.png"
+                alt="EstaHack"
+                fill
+                className="object-contain"
+                sizes="28px"
+              />
             </div>
-            <div className="hidden sm:block text-left">
-              <span className="font-bold text-white text-sm leading-tight block">
+            <div className="text-left">
+              <span className="font-display font-bold text-ink text-sm leading-none block">
                 EstaHack
               </span>
-              <span className="text-[10px] text-gray-500 leading-tight block">
-                E.E. Nancy de Oliveira Fidalgo
+              <span className="font-sans text-[9px] text-stone uppercase tracking-widest leading-none block mt-0.5">
+                E.E. Nancy · São Paulo
               </span>
             </div>
           </button>
 
           {/* Desktop links */}
-          <div className="hidden lg:flex items-center gap-1">
+          <div className="hidden lg:flex items-center gap-6">
             {navLinks.map((link) => (
               <button
                 key={link.label}
                 onClick={() => handleNavClick(link.href)}
-                className="px-3 py-2 text-sm text-gray-400 hover:text-white transition-colors rounded-md hover:bg-white/5"
+                className="font-sans text-[10px] uppercase tracking-[0.18em] text-stone hover:text-ink transition-colors"
               >
                 {link.label}
               </button>
             ))}
           </div>
 
-          {/* CTA Button (Desktop) */}
-          <div className="hidden lg:block">
+          {/* CTA */}
+          <div className="hidden lg:flex items-center gap-3">
+            <button
+              onClick={() => handleNavClick("#patrocinadores")}
+              className="font-sans text-[10px] uppercase tracking-[0.18em] text-stone hover:text-ink transition-colors"
+            >
+              Apoiar
+            </button>
             <button
               onClick={() => handleNavClick("#inscricao")}
-              className="px-4 py-2 text-sm font-semibold rounded-lg bg-gradient-to-r from-neon-blue to-neon-purple text-white hover:shadow-lg hover:shadow-neon-blue/25 transition-all"
+              className="bg-rouge text-white font-sans text-[10px] uppercase tracking-[0.18em] font-semibold px-4 py-2.5 hover:bg-rouge-deep transition-colors"
             >
               Inscreva-se
             </button>
           </div>
 
-          {/* Mobile menu button */}
+          {/* Mobile button */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="lg:hidden p-2 text-gray-400 hover:text-white transition-colors"
+            className="lg:hidden w-8 h-8 flex flex-col items-center justify-center gap-1.5 group"
             aria-label="Menu"
           >
-            {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            <span
+              className={`block h-px w-5 bg-ink transition-all duration-200 ${
+                mobileOpen ? "rotate-45 translate-y-[3px]" : ""
+              }`}
+            />
+            <span
+              className={`block h-px w-5 bg-ink transition-all duration-200 ${
+                mobileOpen ? "opacity-0" : ""
+              }`}
+            />
+            <span
+              className={`block h-px w-5 bg-ink transition-all duration-200 ${
+                mobileOpen ? "-rotate-45 -translate-y-[3px]" : ""
+              }`}
+            />
           </button>
         </div>
-      </motion.nav>
+      </nav>
 
       {/* Mobile menu */}
-      <AnimatePresence>
-        {mobileOpen && (
-          <motion.div
-            className="fixed inset-0 z-40 lg:hidden"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-          >
-            {/* Backdrop */}
-            <div
-              className="absolute inset-0 bg-black/80 backdrop-blur-sm"
-              onClick={() => setMobileOpen(false)}
-            />
-
-            {/* Menu panel */}
-            <motion.div
-              className="absolute top-16 left-0 right-0 bg-gray-900/95 backdrop-blur-xl border-b border-white/5"
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.2 }}
-            >
-              <div className="max-w-6xl mx-auto px-4 py-6 space-y-1">
-                {navLinks.map((link, i) => (
-                  <motion.button
-                    key={link.label}
-                    onClick={() => handleNavClick(link.href)}
-                    className="w-full text-left px-4 py-3 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors"
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.05, duration: 0.2 }}
-                  >
-                    {link.label}
-                  </motion.button>
-                ))}
-                <motion.button
-                  onClick={() => handleNavClick("#inscricao")}
-                  className="w-full mt-4 px-4 py-3 text-center font-semibold rounded-lg bg-gradient-to-r from-neon-blue to-neon-purple text-white"
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3, duration: 0.2 }}
+      {mobileOpen && (
+        <div className="fixed inset-0 z-40 lg:hidden">
+          <div
+            className="absolute inset-0 bg-ink/60"
+            onClick={() => setMobileOpen(false)}
+          />
+          <div className="absolute top-14 left-0 right-0 bg-editorial border-b border-hairline">
+            <div className="max-w-6xl mx-auto px-5 py-8 space-y-1">
+              {navLinks.map((link) => (
+                <button
+                  key={link.label}
+                  onClick={() => handleNavClick(link.href)}
+                  className="w-full text-left py-3 font-sans text-xs uppercase tracking-[0.2em] text-stone hover:text-ink border-b border-hairline transition-colors"
                 >
-                  Inscreva-se Agora
-                </motion.button>
+                  {link.label}
+                </button>
+              ))}
+              <div className="pt-6 flex flex-col gap-3">
+                <button
+                  onClick={() => handleNavClick("#inscricao")}
+                  className="w-full bg-rouge text-white font-sans text-xs uppercase tracking-[0.18em] font-semibold py-4 hover:bg-rouge-deep transition-colors"
+                >
+                  Inscreva-se
+                </button>
+                <button
+                  onClick={() => handleNavClick("#patrocinadores")}
+                  className="w-full border border-ink text-ink font-sans text-xs uppercase tracking-[0.18em] font-semibold py-4 hover:bg-ink hover:text-editorial transition-colors"
+                >
+                  Apoiar o EstaHack
+                </button>
               </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }

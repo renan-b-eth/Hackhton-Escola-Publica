@@ -1,237 +1,151 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Heart, Eye, Code2, Award, TrendingUp, Users, Star } from "lucide-react";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 
-const benefits = [
-  {
-    icon: Heart,
-    title: "Impacto Social Real (ESG)",
-    description:
-      "Associe sua marca a uma causa transformadora. Contribua diretamente para a inclusão digital e o desenvolvimento de jovens talentos da rede pública.",
-  },
-  {
-    icon: Eye,
-    title: "Brand Awareness na Nova Geração",
-    description:
-      "Posicione sua empresa como referência em inovação e responsabilidade social perante milhares de estudantes, educadores e famílias.",
-  },
-  {
-    icon: Code2,
-    title: "Acesso a Talentos Brutos",
-    description:
-      "Descubra jovens programadores, designers e empreendedores antes do mercado. Construa um pipeline de talentos direto da fonte.",
-  },
-  {
-    icon: Award,
-    title: "Certificação Internacional",
-    description:
-      "Selo de parceiro certificado pela Rendey LLC (USA). Reconhecimento internacional pelo apoio à educação tecnológica no Brasil.",
-  },
-  {
-    icon: TrendingUp,
-    title: "ROI Social Mensurável",
-    description:
-      "Relatórios detalhados de impacto com métricas reais: alunos impactados, projetos criados e habilidades desenvolvidas.",
-  },
-  {
-    icon: Users,
-    title: "Networking Estratégico",
-    description:
-      "Conecte-se com outros patrocinadores, mentores e líderes educacionais em um ecossistema de inovação social.",
-  },
+const SPONSOR_FORM = "https://forms.gle/d6qBswpQHPAw918n6";
+
+const beneficios = [
+  "Associação a uma causa de impacto social real (ESG)",
+  "Visibilidade para alunos, educadores e famílias",
+  "Acesso a jovens talentos antes do mercado",
+  "Certificação de parceiro pela Rendey LLC (USA)",
+  "Relatórios de impacto com métricas reais",
+  "Networking com líderes educacionais e tecnológicos",
 ];
 
 export function SponsorsSection() {
   return (
-    <section id="patrocinadores" className="relative py-24 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-neon-purple/5 to-transparent" />
+    <section id="patrocinadores" className="section-light relative py-20 sm:py-28">
+      <div className="max-w-6xl mx-auto px-5 sm:px-6">
 
-      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6">
-        {/* Patrocinadores Master */}
-        <motion.div
-          className="text-center mb-20"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <span className="text-neon-pink text-sm font-semibold tracking-widest uppercase">
-            Apoiadores Estratégicos
-          </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-3">
-            Patrocinadores
-            <span className="bg-gradient-to-r from-neon-blue to-neon-purple bg-clip-text text-transparent"> Master</span>
-          </h2>
-        </motion.div>
-
-        {/* Master Sponsor Card */}
-        <div className="mb-20">
-          <motion.div
-            className="relative group"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+        {/* Cabeçalho — Jornada B: apoio */}
+        <div className="flex items-end justify-between mb-2">
+          <motion.p
+            className="kicker"
+            initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
+            viewport={{ once: true }} transition={{ duration: 0.4 }}
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-neon-blue/20 via-neon-purple/20 to-neon-pink/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            
-            <div className="relative p-8 rounded-3xl bg-gradient-to-br from-gray-900/80 to-gray-900/40 border border-white/10 hover:border-white/20 transition-all">
-              <div className="flex flex-col lg:flex-row items-center gap-8">
-                {/* Logo */}
-                <div className="flex-shrink-0 w-32 h-32 sm:w-40 sm:h-40 lg:w-48 lg:h-48 rounded-2xl bg-white p-6 flex items-center justify-center">
-                  <Image
-                    src="/fiap.png"
-                    alt="FIAP Logo"
-                    width={200}
-                    height={200}
-                    className="object-contain max-w-full max-h-full"
-                  />
-                </div>
-
-                {/* Info */}
-                <div className="flex-1 text-center lg:text-left">
-                  <div className="flex items-center gap-2 justify-center lg:justify-start mb-3">
-                    <Star className="w-6 h-6 text-neon-pink fill-neon-pink" />
-                    <span className="text-sm font-bold text-neon-pink uppercase tracking-widest">
-                      Patrocinador Principal
-                    </span>
-                  </div>
-                  
-                  <h3 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-                    FIAP
-                  </h3>
-                  
-                  <p className="text-gray-300 text-lg mb-6 leading-relaxed max-w-2xl">
-                    A FIAP é uma instituição de ensino superior focada em {" "}
-                    <span className="text-white font-semibold">Tecnologia, Inovação e Negócios</span>. 
-                    Oferecendo programas de graduação, pós-graduação e cursos especializados para 
-                    preparar profissionais prontos para o mercado global.
-                  </p>
-
-                  <Link
-                    href="https://www.fiap.com.br/graduacao/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-neon-blue to-neon-purple text-white font-semibold hover:shadow-lg hover:shadow-neon-blue/50 transition-all"
-                  >
-                    Conheça os Cursos de Graduação
-                    <span>→</span>
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </motion.div>
+            Apoio & Patrocínio
+          </motion.p>
         </div>
 
-        {/* Patrocinador Estant3D */}
-        <div className="mb-20">
-          <motion.div
-            className="relative group"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="absolute inset-0 bg-gradient-to-r from-neon-blue/20 via-neon-purple/20 to-neon-pink/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            
-            <div className="relative p-8 rounded-3xl bg-gradient-to-br from-gray-900/80 to-gray-900/40 border border-white/10 hover:border-white/20 transition-all">
-              <div className="flex flex-col lg:flex-row items-center gap-8">
-                {/* Logo */}
-                <div className="flex-shrink-0 w-32 h-32 sm:w-40 sm:h-40 lg:w-48 lg:h-48 rounded-2xl bg-white p-6 flex items-center justify-center">
-                  <Image
-                    src="/estant3d.png"
-                    alt="Estant3D Logo"
-                    width={200}
-                    height={200}
-                    className="max-w-full max-h-full object-contain"
-                  />
-                </div>
+        <div className="divider-h mb-10" />
 
-                {/* Info */}
-                <div className="flex-1 text-center lg:text-left">
-                  <span className="text-sm font-bold text-neon-blue uppercase tracking-widest">
-                    Parceiro Estratégico
-                  </span>
-                  
-                  <h3 className="text-3xl sm:text-4xl font-bold text-white mb-4 mt-2">
-                    Estant3D
-                  </h3>
-                  
-                  <p className="text-gray-300 text-lg mb-6 leading-relaxed max-w-2xl">
-                    Fundada a mais de 1 ano, a <span className="text-white font-semibold">Estant3D</span> foca em 
-                    <span className="text-white font-semibold"> prototipagem rápida, brindes corporativos, chaveiros tecnológicos 
-                    e reposição de peças de maquinários para PMEs</span>. Especializada em inovação e soluções tecnológicas 
-                    personalizadas para empresas.
-                  </p>
-
-                  <a
-                    href="https://estant3d.com.br"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-blue-500 via-purple-500 to-red-500 text-white font-semibold hover:shadow-lg hover:shadow-blue-500/50 transition-all"
-                  >
-                    Conheça a Estant3D
-                    <span>→</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-
-        {/* Benefícios Section */}
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <span className="text-neon-purple text-sm font-semibold tracking-widest uppercase">
-            Para Empresas & Patrocinadores
-          </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-3">
-            Por que{" "}
-            <span className="bg-gradient-to-r from-neon-blue to-neon-purple bg-clip-text text-transparent">
-              Apoiar?
-            </span>
-          </h2>
-          <p className="text-gray-400 mt-4 max-w-2xl mx-auto text-lg">
-            Investir na educação pública é investir no futuro do Brasil. Veja
-            como sua empresa pode fazer parte dessa revolução.
-          </p>
-        </motion.div>
-
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {benefits.map((benefit, i) => (
-            <motion.div
-              key={i}
-              className="group relative p-6 rounded-2xl bg-gray-900/60 border border-white/5 hover:border-white/15 transition-all duration-300"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1, duration: 0.5 }}
-              whileHover={{ y: -4 }}
+        <div className="grid lg:grid-cols-[1fr_360px] gap-12 lg:gap-20 items-start">
+          {/* Logo dos atuais patrocinadores */}
+          <div>
+            <motion.h2
+              className="font-display font-bold text-ink leading-tight mb-6"
+              style={{ fontSize: "clamp(1.75rem, 4vw, 3rem)" }}
+              initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }}
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-neon-blue/5 to-neon-purple/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              Esta iniciativa existe<br />
+              <span className="italic text-stone">graças a quem acredita.</span>
+            </motion.h2>
 
-              <div className="relative z-10">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-neon-blue/10 to-neon-purple/10 border border-white/10 flex items-center justify-center mb-4 group-hover:border-neon-blue/30 transition-colors">
-                  <benefit.icon className="w-6 h-6 text-neon-blue" />
+            <motion.p
+              className="font-sans text-stone text-sm leading-relaxed max-w-lg mb-10"
+              initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
+              viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              Patrocinadores que investem na educação pública estadual de São Paulo —
+              e no desenvolvimento de jovens talentos.
+            </motion.p>
+
+            {/* Logos patrocinadores */}
+            <motion.div
+              className="flex flex-wrap gap-6 items-center mb-12"
+              initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
+              viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.3 }}
+            >
+              <Link
+                href="https://www.fiap.com.br"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex flex-col gap-1.5"
+              >
+                <div className="relative h-14 w-32 border border-hairline bg-white p-2">
+                  <Image src="/fiap.png" alt="FIAP" fill className="object-contain p-1.5" sizes="128px" />
                 </div>
+                <span className="font-sans text-[9px] uppercase tracking-widest text-stone group-hover:text-ink transition-colors">
+                  Patrocinador Principal
+                </span>
+              </Link>
 
-                <h3 className="text-lg font-bold text-white mb-2">
-                  {benefit.title}
-                </h3>
-                <p className="text-gray-400 text-sm leading-relaxed">
-                  {benefit.description}
-                </p>
-              </div>
+              <Link
+                href="https://estant3d.com.br"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex flex-col gap-1.5"
+              >
+                <div className="relative h-14 w-32 border border-hairline bg-white p-2">
+                  <Image src="/estant3d.PNG" alt="Estant3D" fill className="object-contain p-1.5" sizes="128px" />
+                </div>
+                <span className="font-sans text-[9px] uppercase tracking-widest text-stone group-hover:text-ink transition-colors">
+                  Parceiro Estratégico
+                </span>
+              </Link>
             </motion.div>
-          ))}
+
+            {/* Benefícios — texto direto */}
+            <motion.div
+              initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              <p className="kicker mb-4">Por que apoiar?</p>
+              <ul className="space-y-2">
+                {beneficios.map((b, i) => (
+                  <li key={i} className="font-sans text-xs text-stone flex gap-2.5">
+                    <span className="text-rouge mt-0.5 flex-shrink-0">—</span>
+                    {b}
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          </div>
+
+          {/* CTA Jornada B — aparecer como bloco separado */}
+          <motion.div
+            className="border border-hairline p-8 flex flex-col gap-5 self-start"
+            initial={{ opacity: 0, x: 16 }} whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.3 }}
+          >
+            <div>
+              <p className="kicker mb-3">Chamada aberta</p>
+              <h3
+                className="font-display font-bold text-ink leading-tight"
+                style={{ fontSize: "clamp(1.25rem, 2.5vw, 1.75rem)" }}
+              >
+                Quero apoiar<br />o EstaHack
+              </h3>
+            </div>
+
+            <div className="divider-h" />
+
+            <div className="space-y-2.5">
+              {["Patrocínio financeiro (cotas)", "Brindes e kits para os times", "Alimentação durante o evento", "Licenças de software"].map((item, i) => (
+                <p key={i} className="font-sans text-xs text-stone">
+                  <span className="text-rouge">—</span> {item}
+                </p>
+              ))}
+            </div>
+
+            <a
+              href={SPONSOR_FORM}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="border border-ink text-ink font-sans text-xs font-semibold uppercase tracking-[0.18em] px-6 py-4 text-center hover:bg-ink hover:text-editorial transition-colors"
+            >
+              Falar com a organização →
+            </a>
+
+            <p className="font-sans text-[10px] text-stone text-center">
+              Abre o formulário de contato
+            </p>
+          </motion.div>
         </div>
       </div>
     </section>

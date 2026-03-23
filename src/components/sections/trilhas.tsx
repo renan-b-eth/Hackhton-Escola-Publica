@@ -1,209 +1,136 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Brain, BarChart3, Accessibility, ChevronRight, Users, Lightbulb, Code2 } from "lucide-react";
 
-const trilhas = [
+const desafios = [
   {
-    id: "ia-educacao",
-    icon: Brain,
-    title: "Inteligência Artificial na Educação",
-    subtitle: "Trilha Principal",
-    description:
-      "Desenvolva soluções que utilizam IA para transformar a experiência de aprendizado dentro da escola pública. Crie ferramentas inteligentes que ajudem professores e alunos a alcançar melhores resultados.",
-    desafios: [
-      "Assistente de estudos personalizado com IA",
-      "Sistema de detecção precoce de dificuldades de aprendizagem",
-      "Ferramenta de correção automática de redações",
-      "Plataforma de recomendação de conteúdo adaptativo",
-    ],
-    tecnologias: ["Python", "TensorFlow", "OpenAI API", "LangChain", "RAG"],
-    color: "from-neon-blue to-cyan-400",
-    glow: "neon-blue",
-    badge: "🔥 Mais Popular",
-    vagas: "20 vagas",
+    num: "01",
+    titulo: "Inteligência Artificial na Educação",
+    subtitulo: "Trilha Principal · 20 vagas",
+    descricao:
+      "Ferramentas que usam IA para transformar o aprendizado dentro da escola pública. Assistentes de estudo, detecção de dificuldades, correção automática.",
+    temas: ["Assistente de estudos personalizado", "Detecção precoce de dificuldades", "Correção automática de redações", "Recomendação de conteúdo adaptativo"],
+    tecnologias: "Python · TensorFlow · OpenAI API · LangChain",
   },
   {
-    id: "gestao-escolar",
-    icon: BarChart3,
-    title: "Gestão Escolar Inteligente",
-    subtitle: "Trilha Dados",
-    description:
-      "Crie dashboards e sistemas que transformem dados escolares em decisões inteligentes. Ajude gestores a otimizar recursos, melhorar o desempenho acadêmico e aumentar o engajamento da comunidade escolar.",
-    desafios: [
-      "Dashboard de acompanhamento de frequência e desempenho",
-      "Sistema de comunicação integrada com famílias",
-      "Predição de evasão escolar com machine learning",
-      "Gestão inteligente de recursos e infraestrutura",
-    ],
-    tecnologias: ["React", "Node.js", "PostgreSQL", "Chart.js", "Power BI"],
-    color: "from-neon-purple to-pink-400",
-    glow: "neon-purple",
-    badge: "📊 Dados",
-    vagas: "15 vagas",
+    num: "02",
+    titulo: "Gestão Escolar Inteligente",
+    subtitulo: "Trilha Dados · 15 vagas",
+    descricao:
+      "Dados escolares transformados em decisões. Dashboards para gestores, sistemas de comunicação com famílias, predição de evasão.",
+    temas: ["Dashboard de frequência e desempenho", "Comunicação com famílias", "Predição de evasão escolar", "Gestão de recursos e infraestrutura"],
+    tecnologias: "React · Node.js · PostgreSQL · Chart.js",
   },
   {
-    id: "inclusao-digital",
-    icon: Accessibility,
-    title: "Inclusão Digital & Acessibilidade",
-    subtitle: "Trilha Impacto",
-    description:
-      "Desenvolva tecnologias assistivas e soluções que quebrem barreiras de acesso à educação. Crie ferramentas que tornem o aprendizado mais inclusivo para todos os alunos, independentemente de suas limitações.",
-    desafios: [
-      "Tradutor de Libras em tempo real usando visão computacional",
-      "Leitor de texto acessível para deficientes visuais",
-      "Plataforma de aprendizado para alunos com TEA",
-      "Ferramenta de legendagem automática em tempo real",
-    ],
-    tecnologias: ["React Native", "Computer Vision", "WebSpeech API", "ESP32", "IoT"],
-    color: "from-emerald-400 to-teal-400",
-    glow: "emerald-400",
-    badge: "♿ Impacto Social",
-    vagas: "15 vagas",
+    num: "03",
+    titulo: "Inclusão Digital & Acessibilidade",
+    subtitulo: "Trilha Impacto · 15 vagas",
+    descricao:
+      "Tecnologias que quebram barreiras de acesso à educação. Soluções para alunos com deficiência visual, auditiva ou TEA.",
+    temas: ["Tradutor de Libras em tempo real", "Leitor de texto para deficientes visuais", "Plataforma para alunos com TEA", "Legendagem automática em tempo real"],
+    tecnologias: "React Native · Computer Vision · WebSpeech API · IoT",
   },
 ];
 
 export function TrilhasSection() {
   return (
-    <section id="trilhas" className="relative py-24 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-neon-blue/[0.03] to-transparent" />
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-neon-purple/5 rounded-full blur-[180px]" />
+    <section id="trilhas" className="section-light relative py-20 sm:py-28">
+      <div className="max-w-6xl mx-auto px-5 sm:px-6">
 
-      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6">
-        {/* Header */}
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <span className="text-neon-blue text-sm font-semibold tracking-widest uppercase">
-            Escolha seu Caminho
+        {/* Cabeçalho assimétrico */}
+        <div className="flex items-end justify-between mb-2">
+          <motion.p
+            className="kicker"
+            initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
+            viewport={{ once: true }} transition={{ duration: 0.4 }}
+          >
+            Desafios
+          </motion.p>
+          <span className="hidden sm:block font-sans text-[10px] text-stone uppercase tracking-widest">
+            Escolha uma trilha
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-3">
-            Trilhas do{" "}
-            <span className="bg-gradient-to-r from-neon-blue to-neon-purple bg-clip-text text-transparent">
-              Hackathon
-            </span>
-          </h2>
-          <p className="text-gray-400 mt-4 max-w-2xl mx-auto text-lg">
-            Três caminhos para transformar a educação pública com tecnologia.
-            Escolha a trilha que mais combina com seu time e suas habilidades.
-          </p>
-        </motion.div>
+        </div>
 
-        {/* Trilhas Grid */}
-        <div className="grid lg:grid-cols-3 gap-6 lg:gap-8">
-          {trilhas.map((trilha, i) => (
+        <div className="divider-h mb-10" />
+
+        <motion.h2
+          className="font-display font-bold text-ink leading-tight mb-14"
+          style={{ fontSize: "clamp(2rem, 4.5vw, 3.5rem)" }}
+          initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }}
+        >
+          Três problemas reais.<br />
+          <span className="text-stone font-semibold italic">Suas soluções.</span>
+        </motion.h2>
+
+        {/* Lista editorial — não cards */}
+        <div className="space-y-0">
+          {desafios.map((d, i) => (
             <motion.div
-              key={trilha.id}
-              className="group relative flex flex-col"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.15, duration: 0.6 }}
+              key={d.num}
+              className="group grid sm:grid-cols-[80px_1fr] lg:grid-cols-[100px_1fr_260px] gap-6 lg:gap-12 py-8 sm:py-10 border-t border-hairline last:border-b hover:bg-paper/50 transition-colors duration-200"
+              initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
             >
-              {/* Glow effect */}
-              <div
-                className={`absolute -inset-0.5 bg-gradient-to-r ${trilha.color} rounded-3xl blur opacity-0 group-hover:opacity-20 transition-opacity duration-500`}
-              />
-
-              <div className="relative flex flex-col h-full p-6 sm:p-8 rounded-3xl bg-gray-900/60 border border-white/5 group-hover:border-white/15 transition-all duration-300">
-                {/* Badge */}
-                <div className="flex items-center justify-between mb-4">
-                  <span
-                    className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gradient-to-r ${trilha.color} bg-opacity-10 text-xs font-semibold`}
-                    style={{
-                      background: `linear-gradient(to right, ${trilha.color.includes("neon-blue") ? "rgba(0,212,255,0.1)" : trilha.color.includes("neon-purple") ? "rgba(168,85,247,0.1)" : "rgba(52,211,153,0.1)"}, ${trilha.color.includes("neon-blue") ? "rgba(0,212,255,0.05)" : trilha.color.includes("neon-purple") ? "rgba(168,85,247,0.05)" : "rgba(52,211,153,0.05)"})`,
-                    }}
-                  >
-                    {trilha.badge}
-                  </span>
-                  <span className="text-xs text-gray-500 font-mono">{trilha.vagas}</span>
-                </div>
-
-                {/* Icon */}
-                <div
-                  className={`w-14 h-14 rounded-2xl bg-gradient-to-r ${trilha.color} p-[1px] mb-5`}
+              {/* Número grande */}
+              <div className="flex items-start">
+                <span
+                  className="font-display font-black text-hairline leading-none select-none"
+                  style={{ fontSize: "clamp(2.5rem, 5vw, 4rem)" }}
                 >
-                  <div className="w-full h-full rounded-2xl bg-gray-900 flex items-center justify-center">
-                    <trilha.icon className="w-7 h-7 text-white" />
-                  </div>
-                </div>
+                  {d.num}
+                </span>
+              </div>
 
-                {/* Title */}
-                <div className="mb-3">
-                  <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">
-                    {trilha.subtitle}
-                  </p>
-                  <h3 className="text-xl font-bold text-white leading-tight">
-                    {trilha.title}
-                  </h3>
-                </div>
-
-                {/* Description */}
-                <p className="text-gray-400 text-sm leading-relaxed mb-6">
-                  {trilha.description}
+              {/* Conteúdo */}
+              <div>
+                <p className="kicker mb-2 text-rouge">{d.subtitulo}</p>
+                <h3
+                  className="font-display font-bold text-ink leading-tight mb-3"
+                  style={{ fontSize: "clamp(1.25rem, 2.5vw, 1.75rem)" }}
+                >
+                  {d.titulo}
+                </h3>
+                <p className="font-sans text-stone text-sm leading-relaxed mb-5 max-w-2xl">
+                  {d.descricao}
                 </p>
+                <ul className="space-y-1">
+                  {d.temas.map((t, j) => (
+                    <li key={j} className="font-sans text-xs text-stone flex items-start gap-2">
+                      <span className="text-rouge mt-0.5">—</span>
+                      {t}
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
-                {/* Desafios */}
-                <div className="mb-6">
-                  <div className="flex items-center gap-2 mb-3">
-                    <Lightbulb className="w-4 h-4 text-gray-500" />
-                    <span className="text-xs text-gray-500 uppercase tracking-wider font-semibold">
-                      Desafios Sugeridos
-                    </span>
-                  </div>
-                  <ul className="space-y-2">
-                    {trilha.desafios.map((desafio, j) => (
-                      <li key={j} className="flex items-start gap-2 text-sm text-gray-400">
-                        <ChevronRight className="w-3.5 h-3.5 text-gray-600 flex-shrink-0 mt-0.5" />
-                        {desafio}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Tecnologias */}
-                <div className="mt-auto">
-                  <div className="flex items-center gap-2 mb-3">
-                    <Code2 className="w-4 h-4 text-gray-500" />
-                    <span className="text-xs text-gray-500 uppercase tracking-wider font-semibold">
-                      Tecnologias
-                    </span>
-                  </div>
-                  <div className="flex flex-wrap gap-2">
-                    {trilha.tecnologias.map((tech, j) => (
-                      <span
-                        key={j}
-                        className="px-2.5 py-1 rounded-lg bg-white/5 border border-white/5 text-xs text-gray-400 font-mono"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+              {/* Tecnologias — coluna direita (só lg) */}
+              <div className="hidden lg:flex flex-col justify-start pt-1">
+                <p className="kicker mb-2">Tecnologias</p>
+                <p className="font-mono text-xs text-stone leading-relaxed">
+                  {d.tecnologias}
+                </p>
               </div>
             </motion.div>
           ))}
         </div>
 
-        {/* Bottom info */}
+        {/* Rodapé */}
         <motion.div
-          className="mt-12 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.5, duration: 0.6 }}
+          className="mt-10 flex flex-wrap items-center justify-between gap-4"
+          initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
+          viewport={{ once: true }} transition={{ duration: 0.4, delay: 0.3 }}
         >
-          <div className="inline-flex items-center gap-3 px-6 py-3 rounded-2xl bg-white/[0.03] border border-white/5">
-            <Users className="w-5 h-5 text-neon-blue" />
-            <p className="text-gray-400 text-sm">
-              Equipes de <span className="text-white font-semibold">3 a 5 alunos</span> por trilha.
-              Orientadores podem acompanhar múltiplas equipes.
-            </p>
-          </div>
+          <p className="font-sans text-xs text-stone">
+            Equipes de <strong className="text-ink">3 a 5 alunos</strong> por desafio.
+            Inscrições via formulário abaixo.
+          </p>
+          <button
+            onClick={() => document.getElementById("inscricao")?.scrollIntoView({ behavior: "smooth" })}
+            className="bg-rouge text-white font-sans text-xs font-semibold uppercase tracking-[0.18em] px-6 py-3 hover:bg-rouge-deep transition-colors"
+          >
+            Inscreva-se →
+          </button>
         </motion.div>
       </div>
     </section>

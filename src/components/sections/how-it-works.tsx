@@ -1,132 +1,93 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 
-const steps = [
-    {
-        step: "01",
-        title: "Briefing do Desafio",
-        description:
-            "Os times recebem o tema social do evento e um pacote de dados reais para embasar suas soluções. Começa a ideação!",
-        color: "from-neon-blue to-cyan-400",
-    },
-    {
-        step: "02",
-        title: "36h de Hackathon",
-        description:
-            "Maratona intensiva de criação: design, código, pitch e prototipagem. Mentores do mercado guiam os times em tempo real.",
-        color: "from-neon-purple to-pink-400",
-    },
-    {
-        step: "03",
-        title: "Demo Day & Premiação",
-        description:
-            "Os projetos são apresentados para uma banca de especialistas. Os melhores times conquistam prêmios e reconhecimento.",
-        color: "from-emerald-400 to-teal-500",
-    },
+const passos = [
+  {
+    num: "01",
+    titulo: "Inscreva-se",
+    descricao:
+      "Preencha o formulário com seus dados, escola e escolha o desafio que mais combina com você. Vagas limitadas por trilha.",
+  },
+  {
+    num: "02",
+    titulo: "Forme seu time",
+    descricao:
+      "Equipes de 3 a 5 alunos. Podem ser da mesma escola ou de escolas diferentes da rede estadual. Um responsável lidera a inscrição.",
+  },
+  {
+    num: "03",
+    titulo: "36 horas de maratona",
+    descricao:
+      "15 a 17 de Maio de 2026. Sua equipe desenvolve a solução com apoio de mentores, workshops e infraestrutura completa. Tudo gratuito.",
+  },
+  {
+    num: "04",
+    titulo: "Pitch e premiação",
+    descricao:
+      "No Demo Day, cada equipe apresenta para uma banca avaliadora. Os melhores projetos são premiados e todos recebem certificado.",
+  },
 ];
 
 export function HowItWorksSection() {
-    return (
-        <section id="como-funciona" className="relative py-24 overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-neon-blue/[0.04] to-transparent" />
+  return (
+    <section id="como-funciona" className="section-light relative py-20 sm:py-28">
+      <div className="max-w-6xl mx-auto px-5 sm:px-6">
+        <div className="flex items-end justify-between mb-2">
+          <motion.p
+            className="kicker"
+            initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
+            viewport={{ once: true }} transition={{ duration: 0.4 }}
+          >
+            Como Funciona
+          </motion.p>
+        </div>
 
-            <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6">
-                {/* Header */}
-                <motion.div
-                    className="text-center mb-16"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
+        <div className="divider-h mb-10" />
+
+        <motion.h2
+          className="font-display font-bold text-ink leading-tight mb-16"
+          style={{ fontSize: "clamp(1.75rem, 4vw, 3rem)" }}
+          initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }}
+        >
+          Simples.<br />
+          <span className="text-stone italic">Direto ao ponto.</span>
+        </motion.h2>
+
+        {/* Passos — lista com muito ar */}
+        <div className="space-y-0">
+          {passos.map((p, i) => (
+            <motion.div
+              key={i}
+              className="grid sm:grid-cols-[80px_1fr] gap-6 sm:gap-12 py-10 border-t border-hairline last:border-b items-start"
+              initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
+            >
+              {/* Número grande em rouge */}
+              <span
+                className="font-display font-black text-rouge leading-none"
+                style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}
+              >
+                {p.num}
+              </span>
+
+              {/* Conteúdo */}
+              <div>
+                <h3
+                  className="font-display font-bold text-ink leading-tight mb-3"
+                  style={{ fontSize: "clamp(1.125rem, 2.5vw, 1.5rem)" }}
                 >
-                    <span className="text-neon-blue text-sm font-semibold tracking-widest uppercase">
-                        O Formato
-                    </span>
-                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-3">
-                        Como vai{" "}
-                        <span className="bg-gradient-to-r from-neon-blue to-neon-purple bg-clip-text text-transparent">
-                            Funcionar
-                        </span>
-                    </h2>
-                    <p className="text-gray-400 mt-4 max-w-2xl mx-auto text-lg">
-                        Um formato comprovado inspirado nos maiores hackathons do mundo,
-                        adaptado para a realidade e executado <span className="text-white font-semibold">dentro da escola</span> como projeto Pré-TCC.
-                    </p>
-                </motion.div>
-
-                <div className="grid lg:grid-cols-2 gap-12 items-center">
-                    {/* Steps */}
-                    <div className="space-y-6">
-                        {steps.map((step, i) => (
-                            <motion.div
-                                key={i}
-                                className="group relative flex gap-5"
-                                initial={{ opacity: 0, x: -30 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: i * 0.15, duration: 0.6 }}
-                            >
-                                {/* Step indicator */}
-                                <div className="flex-shrink-0">
-                                    <div
-                                        className={`w-14 h-14 rounded-2xl bg-gradient-to-r ${step.color} p-[1px]`}
-                                    >
-                                        <div className="w-full h-full rounded-2xl bg-gray-900 flex items-center justify-center">
-                                            <span className="text-white font-bold text-sm font-mono">
-                                                {step.step}
-                                            </span>
-                                        </div>
-                                    </div>
-                                    {i < steps.length - 1 && (
-                                        <div className="w-px h-6 bg-gradient-to-b from-white/10 to-transparent mx-auto mt-2" />
-                                    )}
-                                </div>
-
-                                {/* Content */}
-                                <div className="pt-1 pb-4">
-                                    <h3 className="text-white font-bold text-lg mb-2">
-                                        {step.title}
-                                    </h3>
-                                    <p className="text-gray-400 leading-relaxed text-sm sm:text-base">
-                                        {step.description}
-                                    </p>
-                                </div>
-                            </motion.div>
-                        ))}
-                    </div>
-
-                    {/* Image */}
-                    <motion.div
-                        className="relative"
-                        initial={{ opacity: 0, x: 30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.3, duration: 0.8 }}
-                    >
-                        <div className="absolute -inset-1 bg-gradient-to-r from-neon-blue/30 to-neon-purple/30 rounded-3xl blur-xl" />
-                        <div className="relative rounded-3xl overflow-hidden border border-white/10">
-                            <Image
-                                src="/imagem-alunos.jpg"
-                                alt="Alunos construindo soluções reais"
-                                width={600}
-                                height={400}
-                                className="w-full h-64 sm:h-80 object-cover object-center"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                            <div className="absolute bottom-4 left-4 right-4">
-                                <p className="text-white font-bold text-sm">
-                                    Alunos construindo soluções reais
-                                </p>
-                                <p className="text-gray-300 text-xs mt-1">
-                                    Projeto Pré-TCC · E.E. Nancy de Oliveira Fidalgo · EstaHack 2026
-                                </p>
-                            </div>
-                        </div>
-                    </motion.div>
-                </div>
-            </div>
-        </section>
-    );
+                  {p.titulo}
+                </h3>
+                <p className="font-sans text-stone text-sm leading-relaxed max-w-lg">
+                  {p.descricao}
+                </p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 }

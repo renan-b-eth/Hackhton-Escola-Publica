@@ -2,317 +2,284 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select } from "@/components/ui/select";
-import { Button } from "@/components/ui/button";
-import { Users, Building, School, Send, CheckCircle2, Loader2, AlertCircle } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
+import { Loader2, CheckCircle2, AlertCircle } from "lucide-react";
 
-// --- SCHEMAS ---
+// ─── Schemas ───
 const mentorSchema = z.object({
-  nome: z.string().min(3, "Nome muito curto"),
-  linkedin: z.string().url("URL inválida do LinkedIn"),
-  expertise: z.string().min(1, "Selecione uma área"),
-  whatsapp: z.string().min(10, "WhatsApp inválido"),
+  nome: z.string().min(3),
+  linkedin: z.string().url(),
+  expertise: z.string().min(1),
+  whatsapp: z.string().min(10),
 });
-type MentorFormData = z.infer<typeof mentorSchema>;
-
+type MentorData = z.infer<typeof mentorSchema>;
 
 const schoolSchema = z.object({
-  escola: z.string().min(5, "Nome da escola muito curto"),
-  cidade: z.string().min(3, "Cidade/Estado inválido"),
-  alunos: z.string().min(1, "Informe a quantidade de alunos"),
+  escola: z.string().min(5),
+  cidade: z.string().min(3),
+  alunos: z.string().min(1),
 });
-type SchoolFormData = z.infer<typeof schoolSchema>;
+type SchoolData = z.infer<typeof schoolSchema>;
 
-// --- API SUBMISSION WRAPPER ---
 async function submitForm<T>(type: "mentor" | "sponsor" | "school", data: T) {
   const res = await fetch("/api/contact", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ type, data }),
   });
-  if (!res.ok) throw new Error("Erro ao enviar dados");
+  if (!res.ok) throw new Error();
   return res.json();
 }
 
-// --- FORMS ---
-function MentorForm() {
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+// ─── Tabs de participação ─── (Jornada A)
+type Tab = "mentores" | "patrocinadores" | "escolas";
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-  } = useForm<MentorFormData>({
+const TABS: { id: Tab; label: string }[] = [
+  { id: "mentores", label: "Mentores" },
+  { id: "patrocinadores", label: "Patrocínio" },
+  { id: "escolas", label: "Escolas" },
+];
+
+function FieldGroup({ children }: { children: React.ReactNode }) {
+  return <div className="space-y-1.5">{children}</div>;
+}
+
+function EditorialLabel({ htmlFor, children }: { htmlFor: string; children: React.ReactNode }) {
+  return (
+    <label
+      htmlFor={htmlFor}
+      className="block font-sans text-[10px] uppercase tracking-[0.18em] text-stone"
+    >
+      {children}
+    </label>
+  );
+}
+
+function StatusButton({ status, label }: { status: string; label: string }) {
+  const base =
+    "w-full font-sans text-xs uppercase tracking-[0.18em] font-semibold py-4 transition-colors flex items-center justify-center gap-2";
+  if (status === "success")
+    return (
+      <button className={`${base} bg-ink text-editorial cursor-default`} disabled>
+        <CheckCircle2 className="w-4 h-4" /> Recebido! Entraremos em contato.
+      </button>
+    );
+  if (status === "error")
+    return (
+      <button className={`${base} bg-rouge text-white`} disabled>
+        <AlertCircle className="w-4 h-4" /> Erro ao enviar. Tente novamente.
+      </button>
+    );
+  return (
+    <button
+      type="submit"
+      disabled={status === "loading"}
+      className={`${base} bg-rouge text-white hover:bg-rouge-deep`}
+    >
+      {status === "loading" ? (
+        <><Loader2 className="w-4 h-4 animate-spin" /> Enviando...</>
+      ) : label}
+    </button>
+  );
+}
+
+function inputClass() {
+  return "w-full font-sans text-sm text-ink bg-editorial border border-hairline px-4 py-3 focus:outline-none focus:border-ink transition-colors placeholder:text-stone/50";
+}
+
+function MentorForm() {
+  const [status, setStatus] = useState<"idle"|"loading"|"success"|"error">("idle");
+  const { register, handleSubmit, formState: { errors }, reset } = useForm<MentorData>({
     resolver: zodResolver(mentorSchema),
   });
-
-  const onSubmit = async (data: MentorFormData) => {
+  const onSubmit = async (data: MentorData) => {
     setStatus("loading");
-    try {
-      await submitForm("mentor", data);
-      setStatus("success");
-      reset();
-      setTimeout(() => setStatus("idle"), 5000);
-    } catch {
-      setStatus("error");
-      setTimeout(() => setStatus("idle"), 5000);
-    }
+    try { await submitForm("mentor", data); setStatus("success"); reset(); setTimeout(() => setStatus("idle"), 5000); }
+    catch { setStatus("error"); setTimeout(() => setStatus("idle"), 5000); }
   };
-
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-      <div className="space-y-1.5">
-        <Label htmlFor="mentor-nome">Nome Completo</Label>
-        <Input id="mentor-nome" placeholder="Seu nome completo" {...register("nome")} />
-        {errors.nome && <p className="text-red-400 text-xs">{errors.nome.message}</p>}
-      </div>
-
-      <div className="space-y-1.5">
-        <Label htmlFor="mentor-linkedin">LinkedIn</Label>
-        <Input id="mentor-linkedin" placeholder="https://linkedin.com/in/seu-perfil" {...register("linkedin")} />
-        {errors.linkedin && <p className="text-red-400 text-xs">{errors.linkedin.message}</p>}
-      </div>
-
-      <div className="space-y-1.5">
-        <Label htmlFor="mentor-expertise">Área de Expertise</Label>
-        <Select id="mentor-expertise" defaultValue="" {...register("expertise")}>
-          <option value="" disabled>Selecione sua área</option>
-          <option value="Desenvolvimento">Desenvolvimento</option>
-          <option value="Design">Design</option>
-          <option value="Pitch / Negócios">Pitch / Negócios</option>
-          <option value="Data Science / IA">Data Science / IA</option>
-          <option value="Outro">Outro</option>
-        </Select>
-        {errors.expertise && <p className="text-red-400 text-xs">{errors.expertise.message}</p>}
-      </div>
-
-      <div className="space-y-1.5">
-        <Label htmlFor="mentor-whatsapp">WhatsApp</Label>
-        <Input id="mentor-whatsapp" placeholder="(00) 00000-0000" {...register("whatsapp")} />
-        {errors.whatsapp && <p className="text-red-400 text-xs">{errors.whatsapp.message}</p>}
-      </div>
-
-      <SubmitButton status={status} label="Quero ser Mentor" />
+      <FieldGroup>
+        <EditorialLabel htmlFor="m-nome">Nome Completo</EditorialLabel>
+        <input id="m-nome" placeholder="Seu nome" {...register("nome")} className={inputClass()} />
+        {errors.nome && <p className="text-rouge text-xs">{errors.nome.message}</p>}
+      </FieldGroup>
+      <FieldGroup>
+        <EditorialLabel htmlFor="m-linkedin">LinkedIn</EditorialLabel>
+        <input id="m-linkedin" placeholder="https://linkedin.com/in/…" {...register("linkedin")} className={inputClass()} />
+        {errors.linkedin && <p className="text-rouge text-xs">{errors.linkedin.message}</p>}
+      </FieldGroup>
+      <FieldGroup>
+        <EditorialLabel htmlFor="m-exp">Área de Expertise</EditorialLabel>
+        <select id="m-exp" {...register("expertise")} className={inputClass()}>
+          <option value="">Selecione</option>
+          <option>Desenvolvimento</option>
+          <option>Design</option>
+          <option>Pitch / Negócios</option>
+          <option>Data Science / IA</option>
+          <option>Outro</option>
+        </select>
+        {errors.expertise && <p className="text-rouge text-xs">{errors.expertise.message}</p>}
+      </FieldGroup>
+      <FieldGroup>
+        <EditorialLabel htmlFor="m-wpp">WhatsApp</EditorialLabel>
+        <input id="m-wpp" placeholder="(00) 00000-0000" {...register("whatsapp")} className={inputClass()} />
+        {errors.whatsapp && <p className="text-rouge text-xs">{errors.whatsapp.message}</p>}
+      </FieldGroup>
+      <StatusButton status={status} label="Quero ser Mentor →" />
     </form>
   );
 }
 
-const SPONSOR_GOOGLE_FORM = "https://forms.gle/d6qBswpQHPAw918n6";
-
 function SponsorForm() {
   return (
-    <div className="space-y-6 py-2">
-      <div className="text-center space-y-3">
-        <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-neon-blue/20 to-neon-purple/20 border border-neon-blue/30">
-          <Building className="w-7 h-7 text-neon-blue" />
-        </div>
-        <h3 className="text-white font-bold text-xl">Quero Patrocinar o EstaHack</h3>
-        <p className="text-gray-400 text-sm max-w-xs mx-auto leading-relaxed">
-          Preencha nosso formulário de patrocínio com informações sobre sua empresa e como deseja apoiar o evento.
-        </p>
-      </div>
-
-      <div className="grid grid-cols-1 gap-3">
-        {[
-          "Patrocínio Financeiro (Cotas)",
-          "Brindes e Kits para os times",
-          "Alimentação durante o evento",
-          "Licenças de Software / Ferramentas",
-        ].map((item) => (
-          <div key={item} className="flex items-center gap-2 text-sm text-gray-300">
-            <CheckCircle2 className="w-4 h-4 text-neon-blue flex-shrink-0" />
-            {item}
-          </div>
+    <div className="space-y-5 py-2">
+      <p className="font-sans text-sm text-stone leading-relaxed">
+        Preencha o formulário de patrocínio com informações sobre sua empresa e como deseja apoiar o evento.
+      </p>
+      <ul className="space-y-1.5">
+        {["Patrocínio Financeiro (Cotas)", "Brindes e Kits para os times", "Alimentação durante o evento", "Licenças de Software / Ferramentas"].map((item) => (
+          <li key={item} className="font-sans text-xs text-stone flex gap-2">
+            <span className="text-rouge">—</span>{item}
+          </li>
         ))}
-      </div>
-
+      </ul>
       <a
-        href={SPONSOR_GOOGLE_FORM}
+        href="https://forms.gle/d6qBswpQHPAw918n6"
         target="_blank"
         rel="noopener noreferrer"
-        className="flex items-center justify-center gap-2 w-full py-3 px-6 rounded-xl bg-gradient-to-r from-neon-blue to-neon-purple text-white font-semibold text-sm hover:opacity-90 active:scale-95 transition-all"
+        className="block w-full border border-ink text-ink font-sans text-xs uppercase tracking-[0.18em] font-semibold py-4 text-center hover:bg-ink hover:text-editorial transition-colors"
       >
-        <Send className="w-4 h-4" />
-        Abrir Formulário de Patrocínio
+        Abrir Formulário de Patrocínio →
       </a>
-
-      <p className="text-center text-xs text-gray-500">
-        Abre o Google Forms — rápido e seguro
-      </p>
     </div>
   );
 }
 
-
 function SchoolForm() {
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-  } = useForm<SchoolFormData>({
+  const [status, setStatus] = useState<"idle"|"loading"|"success"|"error">("idle");
+  const { register, handleSubmit, formState: { errors }, reset } = useForm<SchoolData>({
     resolver: zodResolver(schoolSchema),
   });
-
-  const onSubmit = async (data: SchoolFormData) => {
+  const onSubmit = async (data: SchoolData) => {
     setStatus("loading");
-    try {
-      await submitForm("school", data);
-      setStatus("success");
-      reset();
-      setTimeout(() => setStatus("idle"), 5000);
-    } catch {
-      setStatus("error");
-      setTimeout(() => setStatus("idle"), 5000);
-    }
+    try { await submitForm("school", data); setStatus("success"); reset(); setTimeout(() => setStatus("idle"), 5000); }
+    catch { setStatus("error"); setTimeout(() => setStatus("idle"), 5000); }
   };
-
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-      <div className="space-y-1.5">
-        <Label htmlFor="school-nome">Nome da Escola / Instituição</Label>
-        <Input id="school-nome" placeholder="E.E. Nome da Escola" {...register("escola")} />
-        {errors.escola && <p className="text-red-400 text-xs">{errors.escola.message}</p>}
-      </div>
-
-      <div className="space-y-1.5">
-        <Label htmlFor="school-cidade">Cidade / Estado</Label>
-        <Input id="school-cidade" placeholder="Ex: São Paulo - SP" {...register("cidade")} />
-        {errors.cidade && <p className="text-red-400 text-xs">{errors.cidade.message}</p>}
-      </div>
-
-      <div className="space-y-1.5">
-        <Label htmlFor="school-alunos">Expectativa de Alunos</Label>
-        <Input id="school-alunos" type="number" placeholder="Quantos alunos participariam?" {...register("alunos")} />
-        {errors.alunos && <p className="text-red-400 text-xs">{errors.alunos.message}</p>}
-      </div>
-
-      <SubmitButton status={status} label="Candidatar Escola" />
+      <FieldGroup>
+        <EditorialLabel htmlFor="s-escola">Nome da Escola</EditorialLabel>
+        <input id="s-escola" placeholder="E.E. Nome da Escola" {...register("escola")} className={inputClass()} />
+        {errors.escola && <p className="text-rouge text-xs">{errors.escola.message}</p>}
+      </FieldGroup>
+      <FieldGroup>
+        <EditorialLabel htmlFor="s-cidade">Cidade / Estado</EditorialLabel>
+        <input id="s-cidade" placeholder="Ex: São Paulo — SP" {...register("cidade")} className={inputClass()} />
+        {errors.cidade && <p className="text-rouge text-xs">{errors.cidade.message}</p>}
+      </FieldGroup>
+      <FieldGroup>
+        <EditorialLabel htmlFor="s-alunos">Expectativa de Alunos</EditorialLabel>
+        <input id="s-alunos" type="number" placeholder="Quantos alunos?" {...register("alunos")} className={inputClass()} />
+        {errors.alunos && <p className="text-rouge text-xs">{errors.alunos.message}</p>}
+      </FieldGroup>
+      <StatusButton status={status} label="Candidatar Escola →" />
     </form>
   );
 }
 
-// --- HELPER COMPONENT ---
-function SubmitButton({ status, label }: { status: string; label: string }) {
-  if (status === "success") {
-    return (
-      <Button type="button" size="lg" className="w-full bg-emerald-500 hover:bg-emerald-600 text-white cursor-default" disabled>
-        <CheckCircle2 className="w-5 h-5 mr-2" />
-        Inscrição Recebida! Entraremos em contato.
-      </Button>
-    );
-  }
-
-  if (status === "error") {
-    return (
-      <Button type="button" size="lg" className="w-full bg-red-500 hover:bg-red-600 text-white">
-        <AlertCircle className="w-5 h-5 mr-2" />
-        Erro ao enviar. Tente novamente.
-      </Button>
-    );
-  }
-
-  return (
-    <Button type="submit" size="lg" className="w-full group" disabled={status === "loading"}>
-      {status === "loading" ? (
-        <>
-          <Loader2 className="w-5 h-5 mr-2 animate-spin" />
-          Enviando...
-        </>
-      ) : (
-        <>
-          <Send className="w-5 h-5 mr-2 group-hover:translate-x-1 transition-transform" />
-          {label}
-        </>
-      )}
-    </Button>
-  );
-}
-
 export function FormsSection() {
+  const [tab, setTab] = useState<Tab>("mentores");
+
   return (
-    <section id="inscricao" className="relative py-24 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-neon-blue/5 to-transparent" />
+    <section id="inscricao" className="section-dark relative py-20 sm:py-28">
+      {/* Watermark */}
+      <div
+        aria-hidden
+        className="absolute right-0 top-0 select-none pointer-events-none font-display font-black leading-none"
+        style={{ fontSize: "clamp(120px, 20vw, 280px)", opacity: 0.03, color: "#ECE8E1", lineHeight: 1 }}
+      >
+        →
+      </div>
 
-      <div className="relative z-10 max-w-2xl mx-auto px-4 sm:px-6">
-        <motion.div
-          className="text-center mb-12"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <span className="text-neon-blue text-sm font-semibold tracking-widest uppercase">
-            Faça Parte do Circuito
-          </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-3">
-            Inscreva-se{" "}
-            <span className="bg-gradient-to-r from-neon-blue to-neon-purple bg-clip-text text-transparent">
-              Agora
-            </span>
-          </h2>
-          <p className="text-gray-400 mt-4 text-lg">
-            Escolha como você quer contribuir para essa revolução educacional
-            nas escolas públicas.
-          </p>
-        </motion.div>
+      <div className="relative z-10 max-w-6xl mx-auto px-5 sm:px-6">
+        <div className="grid lg:grid-cols-[1fr_480px] gap-12 lg:gap-20 items-start">
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-        >
-          <div className="relative">
-            <div className="absolute -inset-1 bg-gradient-to-r from-neon-blue/20 to-neon-purple/20 rounded-2xl blur-xl" />
-            <div className="relative p-6 sm:p-8 rounded-2xl bg-gray-900/90 border border-white/10 backdrop-blur-sm">
-              <Tabs defaultValue="mentores" className="w-full">
-                <TabsList className="w-full grid grid-cols-3 mb-6">
-                  <TabsTrigger
-                    value="mentores"
-                    className="flex items-center gap-2 text-xs sm:text-sm"
-                  >
-                    <Users className="w-4 h-4 hidden sm:block" />
-                    Mentores
-                  </TabsTrigger>
-                  <TabsTrigger
-                    value="patrocinadores"
-                    className="flex items-center gap-2 text-xs sm:text-sm"
-                  >
-                    <Building className="w-4 h-4 hidden sm:block" />
-                    Patrocínio
-                  </TabsTrigger>
-                  <TabsTrigger
-                    value="escolas"
-                    className="flex items-center gap-2 text-xs sm:text-sm"
-                  >
-                    <School className="w-4 h-4 hidden sm:block" />
-                    Escolas
-                  </TabsTrigger>
-                </TabsList>
+          {/* Coluna esquerda — contexto */}
+          <div>
+            <motion.p
+              className="kicker text-stone mb-5"
+              initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
+              viewport={{ once: true }} transition={{ duration: 0.4 }}
+            >
+              Faça parte
+            </motion.p>
 
-                <TabsContent value="mentores">
-                  <MentorForm />
-                </TabsContent>
-                <TabsContent value="patrocinadores">
-                  <SponsorForm />
-                </TabsContent>
-                <TabsContent value="escolas">
-                  <SchoolForm />
-                </TabsContent>
-              </Tabs>
-            </div>
+            <div className="divider-h-dark mb-8" />
+
+            <motion.h2
+              className="font-display font-bold text-editorial leading-tight mb-6"
+              style={{ fontSize: "clamp(1.75rem, 4vw, 3rem)" }}
+              initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }}
+            >
+              Escolha<br />
+              <span className="italic text-stone">como contribuir.</span>
+            </motion.h2>
+
+            <motion.div
+              className="space-y-4 font-sans text-stone text-sm leading-relaxed max-w-md"
+              initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
+              viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              <p>
+                <strong className="text-editorial">Mentores:</strong> profissionais com expertise técnica, de produto ou negócios que queiram acompanhar as equipes.
+              </p>
+              <p>
+                <strong className="text-editorial">Patrocínio:</strong> empresas e organizações que desejam apoiar a educação pública estadual.
+              </p>
+              <p>
+                <strong className="text-editorial">Escolas:</strong> instituições da rede estadual interessadas em participar de edições futuras.
+              </p>
+            </motion.div>
           </div>
-        </motion.div>
+
+          {/* Coluna direita — formulário */}
+          <motion.div
+            className="border border-editorial/12"
+            initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            {/* Tabs */}
+            <div className="flex border-b border-editorial/12">
+              {TABS.map((t) => (
+                <button
+                  key={t.id}
+                  onClick={() => setTab(t.id)}
+                  className={`flex-1 py-4 font-sans text-[10px] uppercase tracking-[0.18em] font-semibold transition-colors ${
+                    tab === t.id
+                      ? "text-editorial border-b-2 border-rouge -mb-px"
+                      : "text-stone hover:text-editorial"
+                  }`}
+                >
+                  {t.label}
+                </button>
+              ))}
+            </div>
+
+            {/* Form content */}
+            <div className="p-6 sm:p-8 bg-void">
+              {tab === "mentores" && <MentorForm />}
+              {tab === "patrocinadores" && <SponsorForm />}
+              {tab === "escolas" && <SchoolForm />}
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

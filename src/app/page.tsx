@@ -11,6 +11,8 @@ import { SponsorsSection } from "@/components/sections/sponsors";
 import { FormsSection } from "@/components/sections/forms";
 import { FaqSection } from "@/components/sections/faq";
 import { FooterSection } from "@/components/sections/footer";
+import { EscolaPionheiraSection } from "@/components/sections/escola-pioneira";
+import { TractionSection } from "@/components/sections/traction";
 
 export default function Home() {
   return (
@@ -26,6 +28,12 @@ export default function Home() {
 
       {/* 3. Desafios — claro, lista editorial vertical */}
       <TrilhasSection />
+
+      {/* 3.1. Institucional - Escola Pioneira */}
+      <EscolaPionheiraSection />
+
+      {/* 3.2. Tração - Prova de Execução */}
+      <TractionSection />
 
       {/* 4. Cronograma — dark, tabela editorial */}
       <CronogramaSection />

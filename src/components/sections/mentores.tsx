@@ -35,10 +35,7 @@ const mentores = [
 ];
 
 const jurados = [
-  { nome: "Representante FIAP", cargo: "Diretoria Acadêmica" },
-  { nome: "Representante Estant3D", cargo: "Inovação & Tecnologia" },
-  { nome: "Representante Rendey LLC", cargo: "CEO & Fundador" },
-  { nome: "Representante SEDUC-SP", cargo: "Coordenação de Inovação" },
+  { nome: "Banca avaliadora", cargo: "Em definição" },
 ];
 
 export function MentoresSection() {

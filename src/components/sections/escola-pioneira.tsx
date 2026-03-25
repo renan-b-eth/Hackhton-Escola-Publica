@@ -63,14 +63,14 @@ export function EscolaPionheiraSection() {
                 </div>
 
                 <h3 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-                  E.E. Nancy de Oliveira Fidalgo
+                  Escola Pioneira Nancy de Oliveira Fidalgo
                 </h3>
 
                 <p className="text-gray-300 text-lg mb-6 leading-relaxed max-w-2xl">
                   Uma escola estadual comprometida com a excelência educacional e inovação.
-                  E.E. Nancy de Oliveira Fidalgo abre suas portas para o EstaHack 2026,
+                  A Escola Pioneira Nancy de Oliveira Fidalgo abre suas portas para o EstaHack 2026,
                   trazendo oportunidades de aprendizado prático e desenvolvimento de competências
-                  tecnológicas para seus alunos.
+                  tecnológicas para seus alunos. O primeiro hackathon em uma escola pública.
                 </p>
 
                 {/* Address */}

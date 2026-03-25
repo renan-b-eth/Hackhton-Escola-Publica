@@ -6,7 +6,7 @@ const desafios = [
   {
     num: "01",
     titulo: "Inteligência Artificial na Educação",
-    subtitulo: "Trilha Principal · 20 vagas",
+    subtitulo: "Trilha Principal",
     descricao:
       "Ferramentas que usam IA para transformar o aprendizado dentro da escola pública. Assistentes de estudo, detecção de dificuldades, correção automática.",
     temas: ["Assistente de estudos personalizado", "Detecção precoce de dificuldades", "Correção automática de redações", "Recomendação de conteúdo adaptativo"],
@@ -15,7 +15,7 @@ const desafios = [
   {
     num: "02",
     titulo: "Gestão Escolar Inteligente",
-    subtitulo: "Trilha Dados · 15 vagas",
+    subtitulo: "Trilha Dados",
     descricao:
       "Dados escolares transformados em decisões. Dashboards para gestores, sistemas de comunicação com famílias, predição de evasão.",
     temas: ["Dashboard de frequência e desempenho", "Comunicação com famílias", "Predição de evasão escolar", "Gestão de recursos e infraestrutura"],
@@ -24,7 +24,7 @@ const desafios = [
   {
     num: "03",
     titulo: "Inclusão Digital & Acessibilidade",
-    subtitulo: "Trilha Impacto · 15 vagas",
+    subtitulo: "Trilha Impacto",
     descricao:
       "Tecnologias que quebram barreiras de acesso à educação. Soluções para alunos com deficiência visual, auditiva ou TEA.",
     temas: ["Tradutor de Libras em tempo real", "Leitor de texto para deficientes visuais", "Plataforma para alunos com TEA", "Legendagem automática em tempo real"],

@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Linkedin } from "lucide-react";
+import { Linkedin, Users, Award } from "lucide-react";
 
 const mentores = [
   {
@@ -36,6 +36,23 @@ const mentores = [
 
 const jurados = [
   { nome: "Banca avaliadora", cargo: "Em definição" },
+];
+
+const comunidadesMentoria = [
+  {
+    nome: "Women in Tech",
+    descricao: "Comunidade dedicada a empoderar mulheres na tecnologia, oferecendo mentorias em carreira tech e desenvolvimento profissional.",
+    especialidade: "Carreira & Tecnologia",
+    mentoringAreas: ["Desenvolvimento Web", "Mobile", "Cloud Computing", "Carreira em Tech"],
+    icone: Users,
+  },
+  {
+    nome: "Women in Data",
+    descricao: "Grupo focado em dados e analytics para mulheres, com workshops práticos e mentorias especializadas.",
+    especialidade: "Dados & Analytics",
+    mentoringAreas: ["Data Science", "Machine Learning", "SQL & Databases", "Visualização de Dados"],
+    icone: Award,
+  },
 ];
 
 export function MentoresSection() {
@@ -130,6 +147,65 @@ export function MentoresSection() {
             </motion.div>
           ))}
         </div>
+
+        {/* Comunidades de Mentoria */}
+        <motion.div
+          className="mb-14"
+          initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          <div className="flex items-center gap-3 mb-6">
+            <span className="inline-block bg-ink text-editorial font-sans text-[9px] font-semibold uppercase tracking-widest px-3 py-1">
+              Comunidades de Apoio
+            </span>
+            <span className="font-sans text-[10px] text-stone">
+              Mentorias especializadas para você
+            </span>
+          </div>
+          
+          <div className="grid sm:grid-cols-2 gap-px bg-hairline">
+            {comunidadesMentoria.map((comunidade, i) => (
+              <motion.div
+                key={i}
+                className="bg-editorial p-6 lg:p-8"
+                initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.15 }}
+              >
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="w-12 h-12 bg-rouge/10 flex items-center justify-center flex-shrink-0">
+                    <comunidade.icone className="w-6 h-6 text-rouge" />
+                  </div>
+                  <div>
+                    <h4 className="font-display font-bold text-ink text-lg mb-1">
+                      {comunidade.nome}
+                    </h4>
+                    <span className="inline-block font-sans text-[9px] uppercase tracking-widest text-rouge bg-rouge/10 px-2 py-0.5">
+                      {comunidade.especialidade}
+                    </span>
+                  </div>
+                </div>
+                
+                <p className="font-sans text-xs text-stone leading-relaxed mb-5">
+                  {comunidade.descricao}
+                </p>
+                
+                <div>
+                  <p className="kicker mb-2">Áreas de Mentoria</p>
+                  <div className="flex flex-wrap gap-2">
+                    {comunidade.mentoringAreas.map((area, j) => (
+                      <span
+                        key={j}
+                        className="font-mono text-[10px] text-stone border border-hairline px-2.5 py-1"
+                      >
+                        {area}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
 
         {/* Banca avaliadora */}
         <motion.div

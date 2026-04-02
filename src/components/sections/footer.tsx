@@ -4,9 +4,7 @@ import { Instagram, Linkedin } from "lucide-react";
 
 const links = {
   projects: [
-    { label: "Rendey Class", href: "https://rendey-class-front.vercel.app/" },
-    { label: "Rendey LLC", href: "https://rendey.store" },
-    { label: "Site Pessoal — Renan Santos", href: "https://site-renanbezerra.vercel.app/" },
+    { label: "Site Oficial", href: "#" },
   ],
   social: [
     { icon: Instagram, label: "Instagram", href: "https://www.instagram.com/estahack_/" },
@@ -23,7 +21,7 @@ export function FooterSection() {
           <div>
             <p className="font-display font-bold text-editorial text-base mb-1">EstaHack</p>
             <p className="font-sans text-[10px] uppercase tracking-widest text-stone mb-4">
-              E.E. Nancy de Oliveira Fidalgo · São Paulo
+              Hackathon · Escola Pública · São Paulo
             </p>
             <p className="font-sans text-xs text-stone leading-relaxed max-w-xs">
               Transformando a educação pública brasileira através da tecnologia,
@@ -77,7 +75,7 @@ export function FooterSection() {
         {/* Barra inferior */}
         <div className="border-t border-editorial/10 pt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
           <p className="font-sans text-[10px] text-stone/60">
-            © {new Date().getFullYear()} EstaHack · E.E. Nancy de Oliveira Fidalgo — Todos os direitos reservados.
+            © {new Date().getFullYear()} EstaHack — Todos os direitos reservados.
           </p>
           <p className="font-sans text-[10px] text-stone/60">
             Feito para a educação pública.

@@ -16,8 +16,8 @@ const milestones = [
   },
   {
     icon: Zap,
-    title: "Créditos de API (MiniMax 2.7)",
-    desc: "US$ 50 em créditos por equipe para integrar IA generativa aos projetos.",
+    title: "Recursos Técnicos",
+    desc: "Infraestrutura de hardware e software a ser definida conforme parcerias.",
   },
 ];
 

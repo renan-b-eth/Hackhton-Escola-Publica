@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import {
-  Shield,
   FileText,
   Award,
   MapPin,
@@ -12,11 +11,6 @@ import {
 } from "lucide-react";
 
 const regras = [
-  {
-    icon: Shield,
-    title: "Propriedade Intelectual",
-    desc: "Todos os projetos serão registrados na Biblioteca Nacional de Propriedade Intelectual (www.bn.gov.br) para proteção de direitos autorais.",
-  },
   {
     icon: FileText,
     title: "Resolução 104 SEDUC",
@@ -30,7 +24,7 @@ const regras = [
   {
     icon: MapPin,
     title: "Local das Finais",
-    desc: "E.E. Nancy de Oliveira Fidalgo - Zona Leste, São Paulo. Todas as apresentações e premiação acontecem no auditório da escola.",
+    desc: "Local a ser definido - São Paulo. Todas as apresentações e premiação acontecerão no auditório.",
   },
 ];
 
@@ -56,7 +50,7 @@ const cronograma = [
   {
     fase: "Hackathon Presencial",
     periodo: "15-16 de Maio, 2026",
-    descricao: "36 horas de maratona intensiva na E.E. Nancy",
+    descricao: "36 horas de maratona intensiva presencial",
     status: "Em breve",
   },
   {

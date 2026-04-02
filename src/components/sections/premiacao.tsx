@@ -25,7 +25,6 @@ const podio = [
 
 const especiais = [
   { titulo: "Melhor Pitch", descricao: "Apresentação mais clara e persuasiva" },
-  { titulo: "Inovação Social", descricao: "Maior impacto na comunidade escolar" },
   { titulo: "Melhor Uso de IA", descricao: "IA aplicada de forma mais criativa" },
   { titulo: "Escola Destaque", descricao: "Maior engajamento de participantes" },
 ];
@@ -125,32 +124,6 @@ export function PremiacaoSection() {
                 <p className="font-sans text-xs text-stone leading-relaxed">{e.descricao}</p>
               </div>
             ))}
-          </div>
-        </motion.div>
-
-        {/* Propriedade Intelectual */}
-        <motion.div
-          className="mt-12 bg-rouge/5 border border-rouge/20 p-8 sm:p-10 relative overflow-hidden"
-          initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.3 }}
-        >
-          <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-            <div className="max-w-2xl">
-              <p className="kicker text-rouge mb-3 flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-rouge inline-block animate-pulse" />
-                Diferencial Estratégico
-              </p>
-              <h3 className="font-display font-bold text-editorial text-2xl sm:text-3xl mb-3">
-                Registro de Propriedade Intelectual
-              </h3>
-              <p className="font-sans text-sm sm:text-base text-editorial/80 leading-relaxed">
-                Todos os projetos desenvolvidos pelos alunos serão registrados na <strong className="text-white">Biblioteca Nacional</strong>, em nome dos alunos e da escola, garantindo propriedade intelectual.
-              </p>
-            </div>
-            <div className="hidden md:block w-px h-24 bg-rouge/20 flex-shrink-0 mx-4" />
-            <div className="text-rouge/40">
-              <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
-            </div>
           </div>
         </motion.div>
 

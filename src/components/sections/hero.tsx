@@ -72,14 +72,13 @@ export function HeroSection() {
 
             {/* Subtexto direto */}
             <motion.p
-              className="font-sans text-stone text-sm sm:text-base leading-relaxed max-w-sm mb-10"
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
+              className="font-sans text-sm sm:text-base text-stone leading-relaxed mb-8 max-w-md"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.6 }}
             >
               Alunos da rede estadual de São Paulo criando soluções
-              para problemas que conhecem de perto — enchentes,
-              mobilidade, saúde, moradia.
+              para problemas a serem definidos pelo projeto pedagógico.
             </motion.p>
 
             {/* CTAs — Jornada A: participar */}

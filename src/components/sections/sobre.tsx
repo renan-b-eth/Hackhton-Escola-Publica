@@ -52,15 +52,15 @@ export function SobreSection() {
               viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }}
             >
               <p>
-                Alunos criando soluções para problemas que conhecem de perto —
-                enchentes, mobilidade, saúde pública, moradia, acesso à informação.
+                Alunos criando soluções para problemas a serem definidos pelo
+                projeto pedagógico liderado por Lucas Feliciano.
               </p>
               <p>
-                36 horas de maratona. 3 trilhas de desafio. Uma escola pública
+                36 horas de maratona. Trilhas de desafio a definir. Uma escola pública
                 estadual em São Paulo como palco.
               </p>
               <p className="text-editorial/70">
-                O EstaHack une tecnologia, pedagogia e impacto social
+                O EstaHack une tecnologia e pedagogia
                 num formato que os alunos protagonizam.
               </p>
             </motion.div>

@@ -40,10 +40,6 @@ const pilares = [
     desc: "Experiência real de desenvolvimento de software",
   },
   {
-    label: "Inovação Social",
-    desc: "Soluções voltadas para impacto comunitário",
-  },
-  {
     label: "Competência Técnica",
     desc: "Desenvolvimento de hard skills em tecnologia",
   },

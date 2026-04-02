@@ -16,24 +16,22 @@ const comunidadesApoio = [
   {
     nome: "Women in Tech",
     descricao: "Comunidade dedicada a empoderar mulheres na tecnologia",
-    beneficio: "Mentorias em carreira tech",
+    beneficio: "Em negociacao",
     icone: Users,
   },
   {
     nome: "Women in Data",
     descricao: "Grupo focado em dados e analytics para mulheres",
-    beneficio: "Workshops e mentorias em dados",
+    beneficio: "Em negociacao",
     icone: Award,
   },
 ];
 
 const beneficios = [
-  "Associação a uma causa de impacto social real (ESG)",
-  "Visibilidade para alunos, educadores e famílias",
+  "Visibilidade para alunos, educadores e familias",
   "Acesso a jovens talentos antes do mercado",
-  "Certificação de parceiro pela Rendey LLC (USA)",
-  "Relatórios de impacto com métricas reais",
-  "Networking com líderes educacionais e tecnológicos",
+  "Relatorios de impacto com metricas reais",
+  "Networking com lideres educacionais e tecnologicos",
 ];
 
 const cotasPatrocinio = [

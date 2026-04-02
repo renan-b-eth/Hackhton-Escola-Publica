@@ -3,14 +3,10 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-const parceiros = [
-  { nome: "FIAP", role: "Patrocinador Principal", logo: "/fiap.png", url: "https://www.fiap.com.br" },
-  { nome: "Estant3D", role: "Parceiro Estratégico", logo: "/estant3d.PNG", url: "https://estant3d.com.br" },
-];
+const parceiros: { nome: string; role: string; logo: string; url: string }[] = [];
 
 const realizacao = [
-  { nome: "Renan Bezerra", cargo: "Execução & Estratégia · Rendey LLC" },
-  { nome: "Lucas Feliciano", cargo: "Mentor Técnico · Idealizador · FIAP" },
+  { nome: "Lucas Feliciano", cargo: "Mentor Técnico · Idealizador" },
   { nome: "Yuki Tanaka", cargo: "Produto & Gestão · Scrum.org PSPO I" },
 ];
 
@@ -65,16 +61,17 @@ export function OrganizacaoSection() {
                 className="font-display font-bold text-editorial leading-tight mb-2"
                 style={{ fontSize: "clamp(1.5rem, 3.5vw, 2.5rem)" }}
               >
-                E.E. Nancy de Oliveira Fidalgo
+                Escola Anfitriã
               </h2>
               <p className="font-sans text-sm text-stone">
-                São Paulo · SP · Rede Estadual de Ensino
+                A ser anunciada em breve · São Paulo · SP
               </p>
             </motion.div>
 
             <div className="divider-h-dark mb-10" />
 
             {/* Parceiros */}
+            {parceiros.length > 0 && (
             <motion.div
               className="mb-10"
               initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }}
@@ -104,19 +101,9 @@ export function OrganizacaoSection() {
                     </p>
                   </a>
                 ))}
-                {/* SEDUC-SP — sem logo, texto */}
-                <div className="flex flex-col gap-2">
-                  <div className="h-12 w-28 sm:w-36 border border-editorial/15 flex items-center justify-center">
-                    <span className="font-sans text-xs font-semibold text-editorial/50 text-center leading-tight px-2">
-                      SEDUC-SP
-                    </span>
-                  </div>
-                  <p className="font-sans text-[10px] text-stone uppercase tracking-widest">
-                    Apoio Institucional
-                  </p>
-                </div>
               </div>
             </motion.div>
+            )}
 
             <div className="divider-h-dark mb-10" />
 

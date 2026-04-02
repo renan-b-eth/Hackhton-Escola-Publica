@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 
 const stats = [
   { value: "36h", label: "de Maratona" },
@@ -91,23 +90,19 @@ export function SobreSection() {
               ))}
             </motion.div>
 
-            {/* Foto */}
+            {/* Placeholder */}
             <motion.div
               className="relative overflow-hidden"
               initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.4 }}
             >
-              <div className="relative h-48 sm:h-56">
-                <Image
-                  src="/foto1.jpg"
-                  alt="Organizadores do EstaHack"
-                  fill
-                  className="object-cover object-top"
-                  sizes="400px"
-                />
+              <div className="relative h-48 sm:h-56 bg-gradient-to-br from-ink/10 to-ink/5 border border-hairline flex items-center justify-center">
+                <span className="font-sans text-xs text-stone/50 uppercase tracking-widest">
+                  Em breve
+                </span>
               </div>
               <p className="font-sans text-[10px] text-stone mt-2 uppercase tracking-widest">
-                Organização · E.E. Nancy de Oliveira Fidalgo
+                Organização · EstaHack
               </p>
             </motion.div>
           </div>

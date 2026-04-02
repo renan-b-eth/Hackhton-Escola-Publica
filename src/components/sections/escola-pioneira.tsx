@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { MapPin, Sparkles, Star } from "lucide-react";
-import Image from "next/image";
 
 export function EscolaPionheiraSection() {
   return (
@@ -23,10 +22,10 @@ export function EscolaPionheiraSection() {
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-3">
             Escola
-            <span className="bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent"> Pioneira</span>
+            <span className="bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent"> Anfitriã</span>
           </h2>
           <p className="text-gray-400 mt-4 max-w-2xl mx-auto text-lg">
-            O primeiro hackathon do Brasil realizado dentro de uma escola estadual.
+            Em breve anunciaremos a escola que sediará o primeiro hackathon do Brasil realizado dentro de uma escola estadual.
           </p>
         </motion.div>
 
@@ -42,15 +41,9 @@ export function EscolaPionheiraSection() {
 
           <div className="relative p-8 rounded-3xl bg-gradient-to-br from-gray-900/80 to-gray-900/40 border border-white/10 hover:border-white/20 transition-all">
             <div className="flex flex-col lg:flex-row items-center gap-8">
-              {/* Logo */}
-              <div className="flex-shrink-0 w-32 h-32 sm:w-40 sm:h-40 lg:w-48 lg:h-48 rounded-2xl bg-white p-6 flex items-center justify-center">
-                <Image
-                  src="/logonancy.jpeg"
-                  alt="E.E. Nancy de Oliveira Fidalgo"
-                  width={200}
-                  height={200}
-                  className="object-contain max-w-full max-h-full"
-                />
+              {/* Logo placeholder */}
+              <div className="flex-shrink-0 w-32 h-32 sm:w-40 sm:h-40 lg:w-48 lg:h-48 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center">
+                <Sparkles className="w-16 h-16 text-emerald-400/50" />
               </div>
 
               {/* Info */}
@@ -58,19 +51,19 @@ export function EscolaPionheiraSection() {
                 <div className="flex items-center gap-2 justify-center lg:justify-start mb-3">
                   <Sparkles className="w-6 h-6 text-emerald-400 fill-emerald-400" />
                   <span className="text-sm font-bold text-emerald-400 uppercase tracking-widest">
-                    Escola Anfitriã
+                    Em Breve
                   </span>
                 </div>
 
                 <h3 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-                  Escola Pioneira Nancy de Oliveira Fidalgo
+                  Escola Anfitriã a Definir
                 </h3>
 
                 <p className="text-gray-300 text-lg mb-6 leading-relaxed max-w-2xl">
-                  Uma escola estadual comprometida com a excelência educacional e inovação.
-                  A Escola Pioneira Nancy de Oliveira Fidalgo abre suas portas para o EstaHack 2026,
+                  Estamos em processo de seleção da escola que sediará o EstaHack 2026.
+                  Uma instituição comprometida com a excelência educacional e inovação,
                   trazendo oportunidades de aprendizado prático e desenvolvimento de competências
-                  tecnológicas para seus alunos. O primeiro hackathon em uma escola pública.
+                  tecnológicas para seus estudantes.
                 </p>
 
                 {/* Address */}
@@ -80,7 +73,7 @@ export function EscolaPionheiraSection() {
                     <div>
                       <p className="text-gray-400 text-sm mb-1">Localização</p>
                       <p className="text-white font-semibold">São Paulo - SP</p>
-                      <p className="text-gray-400 text-xs mt-1">Zona Leste</p>
+                      <p className="text-gray-400 text-xs mt-1">A ser confirmada</p>
                     </div>
                   </div>
 
@@ -94,15 +87,9 @@ export function EscolaPionheiraSection() {
                   </div>
                 </div>
 
-                <a
-                  href="https://www.google.com/maps/search/E.E.+Nancy+de+Oliveira+Fidalgo+São+Paulo"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-semibold hover:shadow-lg hover:shadow-emerald-500/50 transition-all"
-                >
-                  Ver Localização no Mapa
-                  <span>→</span>
-                </a>
+                <p className="text-gray-500 text-sm">
+                  Mais informações serão divulgadas em breve.
+                </p>
               </div>
             </div>
           </div>

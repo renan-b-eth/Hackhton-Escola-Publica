@@ -22,7 +22,7 @@ const metodos = [
     icon: Users,
     title: "Mentoria do Mercado",
     description:
-      "Profissionais de empresas como FIAP e especialistas guiam os alunos em tempo real, fornecendo feedback prático e conhecimento profissional.",
+      "Profissionais experientes e especialistas guiam os estudantes em tempo real, fornecendo feedback prático e conhecimento profissional.",
     color: "from-emerald-400 to-teal-500",
   },
   {

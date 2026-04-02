@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import {
     Linkedin,
     Trophy,
-    Medal,
     Rocket,
     Globe,
     Stethoscope,
@@ -44,9 +43,9 @@ const team: TeamMember[] = [
     {
         name: "Lucas Feliciano",
         role: "O Idealizador",
-        bio: "Estudante de Engenharia de Software na FIAP, full stack developer e pesquisador em Visão Computacional (Projeto Libras Flow). Responsável pela ideia visionária de conectar o ensino médio público ao ecossistema global de inovação.",
+        bio: "Estudante de Engenharia de Software, full stack developer e pesquisador em Visão Computacional (Projeto Libras Flow). Responsável pela ideia visionária de conectar o ensino médio público ao ecossistema global de inovação.",
         skills: ["Java", "TypeScript", "Python", "Cloud Computing", "Computer Vision"],
-        photo: "/foto2.png",
+        photo: "",
         gradient: "from-neon-purple to-pink-500",
         linkedin: "https://linkedin.com/in/lucas-feliciano-software",
         highlight: "💡 Visionário do Projeto",
@@ -54,7 +53,6 @@ const team: TeamMember[] = [
             { icon: Mic2, name: "Hackathon ElevenLabs", year: "2025", badge: "🥇 1º" },
             { icon: Trophy, name: "Hackathon Microsoft ImagineCups", year: "2026", badge: "🏆" },
             { icon: Stethoscope, name: "II Hackathon Saúde — InovaHC", year: "2025", badge: "🥉 3º" },
-            { icon: Building2, name: "Hackathon FIAP & Tech Mahindra", year: "2024", badge: "🥈 2º" },
             { icon: Rocket, name: "Hackathon Dev de Impacto", year: "2025", badge: "🥉 3º" },
             { icon: Globe, name: "NASA Space Apps Challenge", year: "2024/25" },
             { icon: Building2, name: "Hackathon Itaú (Cubo Itaú)", year: "2024/25" },
@@ -62,30 +60,11 @@ const team: TeamMember[] = [
         ],
     },
     {
-        name: "Renan Bezerra",
-        role: "Execução & Estratégia",
-        bio: "Professor da rede pública, desenvolvedor full-stack e CEO da Rendey LLC (New Mexico, USA). Combina expertise pedagógica com tecnologia de ponta para viabilizar projetos de impacto no ensino técnico.",
-        skills: ["Inteligência Artificial", "Full Stack Dev", "EdTech", "Empreendedorismo"],
-        photo: "/foto1.jpg",
-        gradient: "from-neon-blue to-neon-purple",
-        linkedin: "https://www.linkedin.com/in/renan-b-eth/",
-        highlight: "⚙️ Estratégia e Tecnologia",
-        hackathons: [
-            { icon: Trophy, name: "Hackathon Microsoft ImagineCups", year: "2026", badge: "🏆" },
-            { icon: Stethoscope, name: "II Hackathon Saúde — InovaHC", year: "2025", badge: "🥉 3º" },
-            { icon: Rocket, name: "MIT Hacking Medicine", year: "2025" },
-            { icon: Globe, name: "NASA Space Apps Challenge", year: "2024/25" },
-            { icon: Building2, name: "Hackathon Itaú (Cubo Itaú)", year: "2024/25" },
-            { icon: Cpu, name: "ICTi — BOOM Break Our Model", year: "2025" },
-            { icon: Medal, name: "Maratona Informática CPS", year: "2017", badge: "🥈 2º" },
-        ],
-    },
-    {
         name: "Yuki Tanaka",
         role: "Produto & Gestão",
         bio: "Product Manager certificada PSPO I pela Scrum.org. Inglês fluente (TOEFL/IELTS - Cambridge). Traz sua vasta experiência em hackathons internacionais e gestão ágil para garantir a entrega e o sucesso dos participantes.",
         skills: ["Product Management", "Scrum PSPO I", "AI Products", "Inglês Fluente (TOEFL/IELTS)"],
-        photo: "/foto3.png",
+        photo: "",
         gradient: "from-emerald-400 to-teal-500",
         linkedin: "https://www.linkedin.com/in/yt-yukitanaka/",
         highlight: "🚀 Gestão de Produto",
@@ -166,14 +145,22 @@ export function TeamSection() {
                                         <div
                                             className={`absolute -inset-1 bg-gradient-to-r ${member.gradient} rounded-2xl blur-sm opacity-40 group-hover:opacity-60 transition-opacity`}
                                         />
-                                        <div className="relative w-full aspect-square max-w-[200px] mx-auto rounded-2xl overflow-hidden border border-white/10">
-                                            <Image
-                                                src={member.photo}
-                                                alt={member.name}
-                                                fill
-                                                className="object-cover object-top"
-                                                sizes="(max-width: 768px) 50vw, 220px"
-                                            />
+                                        <div className="relative w-full aspect-square max-w-[200px] mx-auto rounded-2xl overflow-hidden border border-white/10 bg-gray-800 flex items-center justify-center">
+                                            {member.photo ? (
+                                                <Image
+                                                    src={member.photo}
+                                                    alt={member.name}
+                                                    fill
+                                                    className="object-cover object-top"
+                                                    sizes="(max-width: 768px) 50vw, 220px"
+                                                />
+                                            ) : (
+                                                <div className="w-20 h-20 rounded-full bg-white/10 border-2 border-white/20 flex items-center justify-center">
+                                                    <span className="text-3xl font-bold text-white/60">
+                                                        {member.name.charAt(0)}
+                                                    </span>
+                                                </div>
+                                            )}
                                         </div>
                                     </div>
 

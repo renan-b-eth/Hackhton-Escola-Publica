@@ -8,26 +8,17 @@ const mentores = [
   {
     nome: "Lucas Feliciano",
     cargo: "Mentor Técnico · Idealizador",
-    empresa: "FIAP · Engenharia de Software",
-    foto: "/foto2.png",
+    empresa: "Engenharia de Software",
+    foto: "",
     especialidades: ["Java", "TypeScript", "Python", "Computer Vision"],
     hackathons: "ElevenLabs 🥇 · Microsoft ImagineCup 🏆 · InovaHC 🥉 · NASA Space Apps · Itaú · ICTi",
     linkedin: "https://linkedin.com/in/lucas-feliciano-software",
   },
   {
-    nome: "Renan Bezerra",
-    cargo: "Execução & Estratégia · Mentor de Negócios",
-    empresa: "Rendey LLC · E.E. Nancy",
-    foto: "/foto1.jpg",
-    especialidades: ["IA", "Full Stack", "EdTech", "Empreendedorismo"],
-    hackathons: "Microsoft ImagineCup 🏆 · InovaHC 🥉 · MIT Hacking Medicine · NASA Space Apps · Itaú",
-    linkedin: "https://www.linkedin.com/in/renan-b-eth/",
-  },
-  {
     nome: "Yuki Tanaka",
     cargo: "Produto & Gestão · Mentora de Produto",
     empresa: "Scrum.org PSPO I · Cambridge",
-    foto: "/foto3.png",
+    foto: "",
     especialidades: ["Product Management", "Scrum PSPO I", "AI Products"],
     hackathons: "ElevenLabs 🥇 · ImagineCup 🏆 · XP+Poli-USP Top 8 · NASA · MIT Hacking Medicine · +8",
     linkedin: "https://www.linkedin.com/in/yt-yukitanaka/",
@@ -95,14 +86,20 @@ export function MentoresSection() {
             >
               {/* Foto + nome */}
               <div className="flex items-start gap-4">
-                <div className="relative w-16 h-16 flex-shrink-0 overflow-hidden bg-hairline">
-                  <Image
-                    src={m.foto}
-                    alt={m.nome}
-                    fill
-                    className="object-cover"
-                    sizes="64px"
-                  />
+                <div className="relative w-16 h-16 flex-shrink-0 overflow-hidden bg-hairline flex items-center justify-center">
+                  {m.foto ? (
+                    <Image
+                      src={m.foto}
+                      alt={m.nome}
+                      fill
+                      className="object-cover"
+                      sizes="64px"
+                    />
+                  ) : (
+                    <span className="text-xl font-bold text-stone/40">
+                      {m.nome.charAt(0)}
+                    </span>
+                  )}
                 </div>
                 <div className="flex flex-col gap-0.5 pt-0.5">
                   <h3 className="font-display font-bold text-ink text-base leading-tight">

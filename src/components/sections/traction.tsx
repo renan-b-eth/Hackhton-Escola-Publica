@@ -11,8 +11,8 @@ const milestones = [
   },
   {
     icon: CheckCircle2,
-    title: "Parcerias Fechadas",
-    desc: "Apoio estratégico da FIAP e parceiros de tecnologia para viabilizar o evento.",
+    title: "Parcerias em Desenvolvimento",
+    desc: "Buscando parceiros estratégicos de tecnologia para viabilizar o evento.",
   },
   {
     icon: Zap,

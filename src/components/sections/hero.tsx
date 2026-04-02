@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 
 export function HeroSection() {
   const scrollTo = (id: string) =>
@@ -105,27 +104,24 @@ export function HeroSection() {
             </motion.div>
           </div>
 
-          {/* ── COLUNA DIREITA — Foto (só desktop) ── */}
+          {/* ── COLUNA DIREITA — Placeholder (só desktop) ── */}
           <motion.div
             className="hidden lg:block relative w-[340px] xl:w-[420px] self-stretch"
             initial={{ opacity: 0, x: 24 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
           >
-            <div className="relative h-full min-h-[420px] overflow-hidden">
-              <Image
-                src="/imagem-alunos.jpg"
-                alt="Alunos apresentando projetos no EstaHack"
-                fill
-                className="object-cover object-center"
-                priority
-                sizes="420px"
+            <div className="relative h-full min-h-[420px] overflow-hidden bg-gradient-to-br from-ink/20 to-ink/5 border border-hairline">
+              {/* Pattern overlay */}
+              <div className="absolute inset-0 opacity-30"
+                style={{
+                  backgroundImage: `radial-gradient(circle at 2px 2px, rgba(0,0,0,0.15) 1px, transparent 0)`,
+                  backgroundSize: '24px 24px'
+                }}
               />
-              {/* Overlay sutil no rodapé */}
-              <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-editorial/80 to-transparent h-20" />
               {/* Caption */}
               <p className="absolute bottom-3 left-3 font-sans text-[10px] text-stone">
-                e.e. nancy de oliveira fidalgo · são paulo
+                EstaHack 2026 · São Paulo
               </p>
             </div>
           </motion.div>

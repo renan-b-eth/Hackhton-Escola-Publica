@@ -8,20 +8,8 @@ import { ArrowRight, Users, Award, Heart } from "lucide-react";
 const SPONSOR_FORM = "https://forms.gle/d6qBswpQHPAw918n6";
 
 const patrocinadoresAtuais = {
-  principal: {
-    nome: "FIAP",
-    site: "https://www.fiap.com.br",
-    logo: "/fiap.png",
-    nivel: "Patrocinador Master",
-  },
-  parceiros: [
-    {
-      nome: "Estant3D",
-      site: "https://estant3d.com.br",
-      logo: "/estant3d.PNG",
-      nivel: "Parceiro Estratégico",
-    },
-  ],
+  principal: null as { nome: string; site: string; logo: string; nivel: string } | null,
+  parceiros: [] as { nome: string; site: string; logo: string; nivel: string }[],
 };
 
 const comunidadesApoio = [
@@ -127,6 +115,7 @@ export function SponsorsSection() {
           <div className="space-y-10">
             
             {/* Patrocinador Master */}
+            {patrocinadoresAtuais.principal && (
             <motion.div
               initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2 }}
@@ -156,8 +145,10 @@ export function SponsorsSection() {
                 {patrocinadoresAtuais.principal.nome}
               </p>
             </motion.div>
+            )}
 
             {/* Parceiros Estratégicos */}
+            {patrocinadoresAtuais.parceiros.length > 0 && (
             <motion.div
               initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.3 }}
@@ -192,6 +183,7 @@ export function SponsorsSection() {
                 ))}
               </div>
             </motion.div>
+            )}
 
             {/* Comunidades de Apoio - Mentorias */}
             <motion.div

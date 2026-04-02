@@ -6,11 +6,11 @@ import { motion } from "framer-motion";
 const faqs = [
   {
     q: "Quem pode participar do EstaHack?",
-    a: "Alunos regularmente matriculados na rede estadual de ensino de São Paulo. O evento é 100% gratuito.",
+    a: "Estudantes regularmente matriculados na rede estadual de ensino de São Paulo. O evento é 100% gratuito.",
   },
   {
     q: "Como funcionam as equipes?",
-    a: "Equipes de 3 a 5 alunos. Podem ser da mesma escola ou de escolas diferentes da rede estadual. Um responsável lidera a inscrição.",
+    a: "Equipes de 3 a 5 estudantes. Podem ser da mesma escola ou de escolas diferentes da rede estadual. Um responsável lidera a inscrição.",
   },
   {
     q: "Preciso saber programar para participar?",
@@ -18,7 +18,7 @@ const faqs = [
   },
   {
     q: "Onde acontece o evento?",
-    a: "Presencialmente na E.E. Nancy de Oliveira Fidalgo, em São Paulo. O endereço completo será enviado após confirmação da inscrição.",
+    a: "Presencialmente em São Paulo. O local e endereço completos serão divulgados após confirmação da inscrição.",
   },
   {
     q: "O que é fornecido durante os 3 dias?",
@@ -26,7 +26,7 @@ const faqs = [
   },
   {
     q: "Como são avaliados os projetos?",
-    a: "Por uma banca de representantes da FIAP, Estant3D, Rendey LLC e SEDUC-SP. Os critérios são: inovação, viabilidade técnica, impacto social e qualidade da apresentação.",
+    a: "Por uma banca de avaliadores independentes. Os critérios são: inovação, viabilidade técnica, impacto social e qualidade da apresentação.",
   },
   {
     q: "Quais são os prêmios?",
